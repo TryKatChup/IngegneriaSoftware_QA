@@ -302,6 +302,60 @@ Illustrare RUP
 \end{problem}
 \begin{solution}
 Il \textit{Rational Unified Process} (RUP) rappresenta un modello di processo software \textbf{iterativo} (si veda domanda 2.2) e \textbf{ibrido} (contiene elementi di tutti i modelli di processo generici) pensato per software di grandi dimensioni.
+\newline
+Esistono tre aspetti importanti del processo di sviluppo:
+\begin{itemize}
+	\item \textbf{Prospettiva dinamica}: mostra l'evoluzione del modello nel tempo. È composta da 4 fasi:
+	\begin{enumerate}
+		\item \textbf{Avvio}: lo scopo di questa fase è di delineare il \textit{business case}, ovvero comprendere il tipo di mercato a cui si rivolge, le entità esterne (persone e sistemi) che interagiscono con il sistema.
+		\newline
+		Durante la fase di avvio si utilizzano modelli di caso d'uso e si effettua una valutazione dei rischi.
+		\item \textbf{Elaborazione}: questa fase definisce la struttura complessiva del sistema; comprende l'analisi del dominio e una prima fase di progettazione dell'architettura.
+		\newline
+		Occorre soddisfase alcuni criteri, tra i quali:
+		\begin{itemize}
+			\item Modello dei casi d'uso completo all' 80\%
+			\item Descrizione dell'architettura del sistema
+			\item Sviluppo dell'architettura del sistema
+			\item Sviluppo di un'architettura eseguibile adatta agli use case significativi
+			\item Revisione dei business case e dei rischi
+			\item Pianificazione del progetto complessivo
+		\end{itemize}
+		\textbf{Nota bene:} al termine di questa fase modificare il progetto risulterà più difficile e dannoso.
+		\item \textbf{Costruzione}: durante questa fase avviene la progettazione, la programmazione e il collaudo del sistema.
+		Lo sviluppo delle diverse parti del sistema avviene in parallelo; successivamente vengono integrate.
+		\newline
+		Al termine di questa fase il sistema software dovrebbe essere funzionante e la relativa documentazione dovrebbe risultare pronta.
+		\item \textbf{Transizione}: il sistema passa dall'ambiente di sviluppo a quello dell'utente finale. Quest'ultimo viene istruito nell'utilizzo del sistema, e si effettua \textit{beta testing} del sistema a scopo di verifica e validazione.
+	\end{enumerate}
+	\item \textbf{Prospettiva statica}: si focalizza sulle attività di produzione del software, note come \textit{workflow}; la descrizione di questi ultimi è orientata ai modelli associati a UML.
+	Esistono sei workflow principali:
+	\begin{enumerate}
+		\item \textbf{Modellazione delle attività aziendali}: i processi aziendali vengono modellati, sfruttando il \textit{business case}
+		\item \textbf{Requisiti}: vengono sviluppati i casi d'uso per la stesura dei requisiti; avviene l'identificazione degli attori che interagiscono con il sistema
+		\item \textbf{Analisi e progetto}: attraverso l'utilizzo dei modelli architetturali e sequenziali degli oggetti e delle componenti viene creato e documentato un \textit{modello di progetto}
+		\item \textbf{Implementazione}: i componenti vengono implementati; grazie alla generazione automatica del codice a partire dai modelli precedentemente definiti
+		\item \textbf{Test}: vengono testati i sottocomponenti e il sistema finale
+		\item \textbf{Rilascio}: il prodotto viene distribuito agli utenti
+	\end{enumerate}
+	Oltre ai 6 workflow principali vengono definiti 3 workflow di supporto:
+	\begin{enumerate}
+		\item \textbf{Gestione della configurazione e delle modifiche}: gestisce i cambiamenti del sistema
+		\item \textbf{Gestione del progetto}: gestisce lo sviluppo del sistema
+		\item \textbf{Ambiente}: fornisce agli sviluppatori degli strumenti adeguati
+	\end{enumerate}
+	\item \textbf{Prospettiva pratica}: suggerisce le \textit{buone prassi} da seguire nello sviluppo dei sistemi.
+	\newline
+	Esistono sei fasi fondamentali:
+	\begin{enumerate}
+		\item \textbf{Sviluppare ciclicamente il software}: pianificare (??) e consegnare le funzioni aventi la priorità più alta
+		\item \textbf{Gestire i requisiti}: documentare ogni richiesta esplicita del cliente e ogni cambiamento effettuato, analizzandone l'impatto
+		\item \textbf{Usare architetture basate sui componenti}: strutturare l'architettura del sistema in più componenti
+		\item \textbf{Usare modelli visivi del software}: utilizzare grafici UML per la rappresentazione statica e dinamica del software
+		\item \textbf{Verificare la qualità del software}: assicurarsi che vengano raggiunti gli standard di qualità previsti dall'organizzazione
+		\item \textbf{Controllare le modifiche del software}: utilizzare strumenti e pratiche che permettono di gestire modifiche al software
+	\end{enumerate}
+\end{itemize}
 
 \end{solution}
 
