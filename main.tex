@@ -1,0 +1,313 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+% Define emphasis
+\DeclareTextFontCommand{\emph}{\bfseries\em}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\pagestyle{fancy}
+% Define problem environment
+\newenvironment{problem}[2][Domanda]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}
+    {\textit{Risposta:}}
+    {}
+
+\renewcommand{\qed}{\quad\qedsymbol}
+
+% Prevent line break in inline mode
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document information (author, course, date)
+\lhead{Karina Chichifoi }
+\rhead{\today} 
+\chead{\textbf{Ingegneria del software Q\&A}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define huge title
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{30}{40}}
+\makeatother
+\begin{document}
+% TITLEPAGE
+\begin{titlepage}
+	\centering
+	\large
+	A cura di Karina Chichifoi - Ultima revisione: \today
+	
+	\noindent\rule{15cm}{0.2pt}
+	
+	\vspace{1.5cm}
+	
+	\HUGE
+	\textbf{Ingegneria del Software Q\&A}
+	
+	\vspace{17cm}
+	
+	\normalsize
+	\url{https://github.com/TryKatChup/IngegneriaSoftware_QA}
+	
+	\clearpage
+\end{titlepage}
+% Premessa
+\renewcommand{\abstractname}{}
+\begin{abstract}
+	\section*{Premessa}
+	Ho scritto questo file in modo da facilitare lo studio e il superamento dell'esame di Ingegneria del Software.
+	Tuttavia è consigliato integrare questo materiale con le slide del professore Marco Patella, disponibili sulla piattaforma \textit{Insegnamenti Online}.
+		
+	\section*{Contribuire alla guida}
+	
+	Se ritieni di poter migliorare la guida, oppure se sono state aggiunte altre domande al di fuori di questo file, o se hai trovato un errore, visita la repository GitHub ed apri una \textit{issue}, oppure inviami un messaggio. Ogni contributo è ben accetto :)
+	
+	\vspace{4mm}
+	Link Repository: \url{https://github.com/TryKatChup/IngegneriaSoftware_QA}
+	
+	\vspace{5mm}
+	
+	\begin{figure}[htb!]
+		\centering
+		\includegraphics[width=4cm]{qrcode.png}
+		\caption{QR Code alla repository di GitHub}
+	\end{figure}
+\end{abstract}
+\newpage
+\section{Modulo 1}
+\begin{problem}{1.1}
+Come viene implementata l'ereditarietà multipla?
+\end{problem}
+\begin{solution}
+\end{solution}
+\begin{problem}{1.2}
+Si esegua una classificazione del polimorfismo secondo Cardelli-Wegner e si mostri l'implementazione del polimorfismo per inclusione.
+\end{problem}
+\begin{solution}
+\end{solution}
+\begin{problem}{1.3}
+Procedimento di compilazione ed esecuzione del codice all'interno del framework .NET tramite il CLR.
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{1.4}
+Tipi di dati in .NET
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.5}
+Differenza tra tipi valore e tipi riferimento in .NET
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.6}
+Garbage Collector in C\#
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.7}
+Passaggio dei parametri in C\#
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+
+
+\begin{problem}{1.8}
+Concetto di delegato in C\#
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.9}
+Metaprogrammazione e riflessione in C\#
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.10}
+Spiegare i quattro bad design (fragilità, immobilità, rigidità, viscosità)
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.11}
+Principio di singola responsabilità con almeno un esempio
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.12}
+Principio di inversione delle dipendenze con almeno un esempio
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.13}
+Principio di segregazione delle interfacce con almeno un esempio
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.14}
+Principio aperto/chiuso con almeno un esempio
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.15}
+Principio di sostituibilità di Liskov con almeno un esempio
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.16}
+Principi per l'architettura dei package
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.17}
+Pattern Singleton con esempi
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.18}
+Pattern Observer con esempi
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.19}
+Pattern Strategy con esempi
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{1.20}
+Pattern Adapter con esempi
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{1.21}
+Pattern Decorator con esempi
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{1.22}
+Pattern Composite con esempi
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{1.23}
+Modello LMU nei VCS con vantaggi e svantaggi
+\end{problem}
+\begin{solution}
+\end{solution}
+\newpage
+\section{Modulo 2}
+\begin{problem}{2.1}
+Spiegare il modello a cascata e le sue criticità
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{2.2}
+Spiegare il modello a cascata e il modello iterativo
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{2.3}
+Illustrare RUP
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{2.4}
+Tipologie di analisi dei requisiti (in particolare quelli della sicurezza)
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{2.5}
+Si illustri brevemente il ciclo di vita della valutazione del rischio
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{2.6}
+Principali categorie di requisiti per la sicurezza
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{2.7}
+Commentare eventuali errori di un diagramma UML
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}{2.8}
+Linee guida di progettazione nella sicurezza
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{2.9}
+White box e black box testing
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{2.10}
+Capacità di sopravvivenza del sistema
+\end{problem}
+\begin{solution}
+\end{solution}
+\end{document}
