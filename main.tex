@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass{article}
-\usepackage[margin=1in]{geometry} 
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
 \usepackage{xcolor}
 \usepackage[utf8]{inputenc}
@@ -16,7 +16,7 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=blue,
 }
 
@@ -40,7 +40,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Document information (author, course, date)
 \lhead{Karina Chichifoi }
-\rhead{\today} 
+\rhead{\today}
 \chead{\textbf{Ingegneria del software Q\&A}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define huge title
@@ -53,19 +53,19 @@
 	\centering
 	\large
 	A cura di Karina Chichifoi - Ultima revisione: \today
-	
+
 	\noindent\rule{15cm}{0.2pt}
-	
+
 	\vspace{1.5cm}
-	
+
 	\HUGE
 	\textbf{Ingegneria del Software Q\&A}
-	
+
 	\vspace{17cm}
-	
+
 	\normalsize
 	\url{https://github.com/TryKatChup/IngegneriaSoftware_QA}
-	
+
 	\clearpage
 \end{titlepage}
 % Premessa
@@ -74,16 +74,16 @@
 	\section*{Premessa}
 	Ho scritto questo file in modo da facilitare lo studio e il superamento dell'esame di Ingegneria del Software.
 	Tuttavia è consigliato integrare questo materiale con le slide del professore Marco Patella, disponibili sulla piattaforma \textit{Insegnamenti Online}.
-		
+
 	\section*{Contribuire alla guida}
-	
+
 	Se ritieni di poter migliorare la guida, oppure se sono state aggiunte altre domande al di fuori di questo file, o se hai trovato un errore, visita la repository GitHub ed apri una \textit{issue}, oppure inviami un messaggio. Ogni contributo è ben accetto :)
-	
+
 	\vspace{4mm}
 	Link Repository: \url{https://github.com/TryKatChup/IngegneriaSoftware_QA}
-	
+
 	\vspace{5mm}
-	
+
 	\begin{figure}[htb!]
 		\centering
 		\includegraphics[width=4cm]{qrcode.png}
@@ -248,9 +248,40 @@ Modello LMU nei VCS con vantaggi e svantaggi
 \newpage
 \section{Modulo 2}
 \begin{problem}{2.1}
-Spiegare il modello a cascata e le sue criticità
+Spiegare il modello a cascata e le sue criticità.
 \end{problem}
 \begin{solution}
+Il modello a cascata (waterfall model) è un modello di processo di sviluppo software che prevede fasi sequenziali distinte tra loro:
+\begin{itemize}
+	\item studio di fattibilità
+	\item analisi dei requisiti
+	\item analisi del problema
+	\item progettazione
+	\item implementazione
+	\item collaudo
+	\item manutenzione
+\end{itemize}
+Ciascuna fase di sviluppo deve essere svolta in maniera esaustiva, prima di passare alla successiva, in modo da non tornare più indietro.
+Per questo modello è importante definire:
+\begin{itemize}
+	\item \textbf{semilavorati}: consistono in documentazione di tipo cartaceo, codice dei singoli moduli, sistema nel suo complesso.\newline
+	Vengono prodotti alla fine di una fase, e utilizzati dalla fase successiva; in questo modo viene garantito un controllo della qualità del lavoro eseguito in ogni fase.
+	\item \textbf{date}: stabiliscono una scadenza entro la quale devono essere prodotti i semilavorati, in modo da tracciare il progresso del lavoro (workflow).
+\end{itemize}
+L'efficacia del modello a cascata è determinata dai seguenti fattori:
+\begin{itemize}
+	\item \textbf{immutabilità dell'analisi}: i clienti sono in grado di esprimere tutte le loro richieste sin da subito, pertanto nella fase iniziale del progetto si possono definire tutte le funzionalità che il software deve eseguire
+	\item \textbf{immutabilità del progetto}: progettare l'intero sistema prima di avere scritto codice risulta possibile
+\end{itemize}
+Un importante vantaggio di questo approccio risulta essere un maggiore controllo dell'andamento del progetto; tuttavia la rigidità di questo modello rappresenta un grosso svantaggio, in quanto:
+\begin{itemize}
+	\item Man mano che il sistema prende forma le sue specifiche cambiano in continuazione, così come la visione che i clienti hanno del sistema
+	\item Spesso, per avere prestazioni migliori, occorre revisionare il progetto.
+\end{itemize}
+Per risolvere parzialmente i problemi sopra citati si è introdotto un modello a cascata con forme limitate di retroazione a un livello.
+Una possibile soluzione al problema consiste nel realizzare un prototipo che, una volta terminato il compito, viene abbandonato (\textit{throw-away prototyping}); successivamente viene costruito il sistema reale rispettando il modello a cascata.
+\newline
+Quest'ultimo approccio risulta talmente dispensioso da eliminare i vantaggi economici del modello a cascata.
 \end{solution}
 
 
@@ -258,6 +289,11 @@ Spiegare il modello a cascata e le sue criticità
 Spiegare il modello a cascata e il modello iterativo
 \end{problem}
 \begin{solution}
+Per il modello a cascata si veda la domanda 2.1.
+\newline
+Il modello iterativo prevede un numero elevato di passi nel ciclo di sviluppo che iteramente aumentano il livello di dettaglio del sistema.
+Uno svantaggio di questo modello è che non può essere utilizzato nella realizzazione dei progetti significativi.
+Un esempio di processo di sviluppo che utilizza il modello iterativo è \textit{Rational Unified Process} (RUP).
 \end{solution}
 
 
@@ -265,6 +301,8 @@ Spiegare il modello a cascata e il modello iterativo
 Illustrare RUP
 \end{problem}
 \begin{solution}
+Il \textit{Rational Unified Process} (RUP) rappresenta un modello di processo software \textbf{iterativo} (si veda domanda 2.2) e \textbf{ibrido} (contiene elementi di tutti i modelli di processo generici) pensato per software di grandi dimensioni.
+
 \end{solution}
 
 \begin{problem}{2.4}
