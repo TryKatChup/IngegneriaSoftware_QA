@@ -253,25 +253,25 @@ Spiegare il modello a cascata e le sue criticità.
 \begin{solution}
 Il modello a cascata (waterfall model) è un modello di processo di sviluppo software che prevede fasi sequenziali distinte tra loro:
 \begin{itemize}
-	\item studio di fattibilità
-	\item analisi dei requisiti
-	\item analisi del problema
-	\item progettazione
-	\item implementazione
-	\item collaudo
-	\item manutenzione
+	\item Studio di fattibilità
+	\item Analisi dei requisiti
+	\item Analisi del problema
+	\item Progettazione
+	\item Implementazione
+	\item Collaudo
+	\item Manutenzione
 \end{itemize}
 Ciascuna fase di sviluppo deve essere svolta in maniera esaustiva, prima di passare alla successiva, in modo da non tornare più indietro.
 Per questo modello è importante definire:
 \begin{itemize}
-	\item \textbf{semilavorati}: consistono in documentazione di tipo cartaceo, codice dei singoli moduli, sistema nel suo complesso.\newline
-	Vengono prodotti alla fine di una fase, e utilizzati dalla fase successiva; in questo modo viene garantito un controllo della qualità del lavoro eseguito in ogni fase.
-	\item \textbf{date}: stabiliscono una scadenza entro la quale devono essere prodotti i semilavorati, in modo da tracciare il progresso del lavoro (workflow).
+	\item \textbf{Semilavorati}: consistono in documentazione di tipo cartaceo, codice dei singoli moduli, sistema nel suo complesso.\newline
+	Vengono prodotti da una fase, e utilizzati dalla fase successiva; in questo modo viene garantito un controllo della qualità del lavoro eseguito in ogni fase.
+	\item \textbf{Date}: stabiliscono una scadenza entro la quale devono essere prodotti i semilavorati, in modo da tracciare il progresso del lavoro (workflow).
 \end{itemize}
 L'efficacia del modello a cascata è determinata dai seguenti fattori:
 \begin{itemize}
-	\item \textbf{immutabilità dell'analisi}: i clienti sono in grado di esprimere tutte le loro richieste sin da subito, pertanto nella fase iniziale del progetto si possono definire tutte le funzionalità che il software deve eseguire
-	\item \textbf{immutabilità del progetto}: progettare l'intero sistema prima di avere scritto codice risulta possibile
+	\item \textbf{Immutabilità dell'analisi}: i clienti sono in grado di esprimere tutte le loro richieste sin da subito, pertanto nella fase iniziale del progetto si possono definire tutte le funzionalità che il software deve eseguire
+	\item \textbf{Immutabilità del progetto}: progettare l'intero sistema prima di avere scritto codice risulta possibile
 \end{itemize}
 Un importante vantaggio di questo approccio risulta essere un maggiore controllo dell'andamento del progetto; tuttavia la rigidità di questo modello rappresenta un grosso svantaggio, in quanto:
 \begin{itemize}
@@ -281,7 +281,7 @@ Un importante vantaggio di questo approccio risulta essere un maggiore controllo
 Per risolvere parzialmente i problemi sopra citati si è introdotto un modello a cascata con forme limitate di retroazione a un livello.
 Una possibile soluzione al problema consiste nel realizzare un prototipo che, una volta terminato il compito, viene abbandonato (\textit{throw-away prototyping}); successivamente viene costruito il sistema reale rispettando il modello a cascata.
 \newline
-Quest'ultimo approccio risulta talmente dispensioso da eliminare i vantaggi economici del modello a cascata.
+Tuttavia quest'ultimo approccio risulta talmente dispensioso da eliminare i vantaggi economici del modello a cascata.
 \end{solution}
 
 
@@ -363,18 +363,35 @@ Esistono tre aspetti importanti del processo di sviluppo:
 Tipologie di analisi dei requisiti (in particolare quelli della sicurezza)
 \end{problem}
 \begin{solution}
+
 \end{solution}
 
 \begin{problem}{2.5}
 Si illustri brevemente il ciclo di vita della valutazione del rischio
 \end{problem}
 \begin{solution}
+L'analisi del rischio si occupa di bilanciare eventuali perdite, dovute ad attacchi informatici, con i costi richiesti per assicurare la protezione dei beni.
+\newline
+Un'importante componente dell'analisi del rischio è la valutazione del rischio, composta da pù fasi:
+\begin{itemize}
+	\item \textbf{Valutazione preliminare del rischio}: determina i requisiti di sicurezza dell'intero sistema
+	\item \textbf{Ciclo di vita della valutazione del rischio}: avviene parallelamente al ciclo di vita dello sviluppo del software.
+	\newline
+	In questa fase occorre conoscere l'architettura del sistema e l'organizzazione dei dati.
+	\newline
+	La scelta della piattaforma e del middleware è stata già effettuata, così come la strategia di sviluppo del sistema; ciò consente di conoscere meglio cosa è necessario proteggere e quali sono le possibili vulnerabilità del sistema, alcune delle quali determinate da scelte progettuali precedenti.
+	\newline
+	In questa fase vengono effettuate l'\textit{identificazione} e la \textit{valutazione} della vulnerabilità, ovvero quali beni hanno la maggiore probabilità di essere colpiti.
+	\newline
+	Il risultato della valutazione del rischio è un insieme di decisioni ingegneristiche che influenzano la progettazione o l'implementazione del sistema.
+\end{itemize}
 \end{solution}
 
 \begin{problem}{2.6}
 Principali categorie di requisiti per la sicurezza
 \end{problem}
 \begin{solution}
+
 \end{solution}
 
 
@@ -382,6 +399,7 @@ Principali categorie di requisiti per la sicurezza
 Commentare eventuali errori di un diagramma UML
 \end{problem}
 \begin{solution}
+
 \end{solution}
 
 
@@ -389,17 +407,21 @@ Commentare eventuali errori di un diagramma UML
 Linee guida di progettazione nella sicurezza
 \end{problem}
 \begin{solution}
+
 \end{solution}
 
 \begin{problem}{2.9}
 White box e black box testing
 \end{problem}
 \begin{solution}
+
 \end{solution}
 
 \begin{problem}{2.10}
 Capacità di sopravvivenza del sistema
 \end{problem}
 \begin{solution}
+
 \end{solution}
+
 \end{document}
