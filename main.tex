@@ -226,7 +226,11 @@ Un esempio di mancato utilizzo di principio di segregazione delle interfacce è 
 Principio aperto/chiuso con almeno un esempio
 \end{problem}
 \begin{solution}
-
+Il principio aperto/chiuso prevede un sistema aperto a estensioni software, ma chiuso a modifiche.
+\newline
+Per realizzare questo principio vengono utilizzate classi astratte e interfacce; nel caso in cui si vogliano aggiungere nuove funzionalità sarà necessario, anzichè modificare il codice, implementare una nuova classe concreta che implementa le astrazioni.
+\newline
+Questo approccio consente una maggiore modularità del sistema e stabilità, in quanto non si modificano componenti definite precedentemente e non si introducono eventuali errori dovuti alle modifiche.
 \end{solution}
 
 
