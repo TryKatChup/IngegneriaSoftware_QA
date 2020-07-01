@@ -177,7 +177,7 @@ Esistono quattro principi che peggiorano la qualità del software:
 	Esistono due categorie di viscosità:
 	\begin{itemize}
 		\item \textbf{Viscosità del design}: l'utilizzo di metodi che rispettano il design risulta più complesso che utilizzare hack.
-		\item \textbf{Viscosità dell'ambiente}: l'ambiente di sviluppo è lento e inefficiente: si possono avere tempi di compilazione molto lunghi, il sistema di controllo del codice sorgente richiede ore per la registrazione di pochi file,
+		\item \textbf{Viscosità dell'ambiente}: l'ambiente di sviluppo è lento e inefficiente: si possono avere tempi di compilazione molto lunghi, il sistema di controllo del codice sorgente richiede ore per la registrazione di pochi file.
 	\end{itemize}
 \end{enumerate}
 I motivi di una progettazione non corretta sono dovuti a:
@@ -214,6 +214,11 @@ Principio di inversione delle dipendenze con almeno un esempio
 Principio di segregazione delle interfacce con almeno un esempio
 \end{problem}
 \begin{solution}
+Questo principio prevede che un cliente non debba dipendere dai metodi che non usa, e che quindi è preferibile avere più interfacce specifiche, anzichè una sola interfaccia con più funzioni (\textit{fat interface}).
+\newline
+Nel caso di utilizzo delle \textit{fat interfaces} sarà più difficile mantenere il sistema, in quanto è rappresentato da un unico blocco; pertanto occorre creare interfacce specifiche per ogni cliente.
+\newline
+Un esempio di mancato utilizzo di principio di segregazione delle interfacce è la creazione, da parte di Xerox (fondatore di \textit{Ethernet}), di una stampante che aveva diverse funzionalità, tra cui mandare fax e pinzare fogli. Le modifiche al software, sebbene piccole, risultavano difficili, in quanto tutte le diverse funzioni eseguite dalla stampante multi-uso erano implementate all'interno di una sola classe.
 \end{solution}
 
 
@@ -221,6 +226,7 @@ Principio di segregazione delle interfacce con almeno un esempio
 Principio aperto/chiuso con almeno un esempio
 \end{problem}
 \begin{solution}
+
 \end{solution}
 
 
