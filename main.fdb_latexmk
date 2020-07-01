@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1593535857 "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" "main.pdf" "main" 1593535858
+["pdflatex"] 1593588815 "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" "main.pdf" "main" 1593588815
   "/dev/null" 1593443976 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" 1593535857 16955 0374db29cd6235f032b49eb9049083a9 ""
+  "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" 1593588814 20003 357ba6b460f51bf4a8445df81b6cf19b ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1572595918 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1572595918 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1572595918 3332 103109f5612ad95229751940c61aada0 ""
@@ -141,12 +141,12 @@
   "/usr/share/texmf/tex/latex/minted/minted.sty" 1590415930 47165 6a3e43a8d03bd86910a1dbf68d6c3645 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1589294794 354011 1870efce44e1bbfc19b048fdc4acb9c2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1589294789 8044939 51b4c37caca54dd361eaf2a9c98f7ab5 ""
-  "main.aux" 1593535858 1112 759030ac533164e53da2f7abac30021a "pdflatex"
-  "main.out" 1593535858 86 0ab897a687a6ce32418e5ccb0788dea2 "pdflatex"
-  "main.tex" 1593535857 16955 0374db29cd6235f032b49eb9049083a9 ""
+  "main.aux" 1593588815 1112 759030ac533164e53da2f7abac30021a "pdflatex"
+  "main.out" 1593588815 86 0ab897a687a6ce32418e5ccb0788dea2 "pdflatex"
+  "main.tex" 1593588814 20003 357ba6b460f51bf4a8445df81b6cf19b ""
   "qrcode.png" 1593445168 1958 ce0509e1a634213fe17a998f1fb8a785 ""
   (generated)
-  "main.aux"
-  "main.log"
   "main.pdf"
+  "main.aux"
   "main.out"
+  "main.log"

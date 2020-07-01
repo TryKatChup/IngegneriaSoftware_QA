@@ -156,6 +156,37 @@ Metaprogrammazione e riflessione in C\#
 Spiegare i quattro bad design (fragilità, immobilità, rigidità, viscosità)
 \end{problem}
 \begin{solution}
+La qualità del design risulta fondamentale per rendere un programma:
+\begin{itemize}
+	\item Maggiormente affidabile
+	\item Maggiormente efficiente
+	\item Maggiormente manutenibile
+	\item Maggiormente economico
+\end{itemize}
+Esistono quattro principi che peggiorano la qualità del software:
+\begin{enumerate}
+	\item \textbf{Rigidità del software}: rende complesse le modifiche al software, in quanto una piccola modifica influenza gran parte del programma, a causa di modifiche a cascata su moduli dipendenti tra loro.
+	\newline Una conseguenza di questo principio è la quantità di tempo necessaria a gestire una modifica del software.
+	\item \textbf{Fragilità del software}: responsabile del malfunzionamento del software di fronte a una modifica di quest'ultimo; il software risulta difficile da mantenere, in quanto per ogni correzione è presente un rischio maggiore di guasto.
+	\item \textbf{Immobilità del software}: rende il software inutilizzabile da parti dello stesso progetto o da altri progetti; ciò avviene quando un modulo software è fortemente dipendente da altri moduli.
+	\newline Di conseguenza occorre scrivere nuovo software, anziché riutilizzarlo.
+	\item \textbf{Viscosità del software}: questo principio favorisce l'utilizzo di \textit{hack}, ovvero soluzioni funzionanti, ma che snaturano il design, in quanto non seguono le \textit{best practice}.
+	\newline
+	La viscosità è maggiormente presente nel caso in cui utilizzo di hack risulta molto più semplice di una soluzione che preserva la progettazione iniziale.
+	\newline
+	Esistono due categorie di viscosità:
+	\begin{itemize}
+		\item \textbf{Viscosità del design}: l'utilizzo di metodi che rispettano il design risulta più complesso che utilizzare hack.
+		\item \textbf{Viscosità dell'ambiente}: l'ambiente di sviluppo è lento e inefficiente: si possono avere tempi di compilazione molto lunghi, il sistema di controllo del codice sorgente richiede ore per la registrazione di pochi file,
+	\end{itemize}
+\end{enumerate}
+I motivi di una progettazione non corretta sono dovuti a:
+\begin{itemize}
+	\item Incapacità dei progettisti nel seguire le \textit{best practice}
+	\item Limiti imposti dall'esterno, in termini di tempo e risorse
+	\item Pratiche obsolete
+	\item Evoluzione del progetto: in seguito a cambiamenti dei requisiti e modifiche al software, non si ha più la manutenibilità del progetto originario
+\end{itemize}
 \end{solution}
 
 
@@ -163,6 +194,12 @@ Spiegare i quattro bad design (fragilità, immobilità, rigidità, viscosità)
 Principio di singola responsabilità con almeno un esempio
 \end{problem}
 \begin{solution}
+Il principio di singola responsabilità afferma che ogni elemento di un programma (classe, metodo, variabile) deve avere un'unica responsabilità, interamente gestita dall'elemento stesso.
+Tutti i servizi offerti dall'elemento stesso dovrebbero essere allineati a tale responsabilità.
+\newline
+Una responsabilità risulta un motivo per cambiare, e ogni classe o modulo deve avere un solo motivo per cambiare.
+\newline
+Un esempio che rispetta il principio di singola responsabilità è un metodo \textit{setter}, in quanto la sua unica responsabilità è quella di impostare il valore di una variabile appartenente a una classe.
 \end{solution}
 
 
