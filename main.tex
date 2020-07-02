@@ -8,6 +8,7 @@
 \usepackage[italian]{babel}
 \usepackage{mdframed}
 \usepackage{minted}
+\usepackage{xcolor}
 \usepackage[shortlabels]{enumitem}
 \usepackage{indentfirst}
 \usepackage{hyperref}
@@ -19,6 +20,8 @@
     filecolor=magenta,
     urlcolor=blue,
 }
+
+\definecolor{LightGray}{gray}{0.9}
 
 \pagestyle{fancy}
 % Define problem environment
@@ -290,13 +293,55 @@ Pattern Singleton con esempi
 \end{problem}
 \begin{solution}
 Il pattern Singleton prevede che una classe abbia una sola istanza; chiunque può accedervi attraverso l'unica istanza citata.
+Una classe che implementa il pattern Singleton è strutturata nel sequente modo:
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{java}
+public class Singleton {
+
+   private static Singleton istance = null; // riferimento all' istanza
+
+   private Singleton() {} // costruttore
+
+   public static Singleton getIstance() {
+	if (istance == null)
+	   istance = new Singleton();
+    return istance;
+   }
+
+   public void metodo() { ... }
+
+}
+
+\end{minted}
+Il costruttore è privato, in quanto assicura che viene creata al più un'istanza della classe \texttt{Singleton}.
+Il metodo statico \texttt{getInstance()} controlla se è già esistente un'istanza della classe: in caso affermativo restituisce l'istanza creata in precedenza, altrimenti crea una nuova istanza.
+\newline
+Una classe con soli membri statici non rappresenta un'alternativa al pattern Singleton, in quanto non permette di creare istanze personalizzate in base al contesto; non permette inoltre di utilizzare un numero arbitrario di interfacce.
+\newline
+Un esempio di utilizzo del pattern Singleton è l'accesso a un database, in quanto si vuole garantire atomicità.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{./immagini/DatabaseSingleton.png}
+      \label{logo}
+  \end{figure}
 \end{solution}
 
-
+\newpage
 \begin{problem}{1.18}
 Pattern Observer con esempi
 \end{problem}
 \begin{solution}
+Il pattern Observer viene utilizzato nel caso in cui il cambiamento di un oggetto preveda un aggiornamento degli altri oggetti (\textit{observer}).
+È previsto un accoppiamento uno a molti: l'oggetto che vuole ricevere un aggiornamento (\texttt{Observer}) si iscrive a \texttt{Subject}, che prevede un metodo \texttt{notify()}, il quale notifica tutti gli Observer dell'aggiornamento effettuato.
+Il diagramma UML previsto per il pattern Observer è il seguente:
 \end{solution}
 
 
@@ -304,6 +349,7 @@ Pattern Observer con esempi
 Pattern Strategy con esempi
 \end{problem}
 \begin{solution}
+
 \end{solution}
 
 
