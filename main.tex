@@ -207,6 +207,20 @@ Un esempio che rispetta il principio di singola responsabilità è un metodo \te
 Principio di inversione delle dipendenze con almeno un esempio
 \end{problem}
 \begin{solution}
+Il principio di inversione delle dipendenze prevede che i moduli di alto livello (i \textit{clienti}) non debbano dipendere dai moduli di basso livello(ovvero i \textit{fornitori dei servizi} ). Entrambi devono dipendere da \textit{astrazioni}.
+\newline
+Il motivo della precedente affermazione è dovuto alla presenza di codice e della logica implementativa nei moduli di basso livello. Nel caso in cui i moduli di alto livello dovessero dipendere da moduli di basso livello si avrebbe:
+\begin{itemize}
+	\item \textbf{Rigidità}: per ogni modifica occorre intervenire su un numero elevato di moduli
+	\item \textbf{Fragilità}: per ogni modifica verrebbero introdotti errori nel sistema
+	\item \textbf{Immobilità}: non è possibile riutilizzare il codice, in quanto i moduli di alto livello non si riuscirebbero a separarare da quelli di basso livello.
+\end{itemize}
+Con il principio di inversione delle dipendenze si eviterebbero i problemi sopra elencati, in quanto le astrazioni possiedono poco codice e sono poco soggetti a modifiche; inoltre è presente una separazione tra moduli astratti e moduli concreti, che permette modifiche limitate al modulo concreto interessato (poichè nessuno dipende da questi moduli).
+Dato che i dettagli del sistema sono stati isolati da un muro di astrazioni stabili, pertanto:
+\begin{itemize}
+	\item I cambiamenti non possono più propagarsi (\textit{design for change})
+	\item I singoli moduli sono maggiormente riusabili (\textit{design for resue})
+\end{itemize}
 \end{solution}
 
 
@@ -238,6 +252,29 @@ Questo approccio consente una maggiore modularità del sistema e stabilità, in 
 Principio di sostituibilità di Liskov con almeno un esempio
 \end{problem}
 \begin{solution}
+Il principio di sostituibilità di Liskov definisce il rapporto tra una classe e le relative sottoclassi.
+Esistono due versioni di questo principio:
+\begin{itemize}
+	\item \textbf{Versione debole}: a ogni riferimento della classe base (classe padre) deve essere associata l'istanza della sottoclasse (classe figlia)
+	\item \textbf{Versione forte}: ogni programma che utilizza istanze della classe base non percepisce variazioni logiche nell'utilizzo delle istanze delle relative sottoclassi.
+\end{itemize}
+Per essere più specifici, occorre introdurre due concetti definiti dal \textit{design by contract}:
+\begin{itemize}
+	\item \textbf{Precondizioni}: requisiti minimi che devono essere soddisfatti dal chiamante, affinchè il metodo invocato possa essere eseguito correttamente
+	\item \textbf{Postcondizioni}: requisiti soddisfatti dal metodo chiamato, nel caso di esecuzione corretta
+\end{itemize}
+Per ogni metodo re-implementato dalla sottoclasse:
+\begin{itemize}
+	\item Le precondizioni devono essere ugualmente o meno stringenti
+	\item Le postcondizioni devono essere ugualmente o più stringenti
+	\item La semantica della classe base deve essere conservata
+	\item Non è possibile aggiungere vincoli alla classe base
+\end{itemize}
+Ad esempio, data la classe \texttt{Uccello} dotata del metodo \texttt{vola()} si hanno i due seguenti scenari:
+\begin{itemize}
+	\item la sottoclasse \texttt{Pinguino}, che eredita da \texttt{Uccello}, presenta una violazione del principio di sostituibilità di Liskov, in quanto l'utilizzo del metodo \texttt{vola()} deve essere ridefinito, senza mantenere la semantica (ad esempio sollevando un'eccezione, dato che un pinguino non può volare).
+	\item la sottoclasse \texttt{Piccione}, che eredita da \texttt{Uccello}, non presenta una violazione del principio di sostituibilità di Liskov, in quanto la semantica del metodo \texttt{vola()} viene rispettata.
+\end{itemize}
 \end{solution}
 
 
@@ -252,6 +289,7 @@ Principi per l'architettura dei package
 Pattern Singleton con esempi
 \end{problem}
 \begin{solution}
+Il pattern Singleton prevede che una classe abbia una sola istanza; chiunque può accedervi attraverso l'unica istanza citata.
 \end{solution}
 
 
