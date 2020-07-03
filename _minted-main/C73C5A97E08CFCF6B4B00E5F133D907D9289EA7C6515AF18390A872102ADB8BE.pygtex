@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{public} \PYG{k}{class} \PYG{n+nc}{A} \PYG{p}{\PYGZob{}}
+   \PYG{k}{public} \PYG{k}{virtual} \PYG{k}{void} \PYG{n+nf}{Fun1}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	   \PYG{p}{...}
+   \PYG{p}{\PYGZcb{}}
+   \PYG{k}{public} \PYG{k}{virtual} \PYG{k}{void} \PYG{n+nf}{Fun2}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{y}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	   \PYG{p}{...}
+   \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{public} \PYG{k}{class} \PYG{n+nc}{B} \PYG{p}{:} \PYG{n}{A} \PYG{p}{\PYGZob{}}
+   \PYG{k}{public} \PYG{k}{override} \PYG{k}{void} \PYG{n+nf}{Fun1}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	   \PYG{p}{...}
+   \PYG{p}{\PYGZcb{}}
+   \PYG{k}{public} \PYG{k}{virtual} \PYG{k}{void} \PYG{n+nf}{Fun3}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{z}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	   \PYG{p}{...}
+   \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

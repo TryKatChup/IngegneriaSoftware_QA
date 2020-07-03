@@ -157,7 +157,59 @@ class Seaplane implements flyable, swimmable {
 Si esegua una classificazione del polimorfismo secondo Cardelli-Wegner e si mostri l'implementazione del polimorfismo per inclusione.
 \end{problem}
 \begin{solution}
-Si definisce polimorfismo la capacità di un elemento di apparire in forme diverse in differenti contesti, o di elementi diversi di apparire sotto la stessa forma in uno specifico contesto
+Si definisce polimorfismo la capacità di un elemento di apparire in forme diverse in differenti contesti, o di elementi diversi di apparire sotto la stessa forma in uno specifico contesto.
+La classificazione di Cardelli-Wegner impone due categorie, a loro volta suddivise in due sottocategorie:
+\begin{itemize}
+	\item \textbf{Universale}: gli elementi assumono infinite forme.
+	\newline
+	È suddiviso in:
+	\begin{itemize}
+		\item \textbf{Per inclusione}: viene utilizzato nella prorgrammazione orientata agli oggetti e utilizza:
+		\begin{itemize}
+			\item \textit{Overriding}: consente la ridefinizione di un metodo della superclasse nella sottoclasse. Questo approccio risulta più sicuro nel caso in cui il metodo in questione risulta astratto.
+			\item \textit{Binding dinamico}: viene consentito grazie all'utilizzo della Virtual Method Table (VMT), posseduta da ogni classe; in particolare una VMT contiene tutti i puntatori ai metodi della classe che la possiede.
+		\end{itemize}
+		\item \textbf{Parametrico}: viene utilizzato nella programmazione generica rispetto ai tipi.
+		Consiste nel definire una classe in cui il tipo di una o più variabili è un parametro della classe stessa.
+		Da ogni classe generica si generano classi indipendenti, che non possiedono alcun rapporto di ereditarietà.
+	\end{itemize}
+
+	\item \textbf{Ad hoc}: gli elementi assumono un numero finito di forme.
+	È suddiviso in:
+	\begin{itemize}
+		\item \textbf{Overloading}:
+		\item \textbf{Coercion}: viene effettuata una conversione implicita del tipo di una variabile.
+	\end{itemize}
+\end{itemize}
+Un esempio di polimorfismo per inclusione in cui si utilizza l'overriding è il seguente:
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{csharp}
+public class A {
+   public virtual void Fun1(int x) {
+	   ...
+   }
+   public virtual void Fun2(int y) {
+	   ...
+   }
+}
+
+public class B : A {
+   public override void Fun1(int x) {
+	   ...
+   }
+   public virtual void Fun3(int z) {
+	   ...
+   }
+}
+\end{minted}
 \end{solution}
 
 
@@ -166,6 +218,33 @@ Si definisce polimorfismo la capacità di un elemento di apparire in forme diver
 Procedimento di compilazione ed esecuzione del codice all'interno del framework .NET tramite il CLR.
 \end{problem}
 \begin{solution}
+Il \textit{Common Language Runtime} (CLR) viene utilizzato in .NET come ambiente di esecuzione in runtime delle applicazioni.
+\newline
+Il codice che viene eseguito in CLR prende il nome di \textit{codice gestito}.
+\newline
+Il CLR prevede servizi aggiuntivi come:
+\begin{itemize}
+	\item \textbf{Garbage collector}: si occupa del ciclo di vita degli oggetti; qualora un oggetto non risulti più essere referenziato viene distrutto.
+	\newline
+	A differenza di \textit{Component Object Model} (COM), non viene considerato il \textit{reference counting}, ovvero il conteggio dei riferimenti a ciascun oggetto; in questo modo si ha una velocità di allocazione maggiore.
+	\newline
+	Sono inoltre consentiti i \textit{riferimenti circolari}, ovvero più oggetti che puntano nel seguente modo:
+	\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=6cm]{./immagini/riferimentiCircolari.jpg}
+	\caption{Riferimenti circolari}
+\end{figure}
+	Con questo approccio, tuttavia, si verifica la perdita della \textit{distruzione deterministica}, ovvero una richiesta esplicita di liberazione della memoria occupata da un oggetto.
+	\item \textbf{I/O su file}
+	\item \textbf{Gestione delle eccezioni}: le eccezioni sono oggetti che ereditano dalla classe \textit{System.Exception}.
+	\newline
+	È possibile gestire le eccezioni sfruttando i seguenti tre concetti:
+	\begin{itemize}
+		\item \textit{throw}: lancio di un' eccezione
+		\item \textit{catch}: cattura di un' eccezione
+		\item \textit{finally}: esecuzione di codice di uscita da un blocco controllato
+	\end{itemize}
+\end{itemize}
 \end{solution}
 
 
