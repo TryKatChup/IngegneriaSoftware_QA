@@ -102,17 +102,72 @@
 Come viene implementata l'ereditarietà multipla?
 \end{problem}
 \begin{solution}
+L'ereditarietà multipla si verifica quando, data una gerarchia di classi, almeno una classe della gerarchia deriva da due o più superclassi.
+\newline
+In C\# e Java l'ereditarietà multipla non è consentita, in quanto si generano numerose ambiguità e la gestione della gerarchia di classi può diventare complessa; in C++ viene ancora utilizzata.
+\newline
+Un esempio di ambiguità si riscontra nel \textit{problema del diamante} (il nome del problema deriva dalla forma che l'ereditarietà delle classi assume).
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=4cm]{./immagini/diamond-inheritance.png}
+\end{figure}
+Siano \texttt{A}, \texttt{B}, \texttt{C}, \texttt{D} quattro classi definite nel seguente modo:
+\begin{itemize}
+	\item \texttt{A} possiede un metodo \texttt{doSomething()}
+	\item \texttt{B}, \texttt{C} sono classi figlie di \texttt{A} che ridefiniscono entrambe tale metodo.
+	\item \texttt{D} eredita sia da \texttt{B} che da \texttt{C}.
+\end{itemize}
+L'ambiguità si presenta dal momento in cui non è noto quale implementazione di \texttt{doSomething()} \texttt{D} erediti.
+\newline
+C\# e Java non adottano l'ereditarietà multipla delle classi, bensì delle interfacce, poiché queste ultime non specificano il comportamento di un metodo, ma solo la sua firma.
+\newline
+Un esempio di ereditarietà multipla delle interfacce è il seguente:
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{java}
+interface flyable() {
+   void fly();
+}
+
+interface swimmable() {
+   void swim();
+}
+
+class Seaplane implements flyable, swimmable {
+   public void fly {
+	   System.out.println("I'm flying");
+   }
+   public void swim {
+	   System.out.println("I'm swimming");
+   }
+}
+
+\end{minted}
 \end{solution}
+
+
 \begin{problem}{1.2}
 Si esegua una classificazione del polimorfismo secondo Cardelli-Wegner e si mostri l'implementazione del polimorfismo per inclusione.
 \end{problem}
 \begin{solution}
+Si definisce polimorfismo la capacità di un elemento di apparire in forme diverse in differenti contesti, o di elementi diversi di apparire sotto la stessa forma in uno specifico contesto
 \end{solution}
+
+
+
 \begin{problem}{1.3}
 Procedimento di compilazione ed esecuzione del codice all'interno del framework .NET tramite il CLR.
 \end{problem}
 \begin{solution}
 \end{solution}
+
 
 \begin{problem}{1.4}
 Tipi di dati in .NET

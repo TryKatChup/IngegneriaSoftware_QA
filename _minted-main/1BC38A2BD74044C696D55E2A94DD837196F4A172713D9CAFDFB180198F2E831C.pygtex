@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{interface} \PYG{n+nf}{flyable}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+   \PYG{k+kt}{void} \PYG{n+nf}{fly}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kd}{interface} \PYG{n+nf}{swimmable}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+   \PYG{k+kt}{void} \PYG{n+nf}{swim}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kd}{class} \PYG{n+nc}{Seaplane} \PYG{k+kd}{implements} \PYG{n}{flyable}\PYG{p}{,} \PYG{n}{swimmable} \PYG{p}{\PYGZob{}}
+   \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n}{fly} \PYG{p}{\PYGZob{}}
+	   \PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}I\PYGZsq{}m flying\PYGZdq{}}\PYG{p}{);}
+   \PYG{p}{\PYGZcb{}}
+   \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n}{swim} \PYG{p}{\PYGZob{}}
+	   \PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}I\PYGZsq{}m swimming\PYGZdq{}}\PYG{p}{);}
+   \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
