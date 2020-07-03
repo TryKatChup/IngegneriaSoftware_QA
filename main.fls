@@ -217,6 +217,9 @@ OUTPUT main.out
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm2986.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecbx2986.tfm
+INPUT ./immagini/HideThePainHarold.jpg
+INPUT ./immagini/HideThePainHarold.jpg
+INPUT ./immagini/HideThePainHarold.jpg
 INPUT /usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm
