@@ -711,9 +711,33 @@ Questo approccio consente di valutare, in primo luogo, la leggibilità e la modu
 Capacità di sopravvivenza del sistema
 \end{problem}
 \begin{solution}
-La capacità di sopravvivenza del sistema è una proprietà di quest'ultimo e indica la capacità di effettuare servizi agli utenti che ne hanno il permesso, qualora il sistema sia sotto attacco o con componenti danneggiate.
-\newline
-
+La capacità di sopravvivenza del sistema indica la capacità di effettuare servizi agli utenti che ne hanno il permesso, qualora il sistema sia sotto attacco o nel caso in cui presenti componenti danneggiate.
+Essa riguarda l'intero sistema e non le singole componenti, e risulta importante in quanto sia l'economia che la società dipendono da servizi digitali.
+Nel processo di ingegnerizzazione dei processi sicuri occorre tenere conto della capacità di sopravvivenza, in quanto esistono servizi critici, soggetti ad attacchi.
+Occorre quindi conoscere:
+\begin{itemize}
+	\item Quali servizi risultano essere critici
+	\item In quali modi i servizi critici possono essere attaccati
+	\item Lo standard di qualità minimo da mantenere nei servizi.
+	\item Come proteggere i servizi, qualora siano sotto attacco
+	\item Come ripristinare il sistema nel tempo minore possibile, nel caso in cui i servizi siano sotto attacco.
+\end{itemize}
+Per potere ideare un sistema che supporti la capacità di sopravvivenza e per valutare le vulnerabilità di quest'ultimo è stato ideato il \textit{Survivable Analysis System}.
+Questo metodo struttura la sopravvivenza di un sistema in un processo a quattro fasi e dipende dalle seguenti strategie complementari:
+\begin{itemize}
+	\item \textbf{Identificazione}: permette di individuare problemi grazie a un sistema che riconosce eventuali attacchi e fallimenti, valutandone il danno.
+	\item \textbf{Resistenza}: permette al sistema di respingere attacchi.
+	\item \textbf{Ripristino}: consente, nonostante i problemi del sistema, di garantire il funzionamento dei componenti essenziali, e di ripristinare tutti i servizi dopo un attacco.
+\end{itemize}
+Le fasi sono:
+\begin{enumerate}
+	\item \textbf{Capire il sistema}: esaminare l'architettura del sistema, i requisiti e gli obiettivi.
+	\item \textbf{Identificare i servizi critici}: capire quali servizi sono critici, e quali sono le componenti che li gestiscono.
+	\item \textbf{Simulare attacchi}: individuare i casi d'uso e gli scenari di eventuali attacchi e i componenti soggetti agli attacchi.
+	\item \textbf{Analizzare la sopravvivenza}: identificare i componenti essenziali e vulnerabili, e sfruttare strategie di sopravvivenza come l'identificazione, la resistenza e il ripristino.
+\end{enumerate}
+Sfortunatamente l'analisi della sopravvivenza non viene effettuata nella maggior parte dei processi di ingegnerizzazione, in quanto molte aziende che non hanno subito attacchi risultano scettiche nell'investire sulla sicurezza.
+È tuttavia consigliato quest'ultimo investimento, prevenendo eventuali attacchi, piuttosto che subirli, in quanto le perdite conseguenti risulterebbero gravi in termini di risorse e, nei casi peggiori, di vite.
 \end{solution}
 
 \end{document}
