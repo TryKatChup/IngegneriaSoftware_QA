@@ -218,9 +218,10 @@ public class B : A {
 Procedimento di compilazione ed esecuzione del codice all'interno del framework .NET tramite il CLR.
 \end{problem}
 \begin{solution}
-Il \textit{Common Language Runtime} (CLR) viene utilizzato in .NET come ambiente di esecuzione in runtime delle applicazioni.
-\newline
+Il \textit{Common Language Runtime} (CLR) viene utilizzato in .NET come ambiente virtuale di esecuzione delle applicazioni.
 Il codice che viene eseguito in CLR prende il nome di \textit{codice gestito}.
+\newline
+Il codice sorgente viene trasformato dal compilatore .NET in codice IL (CLI assembly, ovvero .exe o .dll); quest'ultimo a sua volta viene convertito dal compilatore \textit{Just In Time} (JIT) in codice nativo, che può essere eseguito.
 \newline
 Il CLR prevede servizi aggiuntivi come:
 \begin{itemize}
@@ -229,11 +230,12 @@ Il CLR prevede servizi aggiuntivi come:
 	A differenza di \textit{Component Object Model} (COM), non viene considerato il \textit{reference counting}, ovvero il conteggio dei riferimenti a ciascun oggetto; in questo modo si ha una velocità di allocazione maggiore.
 	\newline
 	Sono inoltre consentiti i \textit{riferimenti circolari}, ovvero più oggetti che puntano nel seguente modo:
-	\begin{figure}[htb!]
+	\begin{figure}[h]
 	\centering
 	\includegraphics[width=6cm]{./immagini/riferimentiCircolari.jpg}
 	\caption{Riferimenti circolari}
 \end{figure}
+
 	Con questo approccio, tuttavia, si verifica la perdita della \textit{distruzione deterministica}, ovvero una richiesta esplicita di liberazione della memoria occupata da un oggetto.
 	\item \textbf{I/O su file}
 	\item \textbf{Gestione delle eccezioni}: le eccezioni sono oggetti che ereditano dalla classe \textit{System.Exception}.
@@ -531,7 +533,19 @@ Il diagramma UML previsto per il pattern Observer è il seguente:
 Pattern Strategy con esempi
 \end{problem}
 \begin{solution}
-
+Il pattern \textit{Strategy} è un pattern di tipo comportamentale e viene utilizzato quando si ha una famiglia di algoritmi, intercambiabili tra loro, che implementano una determinata funzionalità.
+A questo scopo si dichiara un'interfaccia dotata di metodi che svolgono la funzionalità richiesta; si dichiara inoltre, per ogni algoritmo, una classe concreta che implementa l'interfaccia e i relativi metodi definiti precedentemente.
+\newline
+Nel caso in cui un \textit{cliente}, che dipende unicamente dall'interfaccia, voglia eseguire le relative funzionalità, non deve fare assunzioni su quale strategia sia stata adottata.
+\newline
+Un esempio di utilizzo del pattern Strategy è il seguente:
+\begin{itemize}
+	\item Interfaccia \texttt{ISortStrategy} che espone il metodo \texttt{sort()}
+	\item Classe concreta \texttt{MergeSortStrategy} che implementa l'interfaccia \texttt{ISortStrategy} e realizza il metodo \texttt{sort()}, usando l'algorirmo di \textit{merge sort}
+	\item Classe concreta \texttt{QuickSortStrategy} che implementa l'interfaccia \texttt{ISortStrategy} e realizza il metodo \texttt{sort()}, usando l'algorirmo di \textit{quick sort}
+	\item Classe concreta \texttt{BubbleSortStrategy} che implementa l'interfaccia \texttt{ISortStrategy} e realizza il metodo \texttt{sort()}, usando l'algorirmo di \textit{bubble sort}
+	\item Classe \texttt{Cliente} che ha un riferimento a un oggetto di tipo \texttt{ISortStrategy}
+\end{itemize}
 \end{solution}
 
 
@@ -539,6 +553,18 @@ Pattern Strategy con esempi
 Pattern Adapter con esempi
 \end{problem}
 \begin{solution}
+Il pattern Adapter è un pattern di tipo strutturale.
+Si supponga che un Cliente dipenda da un'interfaccia Target già definita, la quale espone un certo metodo.
+Esiste una certa classe \texttt{Adaptee} che realizza tale metodo, ma ha un'interfaccia incompatibile con l'interfaccia \texttt{Target}.
+Di conseguenza, per risolvere questo problema si utilizza una classe Adapter, che implementa Target e richiama il metodo di \texttt{Adaptee}, mascherandolo come una chiamata al metodo di \texttt{Target}.
+Un esempio di utilizzo del pattern Adapter è il seguente:
+\begin{itemize}
+	\item Si ha un'interfaccia MediaPlayer che espone il metodo play()
+	\item Si ha una classe MP3Player fornita da una libreria esterna, che riproduce file di tipo MP3, e che non è compatibile con MediaPlayer.
+	\item Si ha una classe Cliente che richiede un servizio a MediaPlayer per riprodurre un file di tipo MP3.
+	\item Si realizza una classe MediaAdapter, che implementa MediaPlayer e che mantiene un riferimento a MP3Player; in particolare quando il client einvocherà il metodo play() di MediaPlayer, verrà invocato da MediaAdapter il metodo play() di MP3Player, senza che il cliente se ne accorga.
+
+\end{itemize}
 \end{solution}
 
 \begin{problem}{1.21}
