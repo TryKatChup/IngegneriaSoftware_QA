@@ -266,6 +266,52 @@ Differenza tra tipi valore e tipi riferimento in .NET
 Garbage Collector in C\#
 \end{problem}
 \begin{solution}
+Il Garbage Collector si occupa del rilascio delle risorse qualora esse non vengano più utilizzate da un oggetto.
+Consente di avere maggiore stabilità del programma, poiché evita che un programmatore manipoli direttamente puntatori ad aree di memoria.
+\newline
+Il vantaggio dell'utilizzo di un garbage collector è il contrasto delle seguenti problematiche:
+\begin{itemize}
+	\item \textbf{Dangling pointer}: puntatori ad aree di memoria deallocate precedentemente, che potrebbero essere state successivamente assegnate a un altro oggetto.
+	\item \textbf{Doppia deallocazione}: causata da più chiamate consecutive di deallocazione della stessa area di memoria.
+	\item \textbf{Memory leak}: un oggetto non più utilizzato non viene deallocato, pertanto continua a occupare memoria.
+\end{itemize}
+Gli svantaggi invece sono:
+\begin{itemize}
+	\item Vengono richieste maggiori risorse di calcolo
+	\item Incertezza del momento in cui viene effettuata la garbage collection
+	\item Il rilascio della memoria è non deterministico, ovvero non si sa il momento esatto in cui il rilascio avviene, né l'ordine di rilascio delle aree non più utilizzate. Ciò può dipendere dall'algoritmo utilizzato dal garbage collector.
+\end{itemize}
+L'ambiente .NET sfrutta come strategia di \textit{garbage collection} il \textbf{tracing}: si stabiliscono quali oggetti sono raggiungibili e si eliminano quelli non raggiungibili.\newline
+Quando un processo viene inizializzato il \textit{Common Language Runtime} (CLR) riserva una regione contigua di spazio di indirizzamento, noto come \textit{managed heap} e memorizza l'indirizzo di partenza della regione in un puntatore chiamato \texttt{NextObjPtr}.
+Nel caso in cui venga eseguita una \textit{newobj}, il CLR:
+\begin{enumerate}
+	\item Determina la dimensione in byte dell'oggetto e aggiunge a quest'ultimo due campi che possono essere da 32 o 64 bit.
+	Il primo campo contiene un puntatore alla tabella dei m in \textit{byte}etodi, mentre il secondo è un campo \texttt{SyncBlockIndex}.
+	\item Controlla se a partire da \texttt{NextObjPtr} ci sia spazio sufficiente; in caso negativo viene utilizzato il Garbage Collector, o viene lanciata \texttt{OutOfMemoryException}.
+	\item Aggiorna i puntatori relativi all'oggetto appena creato e allo spazio libero di memoria:
+	\begin{center}
+		\texttt{thisObjPtr = NextObjPtr;}
+
+		\texttt{NextObjPtr += sizeof(oggetto);}
+
+	\end{center}
+	\item Invoca il costruttore dell'oggetto
+	\item Restituisce il riferimento all'oggetto
+\end{enumerate}
+Lo scopo del garbage collector è di individuare quali oggetti non vegono più utilizzati dall'applicazione; quest'ultima presenta un insieme di radici (\textit{root}).
+Ciascuna radice è un puntatore a un oggetto di tipo riferimento sicuramente attivo, come:
+\begin{itemize}
+	\item Variabili globali e field statici di tipo riferimento
+	\item Variabili locali o argomenti attuali di tipo riferimento presenti sugli stack dei vari thread
+	\item Registri della CPU contenenti gli indirizzi di oggetti di tipo riferimento
+\end{itemize}
+Vengono distinte di tipologie di oggetti: gli \textbf{oggetti vivi} sono raggiungibili (direttamente o indirettamente) dalle radici, mentre gli \textbf{oggetti garbage} non lo sono.
+Inizialmente il garbage collector marca tutti gli oggetti sul \textit{managed heap} come \textbf{garbage}; successivamente viene interpellata la tabella delle radici, per stabilire quali oggetti siano \textbf{vivi}, marcandoli come tali.
+Terminata la classificazione degli oggetti viene liberata la memoria occupata dagli oggetti garbage; tuttavia ciò causa frammentazione nel managed heap, poichè si hanno aree di memoria libere non contigue.
+Pertanto si effettua una compattazione della memoria in uso, modificando di conseguenza i riferimenti agli oggetti spostati; al termine dell'unificazione si aggiorna il valore di \texttt{NextObjPtr}.
+Il Garbage collector può effettuare tutte le operazioni elencate in precedenza, in quanto conosce il tipo di un oggetto e può sfruttare i metadati per determinare quali campi dell'oggetto contengono riferimenti agli altri oggetti.
+\newline
+Nel caso in cui un oggetto contenga riferimenti a risorse di tipo unmanaged (file, connessione al database, socket, e così via) è responsabilità del programmatore occuparsi della fase di finalizzazione, ovvero il rilascio della risorsa prima della deallocazione.
 \end{solution}
 
 

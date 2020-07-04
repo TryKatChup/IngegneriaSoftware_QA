@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1593847785 "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" "main.pdf" "main" 1593856170
+["pdflatex"] 1593878282 "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" "main.pdf" "main" 1593878283
   "/dev/null" 1593844906 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" 1593856170 36069 3651a4815971a4236b60bb4fa3e61d93 ""
+  "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" 1593878282 40453 5c7ff9491b5d713ba563df45c5b5ccfe ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1572595918 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1572595918 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1572595918 3332 103109f5612ad95229751940c61aada0 ""
@@ -160,12 +160,12 @@
   "immagini/HideThePainHarold.jpg" 1593767938 292616 73e50236b830e7a7961ba41b5e85bb90 ""
   "immagini/diamond-inheritance.png" 1593774650 22892 51b297d2a12c0db8cd96f1962f2e2fec ""
   "immagini/riferimentiCircolari.jpg" 1593810555 19834 34f8210f518d95084ebab6f8143a76f7 ""
-  "main.aux" 1593847785 1549 488210c8e6c669bcd11a33bd14515793 "pdflatex"
-  "main.out" 1593847785 86 0ab897a687a6ce32418e5ccb0788dea2 "pdflatex"
-  "main.tex" 1593856170 36069 3651a4815971a4236b60bb4fa3e61d93 ""
+  "main.aux" 1593878283 1549 56aa0c08609db40c89c555578a9224c7 "pdflatex"
+  "main.out" 1593878283 86 0ab897a687a6ce32418e5ccb0788dea2 "pdflatex"
+  "main.tex" 1593878282 40453 5c7ff9491b5d713ba563df45c5b5ccfe ""
   "qrcode.png" 1593445168 1958 ce0509e1a634213fe17a998f1fb8a785 ""
   (generated)
   "main.out"
-  "main.log"
-  "main.aux"
   "main.pdf"
+  "main.aux"
+  "main.log"
