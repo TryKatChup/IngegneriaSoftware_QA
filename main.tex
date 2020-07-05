@@ -724,7 +724,7 @@ Un esempio di utilizzo del pattern Strategy è il seguente:
 Pattern Adapter con esempi
 \end{problem}
 \begin{solution}
-Il pattern Adapter è un pattern di tipo strutturale.
+Il pattern \textit{Adapter} è un pattern di tipo strutturale.
 Si supponga che un Cliente dipenda da un'interfaccia Target già definita, la quale espone un certo metodo.
 Esiste una certa classe \texttt{Adaptee} che realizza tale metodo, ma ha un'interfaccia incompatibile con l'interfaccia \texttt{Target}.
 Di conseguenza, per risolvere questo problema si utilizza una classe Adapter, che implementa Target e richiama il metodo di \texttt{Adaptee}, mascherandolo come una chiamata al metodo di \texttt{Target}.
@@ -737,12 +737,33 @@ Un esempio di utilizzo del pattern Adapter è il seguente:
 
 \end{itemize}
 \end{solution}
-
+\newpage
 \begin{problem}{1.21}
 Pattern Decorator con esempi
 \end{problem}
 \begin{solution}
-
+Il pattern \textit{Decorator} è un pattern di tipo strutturale.
+Consente di aggiungere dinamicamente responsabilità a un oggetto, e risulta essere una valida alternativa all'ereditarietà, qualora si abbia una gerarchia troppo estesa.
+I vantaggi del pattern \textit{Decorator} rispetto all'ereditarietà sono i seguenti:
+\begin{itemize}
+	\item Consente di aggiungere dinamicamente nuove funzionalità a un oggetto a \textit{run-time}, mentre l'ereditarietà estende il comportamento delle classi padre alle classi figlie durante la fase di compilazione
+	\item Codice pulito e più semplice da testare
+\end{itemize}
+In particolare viene soddisfatto il principio di singola responsabilità, in quanto il pattern \textit{Decorator} permette di suddividere una funzionalità in più classi che svolgono uno specifico compito.
+\newline
+Si supponga di avere una classe \texttt{Component} che rappresenta l'interfaccia dell'oggetto a cui aggiungere dinamicamente nuove funzionalità, e la classe \texttt{ConcreteComponent} che rappresenta l'oggetto in questione.
+Per aggiungere la funzionalità all'oggetto si dichiara una classe astratta \texttt{Decorator}, che mantiene un riferimento all'oggetto \texttt{Component} e definisce un' interfaccia ad esso conforme, e una classe \texttt{ConcreteDecorator} che rappresenta l'oggetto che aggiunge nuove funzionalità a \texttt{ConcreteComponent}
+Un esempio di utilizzo del pattern \textit{Decorator} è il seguente:
+\begin{itemize}
+\item Si ha un'interfaccia \texttt{ITea} che rappresenta \texttt{Component}
+\item Si hanno le classi \texttt{GreenTea}, \texttt{BlackTea} che implementano l'interfaccia \texttt{ITea}, e rappresentano i
+\\
+\texttt{ConcreteComponent}
+\item Si vuole dare la possibilità di aggiungere ulteriori ingredienti in ciascun tè; pertanto si dichiara l' interfaccia ITeaExtra, che rappresenta il \texttt{Decorator};
+\item Si realizzano le classi concrete che implementano l'interfaccia \texttt{ITeaExtra}, come \texttt{TeaWithMilk},
+\\
+\texttt{TeaWithHoney}, \texttt{TeaWithIce}
+\end{itemize}
 \end{solution}
 
 \begin{problem}{1.22}
