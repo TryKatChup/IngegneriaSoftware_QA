@@ -759,10 +759,10 @@ Un esempio di utilizzo del pattern \textit{Decorator} è il seguente:
 \item Si hanno le classi \texttt{GreenTea}, \texttt{BlackTea} che implementano l'interfaccia \texttt{ITea}, e rappresentano i
 \\
 \texttt{ConcreteComponent}
-\item Si vuole dare la possibilità di aggiungere ulteriori ingredienti in ciascun tè; pertanto si dichiara l' interfaccia ITeaExtra, che rappresenta il \texttt{Decorator};
-\item Si realizzano le classi concrete che implementano l'interfaccia \texttt{ITeaExtra}, come \texttt{TeaWithMilk},
+\item Si vuole dare la possibilità di aggiungere ulteriori ingredienti in ciascun tè; pertanto si dichiara la classe astratta \texttt{TeaExtra}, che rappresenta il \texttt{Decorator};
+\item Si realizzano le classi che concretizzano la classe \texttt{TeaExtra}, come \texttt{TeaWithMilk}, \texttt{TeaWithHoney},
 \\
-\texttt{TeaWithHoney}, \texttt{TeaWithIce}
+\texttt{TeaWithIce}
 \end{itemize}
 \end{solution}
 
@@ -770,6 +770,7 @@ Un esempio di utilizzo del pattern \textit{Decorator} è il seguente:
 Pattern Composite con esempi
 \end{problem}
 \begin{solution}
+
 \end{solution}
 
 \begin{problem}{1.23}
