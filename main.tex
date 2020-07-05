@@ -261,6 +261,99 @@ Tipi di dati in .NET
 Differenza tra tipi valore e tipi riferimento in .NET
 \end{problem}
 \begin{solution}
+I \textit{Common Type System} (CTS) sono tipi di dato supportati dal framework .NET, che forniscono un modello di programmazione unificato ai linguaggi orientati agli oggetti, funzionali e procedurali.
+In CTS tutte le classi ereditano da \textit{System.Object}, ed esistono due categorie di tipi:
+\begin{itemize}
+	\item \textbf{Tipi riferimento}: sono indirizzi di memoria che rappresentano i riferimenti agli oggetti allocati sull'heap gestito.
+	\item \textbf{Tipi valore}: sono allocati sullo stack, o appartengono ad altri oggetti, e contengono direttamente un valore (ovvero una sequenza di byte)
+	\newline
+	I tipi valore includono:
+	\begin{itemize}
+		\item \textbf{Tipi primitivi}: Int32, double, decimal, char, boolean
+		\item \textbf{Tipi definiti dall'utente}: strutture dati ed enumerativi
+	\end{itemize}
+\end{itemize}
+È possibile eseguire conversioni da tipo valore a tipo riferimento mediante un \textit{up cast} \textbf{implicito} a \textit{System.Object}: questa procedura prende il nome di \textit{boxing}.
+\newline
+L'\textit{unboxing}, operazione inversa al \textit{boxing}, permette di convertire un tipo riferimento a un tipo valore, tramite un \textit{down cast} \textbf{esplicito}.
+Il passaggio dei parametri a un metodo può avere risultati distinti, in base alla tipologia di oggetto passato come argomento.
+Esistono tre tipologie di argomenti:
+\begin{itemize}
+	\item \textbf{In}
+	\begin{itemize}
+		\item Tipi valore: si ha passaggio per copia dell'oggetto e la modifica da parte del metodo invocato avviene solo sulla copia.
+		\item Tipi riferimento: si ha passaggio per copia del riferimento dell'oggetto, e la modifica da parte del metodo invocato avviene sulla copia del riferimento, ma non sul riferimento originale.
+	\end{itemize}
+	In entrambi i casi gli argomenti passati ai metodi devono essere stati già inizializzati.
+	Un esempio è il seguente:
+	\begin{minted}
+[frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{csharp}
+
+PostoRistorante posto = new PostoRistorante(1,1);
+assegnaPosto(ref posto);
+Console.writeline(posto); // sia se PostoRistorante è una classe si ha (3,5)
+			// se è una struttura si ha (1,1)
+
+static void assegnaPosto(ref PostoRistorante posto){
+	posto.NumeroTavolo = 3;
+	posto.NumeroPosto = 5;
+}
+	\end{minted}
+	\item \textbf{In/Out}
+	\begin{itemize}
+		\item Tipi valore: si ha passaggio per riferimento e le modifiche influenzano l'oggetto originale
+		\item Tipi riferimento: si ha passaggio per riferimento dell'\textit{indirizzo dell'oggetto} e le modifiche influenzano l'oggetto referenziato, ma non l'oggetto originale
+	\end{itemize}
+	In entrambi i casi gli argomenti passati ai metodi devono essere stati già inizializzati.
+	\begin{minted}
+[frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{csharp}
+
+PostoRistorante posto = new PostoRistorante(1,1);
+assegnaPosto(ref posto);
+Console.writeline(posto); // sia se PostoRistorante è una classe,
+			// sia se è una struttura si ha (3,5)
+
+static void assegnaPosto(ref PostoRistorante posto){
+	posto.NumeroTavolo = 3;
+	posto.NumeroPosto = 5;
+}
+	\end{minted}
+	\item \textbf{Out}: si ha passaggio, sia per gli oggetti di tipo riferimento che di tipo valore, dei loro indirizzi, e le modifiche hanno effetto sul chiamante.
+	\newline
+	L'inizializzazione degli oggetti deve avvenire nel metodo in cui sono stati passati come argomenti.
+	Un esempio è il seguente:
+	\begin{minted}
+[frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{csharp}
+
+PostoRistorante posto;
+assegnaPosto(out posto);
+
+static void assegnaPosto(out PostoRistorante posto){
+	posto = new PostoRistorante(3,5);
+}
+	\end{minted}
+\end{itemize}
 \end{solution}
 
 
@@ -321,6 +414,84 @@ Nel caso in cui un oggetto contenga riferimenti a risorse di tipo unmanaged (fil
 Passaggio dei parametri in C\#
 \end{problem}
 \begin{solution}
+	Il passaggio dei parametri a un metodo può avere risultati distinti, in base alla tipologia di oggetto passato come argomento.
+Esistono tre tipologie di argomenti:
+\begin{itemize}
+	\item \textbf{In}
+	\begin{itemize}
+		\item Tipi valore: si ha passaggio per copia dell'oggetto e la modifica da parte del metodo invocato avviene solo sulla copia.
+		\item Tipi riferimento: si ha passaggio per copia del riferimento dell'oggetto, e la modifica da parte del metodo invocato avviene sulla copia del riferimento, ma non sul riferimento originale.
+	\end{itemize}
+	In entrambi i casi gli argomenti passati ai metodi devono essere stati già inizializzati.
+	Un esempio è il seguente:
+	\begin{minted}
+[frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{csharp}
+
+PostoRistorante posto = new PostoRistorante(1,1);
+assegnaPosto(ref posto);
+Console.writeline(posto); // sia se PostoRistorante è una classe si ha (3,5)
+			// se è una struttura si ha (1,1)
+
+static void assegnaPosto(ref PostoRistorante posto){
+	posto.NumeroTavolo = 3;
+	posto.NumeroPosto = 5;
+}
+	\end{minted}
+	\item \textbf{In/Out}
+	\begin{itemize}
+		\item Tipi valore: si ha passaggio per riferimento e le modifiche influenzano l'oggetto originale
+		\item Tipi riferimento: si ha passaggio per riferimento dell'\textit{indirizzo dell'oggetto} e le modifiche influenzano l'oggetto referenziato, ma non l'oggetto originale
+	\end{itemize}
+	In entrambi i casi gli argomenti passati ai metodi devono essere stati già inizializzati.
+	\begin{minted}
+[frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{csharp}
+
+PostoRistorante posto = new PostoRistorante(1,1);
+assegnaPosto(ref posto);
+Console.writeline(posto); // sia se PostoRistorante è una classe,
+			// sia se è una struttura si ha (3,5)
+
+static void assegnaPosto(ref PostoRistorante posto){
+	posto.NumeroTavolo = 3;
+	posto.NumeroPosto = 5;
+}
+	\end{minted}
+	\item \textbf{Out}: si ha passaggio, sia per gli oggetti di tipo riferimento che di tipo valore, dei loro indirizzi, e le modifiche hanno effetto sul chiamante.
+	\newline
+	L'inizializzazione degli oggetti deve avvenire nel metodo in cui sono stati passati come argomenti.
+	Un esempio è il seguente:
+	\begin{minted}
+[frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{csharp}
+
+PostoRistorante posto;
+assegnaPosto(out posto);
+
+static void assegnaPosto(out PostoRistorante posto){
+	posto = new PostoRistorante(3,5);
+}
+	\end{minted}
+\end{itemize}
 \end{solution}
 
 
@@ -571,6 +742,7 @@ Un esempio di utilizzo del pattern Adapter è il seguente:
 Pattern Decorator con esempi
 \end{problem}
 \begin{solution}
+
 \end{solution}
 
 \begin{problem}{1.22}
