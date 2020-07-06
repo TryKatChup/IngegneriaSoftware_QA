@@ -805,6 +805,39 @@ Un esempio di utilizzo del pattern \textit{composite} è il seguente:
 
 
 \begin{problem}{1.23}
+Pattern Visitor con esempi
+\end{problem}
+\begin{solution}
+Il pattern \textit{Visitor} è un pattern comportamentale che separa in un'apposita classe l'operazione relativa a una struttura di oggetti.
+\newline
+In questo modo è possibile l'aggiunta di nuove operazioni definendo appositamente delle classi; non vengono quindi modificate le classi appartententi a una struttura che utilizzerà le nuove operazioni.
+Vengono soddisfatti due principi:
+
+
+\begin{itemize}
+\item il principio aperto/chiuso, in quanto l'intero sistema è aperto per aggiungere nuove funzionalità, ma risulta chiuso alle modifiche.
+\item il principio di singola responsabilità, poiché ogni funzionalità è in un'apposita classe.
+\end{itemize}
+Per realizzare il pattern \textit{visitor} si suppone di avere le seguenti componenti:
+\begin{itemize}
+	\item \textbf{Visitor}: classe astratta o un'interfaccia, che dichiara il metodo \texttt{VisitElement}
+	\item \textbf{ConcreteVisitor}: classe concreta che estende o implementa \texttt{Visitor} e che consente di percorrere la struttura di oggetti coinvolta
+	\item \textbf{Element}: classe astratta o interfaccia che dichiara il metodo \texttt{Accept}, che ha come parametro un oggetto di tipo \texttt{Visitor}
+	\item \textbf{ConcreteElement}: classe concreta che estende o implementa \texttt{Element}
+	\item \textbf{ObjectStructure}: rappresenta la struttura che contiene \texttt{Element}; per permettere di essere visitabile da \texttt{Visitor}, \texttt{ObjectStructure} deve implementare un'interfaccia apposita \texttt{Visitable}.
+\end{itemize}
+Occorre considerare i seguenti aspetti:
+\begin{itemize}
+	\item Per definire una nuova operazione occorre implementare un nuovo \texttt{ConcreteVisitor}; quest'ultimo, durante un'operazione, può modificare il proprio stato.
+	\item Per permettere a un \texttt{Visitor} l'accesso allo stato degli elementi della struttura, è necessario sfruttare
+	\\l'\textbf{incapsulamento}.
+	\item La gerarchia composta da \texttt{Element} deve essere stabile, poichè non è semplice aggiungere nuovi \\\texttt{ConcreteElement}: ciò implicherebbe definire in tutti i \texttt{Visitor} esistenti un metodo apposito \texttt{visit} per quel \texttt{ConcreteElement}.
+	\item L'operazione \texttt{Accept} è di tipo \textit{double dispatch}, poiché dipende sia da \texttt{Visitor} che da \texttt{Element}
+\end{itemize}
+\end{solution}
+
+
+\begin{problem}{1.24}
 Modello LMU nei VCS con vantaggi e svantaggi
 \end{problem}
 \begin{solution}
@@ -825,7 +858,7 @@ Un vantaggio che il modello offre è la possibilità di lavoro nel caso in cui s
 \end{solution}
 
 
-\begin{problem}{1.24}
+\begin{problem}{1.25}
 Modello CMM nei VCS con vantaggi e svantaggi
 \end{problem}
 \begin{solution}
