@@ -770,20 +770,46 @@ Un esempio di utilizzo del pattern \textit{Decorator} è il seguente:
 Pattern Composite con esempi
 \end{problem}
 \begin{solution}
-Il pattern \textit{Composite} è un pattern di tipo strutturale, che permette di avere una gerarchia ad albero.
-Consente il trattamento degli oggetti singoli e degli oggetti composti in modo omogeneo.
-Per realizzare il pattern \textit{composite} si supponga di avere le seguenti componenti:
+Il pattern \textit{composite} è un pattern di tipo strutturale.\newline
+Nasce per facilitare la manipolazione delle strutture ad albero, che risulta essere complessa e prona ad errori, poiché bisogna distinguere tra un nodo (oggetto composto) e una foglia (oggetto singolo).
+La soluzione al problema citato è la definizione di un'interfaccia che permetta di trattare allo stesso modo oggetti singoli e composti.
+Per realizzare il pattern \textit{composite} si suppone di avere le seguenti componenti:
 \begin{itemize}
-	\item \texttt{Component}: classe astratta che dichiara il co
-	\item \texttt{Leaf}
-	\item \texttt{Composite}
+	\item \texttt{Component}: classe astratta che dichiara un'interfaccia che consente l'accesso e la manipolazione degli oggetti della composizione.
+	\item \texttt{Client}: accede agli oggetti che derivano da \texttt{Component} e li manipola attraverso l'interfaccia di
+	\\\texttt{Component}
+	\item \texttt{Leaf}: descrive il comportamento degli oggetti singoli, ovvero le foglie, e che non possono avere figli.
+	\item \texttt{Composite}: definisce il comportamento degli oggetti aventi figli.
+\end{itemize}
+È necessario che il contenitore dei figli sia un attributo di \texttt{Composite}, e può essere di qualsiasi tipo (come array, lista,
+hashtable ecc).
+Il \texttt{Client} utilizza soltanto \texttt{Component}, pertanto quest'ultimo deve possedere tutti i metodi di cui il \texttt{Client} necessita e la definizione base dei metodi che dovranno essere ridefiniti dalle sottoclassi.
+Alcune operazioni definite in \texttt{Component} risultano prive di significato per gli oggetti senza figli, come \texttt{add}, \texttt{remove}, pertanto sono possibili due possibili approcci:
+
+\begin{itemize}
+\item \textbf{Trasparenza}: si definiscono le operazioni di \texttt{add} e \texttt{remove} in \texttt{Component}.
+Tuttavia è possibile che il \texttt{Client} definisca operazioni illegali come l'aggiunta di figli alle foglie; per evitare questo problema è necessario che le foglie sollevino eventualmente un'eccezione per i metodi precedentemente citati.
+	\item \textbf{Sicurezza}: i metodi di gestione dei figli come \texttt{add} e \texttt{remove} vengono implementati in \texttt{Composite}; occorre predisporre di un'implementazione che verifichi se l'oggetto che si sta trattando è un \texttt{Composite} o \texttt{Leaf}.
+\end{itemize}
+Un esempio di utilizzo del pattern \textit{composite} è il seguente:
+\begin{itemize}
+\item Si supponga di avere come \texttt{Client} un cliente di un'azienda informatica
+\item Si ha una classe astratta \texttt{Azienda}, che rappresenta il \texttt{Component}.
+\item Si consideri la classe \texttt{Manager}, che rappresenta \texttt{Composite}, e che assegna il proprio lavoro ai figli, che possono essere altri \texttt{Manager} o \texttt{Programmatore}
+\item Si consideri la classe \texttt{Programmatore}, che rappresenta \texttt{Leaf} e che non può delegare il proprio compito a nessun altro (pertanto non può avere eredi del proprio lavoro).
+\item Una eventuale operazione di \texttt{assegnaIncarico()} può essere eseguita da \texttt{Manager}, ma non dal
+\\
+\texttt{Programmatore}.
 \end{itemize}
 \end{solution}
+
 
 \begin{problem}{1.23}
 Modello LMU nei VCS con vantaggi e svantaggi
 \end{problem}
 \begin{solution}
+Il modello LMU viene utilizzato in alcuni sistemi di controllo delle versioni e consente a una sola persona alla volta di modificare file di una \textit{repository}.
+
 \end{solution}
 \newpage
 \section{Modulo 2}
