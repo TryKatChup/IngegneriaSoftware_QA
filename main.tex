@@ -808,8 +808,20 @@ Un esempio di utilizzo del pattern \textit{composite} è il seguente:
 Modello LMU nei VCS con vantaggi e svantaggi
 \end{problem}
 \begin{solution}
-Il modello LMU viene utilizzato in alcuni sistemi di controllo delle versioni e consente a una sola persona alla volta di modificare file di una \textit{repository}.
-
+Il modello \textit{Lock-Modify-Unlock} (LMU) viene utilizzato in alcuni sistemi di controllo delle versioni e consente a una sola persona alla volta di modificare file di una \textit{repository}.
+Ogni volta che un utente voglia modificare un determinato file della cartella di lavoro deve prima \textbf{bloccarlo} (\textit{lock}); una volta completata la modifica occorre \textbf{sbloccare} il file.
+Questo modello presenta diversi svantaggi:
+\begin{itemize}
+	\item Esiste la possibilità che un utente si dimentichi di sbloccare il file, non consentendo a nessun altro di modificare il file.
+	\newline
+	Si generano quindi notevoli ritardi nello sviluppo.
+	\item Si crea una serializzazione non necessaria, poiché la modifica contemporanea dello stesso file da parte di due persone non implica la generazione di conflitti.
+	\item È presente un falso senso di sicurezza da parte degli sviluppatori nel blocco di un file: nel caso in cui un utente modifichi un file, e un altro utente apporti cambiamenti su un secondo file si possono generare conflitti se i due file hanno dipendenze tra loro.
+	\newline
+	A causa dei conflitti generati i due file non funzionano più correttamente insieme.
+	\item Il lavoro può esssere eseguito soltando offline.
+\end{itemize}
+Un vantaggio che il modello offre è la possibilità di lavoro nel caso in cui si hanno file non unibili, come ad esempio i file immagine
 \end{solution}
 \newpage
 \section{Modulo 2}
