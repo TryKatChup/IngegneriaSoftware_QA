@@ -823,6 +823,25 @@ Questo modello presenta diversi svantaggi:
 \end{itemize}
 Un vantaggio che il modello offre è la possibilità di lavoro nel caso in cui si hanno file non unibili, come ad esempio i file immagine
 \end{solution}
+
+
+\begin{problem}{1.24}
+Modello CMM nei VCS con vantaggi e svantaggi
+\end{problem}
+\begin{solution}
+Il modello \textit{Copy-Modify-Merge} viene utilizzato in alcuni sistemi di controllo delle versioni e prevede l'assenza di meccanismi di blocco dei file in caso di modifica (\textit{lock}).
+Ogni client dell'utente esegue l'accesso alla \textit{repository} del progetto e crea una copia personale e locale su cui lavorare. Gli utenti possono lavorare indipendentemente e in parallelo, modificando le loro copie private.
+Nel momento del \textit{check in}, le modifiche effettuate da un utente al progetto vengono unite alle modifiche degli altri utenti: l'operazione appena descritta prende il nome di \textit{merge}.
+L'operazione appena descritta può avere due esiti:
+\begin{itemize}
+	\item \textbf{Successo}: le modifiche effettuate non causano problemi di congruenza del codice
+	\item \textbf{Conflitto}: due o più utenti hanno modificato lo stesso blocco di codice, generando incongruenze.
+	\newline
+	In questo caso occorre risolvere i conflitti a mano.
+\end{itemize}
+Anche in caso di conflitto il tempo di risoluzione del problema risulta minore rispetto al ritardo di sviluppo introdotto da un sistema di blocco come previsto nel modello \textit{Lock-Modify-Unlock}.
+L'assenza di conflitti non garantisce sempre il corretto funzionamento del programma dopo le modifiche: l'operazione di \textit{merge} infatti non è in grado di rilevare conflitti logici, concettuali o semantici.
+\end{solution}
 \newpage
 \section{Modulo 2}
 \begin{problem}{2.1}
