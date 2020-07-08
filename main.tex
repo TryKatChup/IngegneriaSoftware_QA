@@ -501,13 +501,80 @@ static void assegnaPosto(out PostoRistorante posto){
 Concetto di delegato in C\#
 \end{problem}
 \begin{solution}
+I delegati sono oggetti che contengono un riferimento a un metodo da invocare.
+\newline
+Sono equivalenti ai puntatori a funzioni (\textit{functor}) presenti nei linguaggi C/C++, ma orientati agli oggetti ed efficaci.
+\newline
+Eseguono funzionalità di \textit{callback}, tra le quali:
+\begin{itemize}
+	\item \textbf{Elaborazione asincrona}: permette a un metodo di accettare un delegato come parametro e di chiamare il delegato in un momento successivo. Questo tipo di elaborazione viene eseguita quando un processo impiega molto tempo ad essere completato; quando viene terminato il chiamante viene avvertito.
+	\item \textbf{Elaborazione cooperativa}: viene fornita una parte del servizio dal metodo \textbf{chiamato} e la parte rimanente viene effettuata dal \textbf{chiamante}.
+	\newline
+	Un esempio di elaborazione cooperativa è il \textit{merge sort}.
+	\item \textbf{Gestione degli eventi}: ogni entità interessata a un determinato evento si registra presso il generatore dell'evento, specificando quale metodo gestirà l'evento.
+\end{itemize}
+L'istanza di un delegato può incapsulare uno o più metodi, specificando gli argomenti di ciascun metodo e il valore restituito.
+Ciascun metodo è riferito a un'entità richiamabile che può essere:
+\begin{itemize}
+	\item Un metodo, nel caso di metodi statici
+	\item Un'istanza e il metodo relativo a quell'istanza, nel caso di istanze di metodi.
+\end{itemize}
+Un delegato contiene soltanto la firma del metodo, e non conosce la classe o il metodo a cui si sta riferendo; è quindi ideale per l'invocazione anonima.
+Nel caso in cui si abbia l'invocazione di un'istanza delegata, che possiede una o più voci nell'elenco di invocazione, si invocano i metodi dell'elenco in ordine e in modo sincrono.
+Per ciascun metodo invocato vengono passati come argomenti gli stessi forniti all'istanza del delegato. Si hanno due scenari:
+\begin{itemize}
+	\item Nel caso in cui vengono inclusi \textbf{parametri di riferimento} nell'invocazione del delegato, ciascuna invocazione del metodo avviene con un riferimento alla medesima variabile e le modifiche alla variabile da parte di un metodo nell'elenco di invocazione saranno visibili ai metodi successivi nell'elenco di invocazione.
+	\item Nel caso di invocazione del delegato con \textbf{parametri di output} o \textbf{valori di ritorno} il loro valore finale sarà determinato dall'invocazione dell'ultimo delegato presente nell'elenco.
+\end{itemize}
 \end{solution}
-
 
 \begin{problem}{1.9}
 Metaprogrammazione e riflessione in C\#
 \end{problem}
 \begin{solution}
+La metaprogrammazione viene utilizzata per programmare  un sistema in modo che abbia accesso alle informazioni relative al sistema stesso, e che possa manipolare tali informazioni.
+Essa viene realizzata mediante la \textbf{riflessione}, implementata in C\# tramite la classe \texttt{System.Reflection}.
+La riflessione sfrutta i \textbf{metadati}, ovvero dati che descrivono altri dati; infatti, se un componente dispone di informazioni sufficienti per descrivere se stesso, le sue interfacce possono essere esplorate dinamicamente.
+In Java e .NET i dati sono generati nel momento in cui si definisce un tipo, vengono salvati assieme alla sua definizione e sono disponibili a \textit{runtime}; in COM e CORBA i metadati sono definiti da \textit{Interface Definition Language} (IDL).
+La riflessione viene utilizzata per:
+\begin{itemize}
+	\item Esaminare i dettagli di un \textit{assembly}
+	\item Istanziare oggetti e chiamare metodi scoperti a runtime
+	\item Creare, compilare ed eseguire assembly, ove necessario.
+\end{itemize}
+La chiave per la \textit{riflessione} in .NET è la classe \texttt{System.Type}:
+\begin{itemize}
+	\item Tutti gli oggetti sono istanze di tipi, e i tipi stessi sono istanze di \texttt{System.Type}
+	\item Il tipo di un oggetto può essere scoperto tramite il metodo \texttt{GetType()}
+	\item È presente un solo oggetto \texttt{Type} per ogni tipo definito.
+\end{itemize}
+Ad esempio, è possibile enumerare i tipi di un \textit{assembly} tramite i seguenti comandi:
+\begin{itemize}
+	\item \texttt{Assembly.Load(...)} restituisce un oggetto \texttt{Assembly}
+	\item \texttt{Assembly.GetModules(...)} restituisce un array di oggetti \texttt{Module}
+	\item \texttt{Module.GetTypes(...)} restitusice un array di \texttt{Type}.
+\end{itemize}
+È possibile creare istanze di tipi e accedere ai loro membri mediante \textit{very late binding}:
+\begin{itemize}
+	\item \texttt{Activator.CreateInstance(type, ...)} invoca il costruttore specificato
+	\item \texttt{methodInfo.Invoke(...)} invoca i metodi
+	\item \texttt{propertyInfo.GetValue(...)/.SetValue(...)} invocano \textit{getter} e \textit{setter}.
+\end{itemize}
+I membri pubblici sono sempre accessibili, mentre i membri non pubblici lo sono solo se il chiamante ha permessi sufficienti.
+Per creare dinamicamente istanze di oggetti si usa la classe \texttt{System.Activator}, il cui metodo \texttt{CreateInstance(Type type, Object[] args)} è equivalente all'operazione \texttt{new}.
+\newline\newline
+Per aggiungere informazioni ai metadati è possibile utilizzare \textbf{attributi personalizzati}, ovvero classi visibili via riflessione che derivano da \texttt{System.Attribute} e che possono contenere proprietà e metodi.
+\newline
+Per creare attributi personalizzati occorre:
+\begin{itemize}
+	\item dichiarare la classe dell'attributo
+	\item dichiarare i costruttori
+	\item dichiarare le proprietà
+	\item opzionalmente applicare \texttt{AttributeUsageAttribute}, che specifica alcune caratteristiche della classe, ovvero a quali elementi l'attributo è applicabile, quando l'attributo può essere ereditato e quando possono esistere molteplici istanze di un attributo.
+\end{itemize}
+Il metodo \texttt{GetCustomAttributes()} restituisce la lista degli attributi personalizzati.
+\newline
+La classe \texttt{System.Reflection.Emit} consente di scrivere il codice IL necessario per creare e compilare un \textit{assembly} che potrà essere chiamato direttamente dal programma che lo ha creato, e che potrà essere archiviato su disco in modo che altri programmi possano utiizzarlo.
 \end{solution}
 
 
@@ -601,9 +668,28 @@ Principio aperto/chiuso con almeno un esempio
 \begin{solution}
 Il principio aperto/chiuso prevede un sistema aperto a estensioni software, ma chiuso a modifiche.
 \newline
-Per realizzare questo principio vengono utilizzate classi astratte e interfacce; nel caso in cui si vogliano aggiungere nuove funzionalità sarà necessario, anzichè modificare il codice, implementare una nuova classe concreta che implementa le astrazioni.
+Per realizzare questo principio vengono utilizzate classi astratte e interfacce; nel caso in cui si vogliano aggiungere nuove funzionalità sarà necessario, anzichè modificare il codice, creare una nuova classe concreta che implementi le astrazioni.
 \newline
+Per soddisfare il principio aperto/chiuso si occorre all’ereditarietà:
+\begin{itemize}
+	\item di interfaccia: le classi derivate ereditano da una classe base astratta con
+	funzioni virtuali. In questo modo l’interfaccia è chiusa alle modifiche e il suo comportamento può
+	essere modificato implementando nuove classi derivate.
+	\item dell’implementazione: si creano nuove sottoclassi che estendono la classe base, mantenendo il codice comune in quest'ultima.
+	\newline
+	In questo modo si evitano ripetizioni nelle sottoclassi.
+\end{itemize}
+
+
 Questo approccio consente una maggiore modularità del sistema e stabilità, in quanto non si modificano componenti definite precedentemente e non si introducono eventuali errori dovuti alle modifiche.
+Un esempio di utilizzo OCP è il seguente:
+\begin{itemize}
+	\item Si supponga di avere una classe \texttt{CalcolatoreSpeseAziendali} la quale, data una collezione di oggetti di tipo \texttt{Impiegato}, restituisca le spese totali dovute al loro salario, tramite metodo\\ \texttt{CalcolaSpese(Collection<Impiegato> impiegati)}
+	\item Si definisce un'interfaccia o una classe astratta \texttt{Impiegato} che espone il metodo \texttt{getSalario()}
+	\item Si definiscono le classi concrete \texttt{Manager}, \texttt{AmministratoreDelegato}, \texttt{Programmatore} che implementano \texttt{Impiegato} e che possiedono un salario specifico al ruolo ricoperto
+	\item A questo punto \texttt{CalcolaSpese(Collection<Impiegato> impiegati)} attraverserà la collezione e sommerà i salari dei vari dipendenti, senza conoscere il loro ruolo.
+	\item Di conseguenza, in caso venga aggiunto un nuovo ruolo come \texttt{Venditore} con OCP non sarà necessario modificare il codice, ma soltanto aggiungere una nuova classe e ridefinire il metodo \texttt{getSalario()} al suo interno.
+\end{itemize}
 \end{solution}
 
 
@@ -641,6 +727,19 @@ Ad esempio, data la classe \texttt{Uccello} dotata del metodo \texttt{vola()} si
 Principi per l'architettura dei package
 \end{problem}
 \begin{solution}
+L'architettura dei package prevede i seguenti tre principi:
+\begin{itemize}
+	\item \textbf{Principio di equivalenza di riuso/rilascio}: un elemento riutilizzabile deve essere periodicamente fornito e rilasciato da un sistema apposito, poiché chi rilascia il software non è la stessa persona che lo utilizza.
+	\newline
+	Se non è garantita la manutenzione del software l'utilizzo di quest'ultimo non dovrebbe essere permesso ai clienti. Occorre pertanto raggruppare le classi in package, in modo da modo da garantire il riutilizzo di una o più classi.
+	\item \textbf{Principio di chiusura comune}: occorre ridurre al minimo l'utilizzo di package, in modo che risulti più semplice gestire e modificare ciascuna classe e ridustribuire ciascun package.
+	\newline
+	Occorre quindi raggruppare più classi che vengono modificate insieme nello stesso package.
+	\item \textbf{Principio di riutilizzo comune}: occorre non raggruppare nello stesso package le classi che non vengono riutilizzate insieme.
+	\newline Infatti, per ciascuna modifica del package occorre controllare ogni singola classe per verificare il corretto funzionamento dell'aggiornamento; vengono controllate anche le classi che non presentano alcuna modifica.
+\end{itemize}
+Risulta complesso soddisfare tutti e tre i principi contemporaneamente, poichè il principio di chiusura comune suggerisce di rendere i package i più grandi possibili, semplificando l'utilizzo di questi ultimi da parte dello sviluppatore, mentre il principio di equivalenza di riuso/rilascio e il principio di riutilizzo comune incentivano l'utilizzo di package piccoli, semplificandone l'utilizzo da parte dei clienti.
+
 \end{solution}
 
 
