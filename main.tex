@@ -729,16 +729,32 @@ Principi per l'architettura dei package
 \begin{solution}
 L'architettura dei package prevede i seguenti tre principi:
 \begin{itemize}
-	\item \textbf{Principio di equivalenza di riuso/rilascio}: un elemento riutilizzabile deve essere periodicamente fornito e rilasciato da un sistema apposito, poiché chi rilascia il software non è la stessa persona che lo utilizza.
+	\item \textbf{Principio di equivalenza di riuso/rilascio (REP)}: un elemento riutilizzabile deve essere periodicamente fornito e rilasciato da un sistema apposito, poiché chi rilascia il software non è la stessa persona che lo utilizza.
 	\newline
-	Se non è garantita la manutenzione del software l'utilizzo di quest'ultimo non dovrebbe essere permesso ai clienti. Occorre pertanto raggruppare le classi in package, in modo da modo da garantire il riutilizzo di una o più classi.
-	\item \textbf{Principio di chiusura comune}: occorre ridurre al minimo l'utilizzo di package, in modo che risulti più semplice gestire e modificare ciascuna classe e ridustribuire ciascun package.
+	Se non è garantita la manutenzione del software l'utilizzo di quest'ultimo non dovrebbe essere permesso ai clienti. Occorre pertanto raggruppare le classi in \textit{package}, in modo da modo da garantire il riutilizzo di una o più classi.
+	\item \textbf{Principio di chiusura comune (CCP)}: occorre ridurre al minimo l'utilizzo di \textit{package}, in modo che risulti più semplice gestire e modificare ciascuna classe e ridustribuire ciascun package.
 	\newline
-	Occorre quindi raggruppare più classi che vengono modificate insieme nello stesso package.
-	\item \textbf{Principio di riutilizzo comune}: occorre non raggruppare nello stesso package le classi che non vengono riutilizzate insieme.
-	\newline Infatti, per ciascuna modifica del package occorre controllare ogni singola classe per verificare il corretto funzionamento dell'aggiornamento; vengono controllate anche le classi che non presentano alcuna modifica.
+	Occorre quindi raggruppare più classi che vengono modificate insieme nello stesso \textit{package}.
+	\item \textbf{Principio di riutilizzo comune (CRP)}: occorre non raggruppare nello stesso package le classi che non vengono riutilizzate insieme.
+	\newline La motivazione è dovuta al fatto che, per ciascuna modifica del package, sia necessario controllare ogni singola classe per verificare il corretto funzionamento dell'aggiornamento; vengono controllate anche le classi che non presentano alcuna modifica.
 \end{itemize}
-Risulta complesso soddisfare tutti e tre i principi contemporaneamente, poichè il principio di chiusura comune suggerisce di rendere i package i più grandi possibili, semplificando l'utilizzo di questi ultimi da parte dello sviluppatore, mentre il principio di equivalenza di riuso/rilascio e il principio di riutilizzo comune incentivano l'utilizzo di package piccoli, semplificandone l'utilizzo da parte dei clienti.
+Risulta complesso soddisfare tutti e tre i principi contemporaneamente, poichè il \textit{principio di chiusura comune} suggerisce di rendere i package \textbf{i più grandi possibili}, semplificando l'utilizzo di questi ultimi da parte dello sviluppatore, mentre il \textit{principio di equivalenza di riuso/rilascio} e il \textit{principio di riutilizzo comune} incentivano l'utilizzo di \textbf{package piccoli}, semplificandone l'utilizzo da parte dei clienti.
+Una buona prassi è applicare il \textit{principio di chiusura comune} durante la progettazione dell'architettura, in modo da semplificare lo sviluppo e la manutenzione. Una volta ottenuta maggiore stabilità del sistema viene eseguito un \textit{refactoring}, diminuendo i package e soddisfando i rimanenti due principi per permettere maggiore riutilizzo.
+\newline
+\newline
+Sono presenti ulteriori tre principi che descrivono le relazioni tra i \textit{package}:
+\begin{itemize}
+	\item \textbf{Principio delle dipendenze acicliche (ADP)}: afferma che non devono essere presenti dipendenze tra package che possano creare dei cicli.
+	Nel caso in cui si voglia modificare una classe occorre ricompilare l'intero package di appartenenza e i package che dipendono da quest'ultimo; nel caso di dipendenza ciclica una modifica di una classe potrebbe portare a ricompilare l'intero progetto.
+	\newline
+	Per evitare questo problema occorre introdurre un'interfaccia per la classe responsabile delle dipendenze cicliche, e sfruttando il \textit{principio di inversione delle dipendenze}, oppure trasferire le dipendenze in un nuovo package.
+	\item \textbf{Principio delle dipendenze stabili (SDP)}: stabilisce che un package dovrebbe dipendere soltanto da package più stabili di esso.
+	\newline
+	Un package stabile rispetta il principio di chiusura comune, poiché le modifiche a una classe non causano effetti a cascata sull'intero progetto, bensì rimangono interne al package di appartenenza.
+	\item \textbf{Principio delle astrazioni stabili:} i package stabili dovrebbero essere astratti, poiché facili da estendere. Un package astratto non contiene codice soggetto a modifiche.
+\end{itemize}
+Occorre inoltre considerare i sistemi di package a livelli: i package nei livelli superiori sono instabili e facilmente modificabili, mentre nei livelli inferiori sono presenti package difficilmente modificabili.
+Una buona prassi consiste nel possedere package stabili \textbf{astratti}, in modo che risultino difficili da modificare, ma facili da estendere (sfruttando il principio aperto/chiuso).
 
 \end{solution}
 
@@ -892,11 +908,11 @@ Tuttavia è possibile che il \texttt{Client} definisca operazioni illegali come 
 \end{itemize}
 Un esempio di utilizzo del pattern \textit{composite} è il seguente:
 \begin{itemize}
-\item Si supponga di avere come \texttt{Client} un cliente di un'azienda informatica
-\item Si ha una classe astratta \texttt{Azienda}, che rappresenta il \texttt{Component}.
-\item Si consideri la classe \texttt{Manager}, che rappresenta \texttt{Composite}, e che assegna il proprio lavoro ai figli, che possono essere altri \texttt{Manager} o \texttt{Programmatore}
-\item Si consideri la classe \texttt{Programmatore}, che rappresenta \texttt{Leaf} e che non può delegare il proprio compito a nessun altro (pertanto non può avere eredi del proprio lavoro).
-\item Una eventuale operazione di \texttt{assegnaIncarico()} può essere eseguita da \texttt{Manager}, ma non dal
+\item Si supponga di avere come \texttt{Client} un oggetto che deve accedere alla gerarchia di impiegati di un'azienda informatica
+\item Si ha una classe astratta \texttt{Impiegato}, che rappresenta il \texttt{Component}.
+\item Si consideri la classe \texttt{Manager}, che rappresenta \texttt{Composite}, e che può avere come sottoposti altri impiegati
+\item Si consideri la classe \texttt{Programmatore}, che rappresenta \texttt{Leaf} e che non ha sottoposti.
+\item Una eventuale operazione di \texttt{aggiungiSottoposto()} può essere eseguita da \texttt{Manager}, ma non da
 \\
 \texttt{Programmatore}.
 \end{itemize}
@@ -1092,8 +1108,29 @@ Esistono tre aspetti importanti del processo di sviluppo:
 Tipologie di requisiti
 \end{problem}
 \begin{solution}
-Per tipologie si intende Funzionali, non funzionali, di dominio
-Domanda non troppo difficile
+I requisiti rappresentano la descrizione dei servizi che vengono forniti dal sistema e dei suoi vincoli.
+\newline
+Esistono due tipologie di requisiti:
+\begin{itemize}
+	\item Requisiti utente: specificano i servizi offerti dal sistema e i vincoli su cui opera. Risultano molto astratti e di alto livello, e sono espressi solitamente in linguaggio naturale assieme a diagrammi.
+	\item Requisiti di sistema: specificano nel \textit{documento dei requisiti del sistema} le funzioni, i servizi e i vincoli del sistema in modo dettagliato.
+	\newline
+	Questi ultimi sono ulteriormente diviso in tre categorie:
+	\begin{itemize}
+		\item \textbf{Requisiti funzionali}: elenca i servizi che il sistema deve fornire, in particolare per ciascun servizio viene specificato come reagire a particolari input, come comportarsi in specifiche situazioni, e cosa il sistema non dovrebbe fare.
+		\item \textbf{Requisiti non funzionali}: descrivono altre caratteristiche del sistema, tra le quali:
+		\begin{itemize}
+			\item \textit{Requisiti del prodotto}: limitano le proprietà del sistema
+			\item \textit{Requisiti organizzativi}: vincolano il processo di sviluppo
+			\item \textit{Requisiti esterni}: sono vincoli che derivano da sistemi esterni o da contesti come la legislazione sulla privacy o requisiti etici.
+		\end{itemize}
+		Altre caratteristiche che riguardano i requisiti non funzionali è la difficoltà di verifica di questi ultimi, poiché risultano poco chiari e vaghi.
+		Spesso risultano in contraddizione con i requisiti funzionali: un esempio è la protezione della privacy che può essere in contrasto con la facilità d'uso o con i tempi di risposta di un sistema.
+		\item \textbf{Requisiti del dominio}: derivano dal dominio di applicazione del sistema e indicano il funzionamento del sistema all'interno di uno specifico dominio.
+		\newline
+		Il dominio di applicazione del sistema viene specificato agli esperti del dominio.
+	\end{itemize}
+\end{itemize}
 \end{solution}
 
 \begin{problem}{2.5}
@@ -1151,6 +1188,34 @@ Commentare eventuali errori di un diagramma UML
 \begin{problem}{2.8}
 Linee guida di progettazione nella sicurezza
 \end{problem}
+Le linee guida per la sicurezza nella progettazione sono le seguenti:
+\begin{enumerate}
+	\item Basarsi su una politica esplicita per le decisioni inerenti la sicurezza.
+	\newline
+	Le politiche di sicurezza vengono esplicitate in documenti di alto livello, che definiscono quali siano i criteri della sicurezza, ma non specificano come ottenerla.
+	Occoore incorporare politiche di sicurezza in modo da specificare quali sono le informazioni che possono essere accedute e quale ente può accedervi, e quali precondizioni occorre soddisfare per l'accesso.
+	\item Evitare ogni singolo punto di fallimento, poiché il fallimento di una parte del sistema può compromettere l'intero sistema.
+	\item Fallire in modo controllato(?)
+	\item Bilanciare sicurezza e usabilità del sistema, dato che l'aggiunta di ulteriori livelli di sicurezza possono richiedere tempo maggiore di apprendimento dell'uso del sistema da parte dell'utente.
+	\item Essere consapevoli delle conseguenze che l'ingegneria sociale può portare, poiché tramite quest'ultima è semplice ottenere alcuni dati personali dell'utente, e convincerlo di rivelare ulteriori dati sensibili.
+	\item Utilizzare per ridurre rischi i seguenti fattori:
+	\begin{itemize}
+		\item Ridondanza: mantenimetno di più versioni dello stesso software e di dati(?) nel sistema
+		\item Diversità: consiste nell'utilizzo di tecnologie diverse per le varie versioni del sistema, in modo che una vulnerabilità di una tecnologia non consenta un punto di fallimento comune.
+	\end{itemize}
+	\item Validare l'input, ovvero applicare controlli ai dati di ingresso, in modo da non potere sfruttare vulnerabilità come \textit{SQL Injection}, \textit{Buffer Overflow}
+	\item Organizzare le informazioni di sistema in compartimenti, in modo che gli utenti possano accedere alle informazioni di loro competenza.
+	\item Progettare per il \textit{deployment}, includendo nel sistema programmi di utilità che semplifichino il processo di \textit{deployment}.
+	\newline
+	Alcune indicazioni sono elencate in seguito:
+	\begin{itemize}
+		\item Includere supporto per la visione e analisi delle configurazioni
+		\item Ridurre al minimo i privilegi di default
+		\item Rendere le impostazioni di configurazione locali
+		\item Fornire metodi per rimediare a vulnerabilità
+	\end{itemize}
+	\item Progettare per il ripristino, includendo meccanismi diretti o automatici per aggiornare il sistema e risolvere le vulnerabilità scoperte
+\end{enumerate}
 \begin{solution}
 
 \end{solution}
