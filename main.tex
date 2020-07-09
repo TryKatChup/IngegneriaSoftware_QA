@@ -150,6 +150,17 @@ class Seaplane implements flyable, swimmable {
 }
 
 \end{minted}
+Un metodo alternativo all'ereditarietà multipla è il modello \textbf{composizione e delega}, dove si sceglie una superclasse significativa e si eredita soltanto da quella; le rimanenti superclassi diventano ruoli e vengono connesse tramite \textbf{composizione}.
+Un esempio è il seguente:
+\begin{itemize}
+	\item Si supponga di avere la classe \texttt{Pippistrello} che eredita sia dalla classe \texttt{Mammifero} che dalla classe \texttt{Volatile}.
+	\item \texttt{Mammifero} e \texttt{Volatile} ereditano da \texttt{Animale}
+	\item Dato che l'ereditarietà multipla non è consentita si può adottare il seguente approccio:
+	\begin{itemize}
+		\item \texttt{Animale} rimane superclasse, e \texttt{Mammifero} eredita da \texttt{Animale}. \texttt{Pippistrello} deriva da \newline texttt{Mammifero} ed è legato tramite composizione a \texttt{Volatile}
+	\end{itemize}
+\end{itemize}
+Esiste un ulteriore approccio ed è una combinazione dei metodi \textit{Composizione-delega} e \texttt{interfacce}.
 \end{solution}
 
 
@@ -177,8 +188,12 @@ La classificazione di Cardelli-Wegner impone due categorie, a loro volta suddivi
 	\item \textbf{Ad hoc}: gli elementi assumono un numero finito di forme.
 	È suddiviso in:
 	\begin{itemize}
-		\item \textbf{Overloading}:
-		\item \textbf{Coercion}: viene effettuata una conversione implicita del tipo di una variabile.
+		\item \textbf{Overloading}: consente la ridefinizione di metodi/operatori per ogni insieme di argomenti
+		accettati; essa deve avvenire in fase di programmazione
+
+		\item \textbf{Coercion}: viene effettuata una conversione implicita del tipo di una variabile. Le conversioni possibili devono essere definite in fase
+		di programmazione
+
 	\end{itemize}
 \end{itemize}
 Un esempio di polimorfismo per inclusione in cui si utilizza l'overriding è il seguente:
@@ -210,6 +225,8 @@ public class B : A {
    }
 }
 \end{minted}
+Il codice sopra consente di mostrare un esempio di polimorfismo per inclusione: viene utilizzato l'\textit{Overriding} per ridefinire il metodo \texttt{Fun1(int x)} della superclasse \texttt{A} in \texttt{B}.
+Il \textit{binding dinamico} viene utilizzato per discriminare il metodo richiamato; la \textit{Virtual Method Table} di ciascuna classe punta al metodo evocato.
 \end{solution}
 
 
@@ -221,7 +238,8 @@ Procedimento di compilazione ed esecuzione del codice all'interno del framework 
 Il \textit{Common Language Runtime} (CLR) viene utilizzato in .NET come ambiente virtuale di esecuzione delle applicazioni.
 Il codice che viene eseguito in CLR prende il nome di \textit{codice gestito}.
 \newline
-Il codice sorgente viene trasformato dal compilatore .NET in codice IL (CLI assembly, ovvero .exe o .dll); quest'ultimo a sua volta viene convertito dal compilatore \textit{Just In Time} (JIT) in codice nativo, che può essere eseguito.
+Il codice sorgente viene trasformato dal compilatore .NET in codice IL (CLI assembly, ovvero .exe o .dll); un assembly contiene, oltre al codice IL, anche un \textit{manifest} che fornisce informazioni come i tipi di assembly, la versione, e requisiti di sicurezza.
+Il codice IL a sua volta viene convertito dal compilatore \textit{Just In Time} (JIT) in codice nativo, che può essere eseguito.
 \newline
 Il CLR prevede servizi aggiuntivi come:
 \begin{itemize}
@@ -235,8 +253,8 @@ Il CLR prevede servizi aggiuntivi come:
 	\includegraphics[width=6cm]{./immagini/riferimentiCircolari.jpg}
 	\caption{Riferimenti circolari}
 \end{figure}
-
 	Con questo approccio, tuttavia, si verifica la perdita della \textit{distruzione deterministica}, ovvero una richiesta esplicita di liberazione della memoria occupata da un oggetto.
+	\\Tramite \textit{garbage collector} la memoria viene liberata in modo non deterministico, ovvero quando l'oggetto non risulta più raggiungibile.
 	\item \textbf{I/O su file}
 	\item \textbf{Gestione delle eccezioni}: le eccezioni sono oggetti che ereditano dalla classe \textit{System.Exception}.
 	\newline
@@ -273,9 +291,16 @@ In CTS tutte le classi ereditano da \textit{System.Object}, ed esistono due cate
 		\item \textbf{Tipi definiti dall'utente}: strutture dati ed enumerativi
 	\end{itemize}
 \end{itemize}
-È possibile eseguire conversioni da tipo valore a tipo riferimento mediante un \textit{up cast} \textbf{implicito} a \textit{System.Object}: questa procedura prende il nome di \textit{boxing}.
-\newline
+È possibile eseguire conversioni da tipo valore a tipo riferimento mediante un \textit{up cast} \textbf{implicito} a \textit{System.Object}: questa procedura prende il nome di \textit{boxing}:
+\begin{center}
+\texttt{double d = 333.3;}
+\\
+\texttt{Object obj = d;}
+\end{center}
 L'\textit{unboxing}, operazione inversa al \textit{boxing}, permette di convertire un tipo riferimento a un tipo valore, tramite un \textit{down cast} \textbf{esplicito}.
+\begin{center}
+	\texttt{double d2 = (double)obj;}
+\end{center}
 Il passaggio dei parametri a un metodo può avere risultati distinti, in base alla tipologia di oggetto passato come argomento.
 Esistono tre tipologie di argomenti:
 \begin{itemize}
@@ -521,10 +546,18 @@ Ciascun metodo è riferito a un'entità richiamabile che può essere:
 \end{itemize}
 Un delegato contiene soltanto la firma del metodo, e non conosce la classe o il metodo a cui si sta riferendo; è quindi ideale per l'invocazione anonima.
 Nel caso in cui si abbia l'invocazione di un'istanza delegata, che possiede una o più voci nell'elenco di invocazione, si invocano i metodi dell'elenco in ordine e in modo sincrono.
+Il delegato è inoltre un’entità type-safe che si pone tra un chiamante e zero o più \textit{call target} e che si comporta come
+un’interfaccia con un solo metodo.
 Per ciascun metodo invocato vengono passati come argomenti gli stessi forniti all'istanza del delegato. Si hanno due scenari:
 \begin{itemize}
 	\item Nel caso in cui vengono inclusi \textbf{parametri di riferimento} nell'invocazione del delegato, ciascuna invocazione del metodo avviene con un riferimento alla medesima variabile e le modifiche alla variabile da parte di un metodo nell'elenco di invocazione saranno visibili ai metodi successivi nell'elenco di invocazione.
 	\item Nel caso di invocazione del delegato con \textbf{parametri di output} o \textbf{valori di ritorno} il loro valore finale sarà determinato dall'invocazione dell'ultimo delegato presente nell'elenco.
+\end{itemize}
+Un esempio di utilizzo di delegati è il seguente:
+\begin{itemize}
+	\item Si ha un impiegato che deve effettuare una specifica attività
+	\item Si ha un capo, il cui scopo è di controllare l'attività dei suoi impiegati
+	\item Un impiegato deve comunicare al suo capo l'inizio dell'attività, lo svolgimento e l'eventuale conclusione: per farlo sfrutta un delegato che contiene un riferimento alle sue attività.
 \end{itemize}
 \end{solution}
 
@@ -592,7 +625,7 @@ La qualità del design risulta fondamentale per rendere un programma:
 Esistono quattro principi che peggiorano la qualità del software:
 \begin{enumerate}
 	\item \textbf{Rigidità del software}: rende complesse le modifiche al software, in quanto una piccola modifica influenza gran parte del programma, a causa di modifiche a cascata su moduli dipendenti tra loro.
-	\newline Una conseguenza di questo principio è la quantità di tempo necessaria a gestire una modifica del software.
+	\newline Una conseguenza di questo principio è la grande quantità di tempo necessaria a gestire una modifica del software.
 	\item \textbf{Fragilità del software}: responsabile del malfunzionamento del software di fronte a una modifica di quest'ultimo; il software risulta difficile da mantenere, in quanto per ogni correzione è presente un rischio maggiore di guasto.
 	\item \textbf{Immobilità del software}: rende il software inutilizzabile da parti dello stesso progetto o da altri progetti; ciò avviene quando un modulo software è fortemente dipendente da altri moduli.
 	\newline Di conseguenza occorre scrivere nuovo software, anziché riutilizzarlo.
@@ -602,7 +635,7 @@ Esistono quattro principi che peggiorano la qualità del software:
 	\newline
 	Esistono due categorie di viscosità:
 	\begin{itemize}
-		\item \textbf{Viscosità del design}: l'utilizzo di metodi che rispettano il design risulta più complesso che utilizzare hack.
+		\item \textbf{Viscosità del design}: l'utilizzo di metodi che rispettino il design risulta più complesso che utilizzare hack.
 		\item \textbf{Viscosità dell'ambiente}: l'ambiente di sviluppo è lento e inefficiente: si possono avere tempi di compilazione molto lunghi, il sistema di controllo del codice sorgente richiede ore per la registrazione di pochi file.
 	\end{itemize}
 \end{enumerate}
@@ -625,7 +658,13 @@ Tutti i servizi offerti dall'elemento stesso dovrebbero essere allineati a tale 
 \newline
 Una responsabilità risulta un motivo per cambiare, e ogni classe o modulo deve avere un solo motivo per cambiare.
 \newline
-Un esempio che rispetta il principio di singola responsabilità è un metodo \textit{setter}, in quanto la sua unica responsabilità è quella di impostare il valore di una variabile appartenente a una classe.
+Il principio prevede di sviluppare classi o moduli indipendenti tra loro e semplici.
+Un esempio di applicazione del seguente principio è il seguente:
+\begin{itemize}
+	\item Si ha una classe \texttt{MacchinaFotografica}
+	\item \texttt{MacchinaFotografica} possiede due funzionalità indipendenti tra loro, ovvero \texttt{Foto} e \texttt{Video}
+	\item Unire le due funzionalità in un'unica classe risulta poco portabile e la modifica a una funzionalità influenza l'altra, pertanto si creano due classi separate \texttt{Fotocamera} e \texttt{Videocamera}
+\end{itemize}
 \end{solution}
 
 
@@ -633,7 +672,7 @@ Un esempio che rispetta il principio di singola responsabilità è un metodo \te
 Principio di inversione delle dipendenze con almeno un esempio
 \end{problem}
 \begin{solution}
-Il principio di inversione delle dipendenze prevede che i moduli di alto livello (i \textit{clienti}) non debbano dipendere dai moduli di basso livello(ovvero i \textit{fornitori dei servizi} ). Entrambi devono dipendere da \textit{astrazioni}.
+Il principio di inversione delle dipendenze prevede che i moduli di alto livello (i \textit{clienti}) non debbano dipendere dai moduli di basso livello(ovvero i \textit{fornitori dei servizi}). Entrambi devono dipendere da \textit{astrazioni}.
 \newline
 Il motivo della precedente affermazione è dovuto alla presenza di codice e della logica implementativa nei moduli di basso livello. Nel caso in cui i moduli di alto livello dovessero dipendere da moduli di basso livello si avrebbe:
 \begin{itemize}
@@ -642,10 +681,16 @@ Il motivo della precedente affermazione è dovuto alla presenza di codice e dell
 	\item \textbf{Immobilità}: non è possibile riutilizzare il codice, in quanto i moduli di alto livello non si riuscirebbero a separarare da quelli di basso livello.
 \end{itemize}
 Con il principio di inversione delle dipendenze si eviterebbero i problemi sopra elencati, in quanto le astrazioni possiedono poco codice e sono poco soggetti a modifiche; inoltre è presente una separazione tra moduli astratti e moduli concreti, che permette modifiche limitate al modulo concreto interessato (poichè nessuno dipende da questi moduli).
-Dato che i dettagli del sistema sono stati isolati da un muro di astrazioni stabili, pertanto:
+Dato che i dettagli del sistema sono stati isolati da un muro di astrazioni stabili:
 \begin{itemize}
 	\item I cambiamenti non possono più propagarsi (\textit{design for change})
 	\item I singoli moduli sono maggiormente riusabili (\textit{design for resue})
+\end{itemize}
+Un esempio di principio di inversione delle dipendenze è il seguente:
+\begin{itemize}
+	\item Si consideri una classe \texttt{BigliettoConcerto} e una classe \texttt{GestoreVenditaBiglietti} che si occupa della vendita di \texttt{BigliettoConcerto}
+	\item Si considerino le classi \texttt{BigliettoNormale} e \texttt{BigliettoVIP}, che dipendono da \texttt{BigliettoConcerto}
+	\item \texttt{BigliettoConcerto} deve essere astratto, in quanto sia \texttt{BigliettoNormale} che \texttt{BigliettoVIP} dipendono da esso.
 \end{itemize}
 \end{solution}
 
@@ -658,7 +703,10 @@ Questo principio prevede che un cliente non debba dipendere dai metodi che non u
 \newline
 Nel caso di utilizzo delle \textit{fat interfaces} sarà più difficile mantenere il sistema, in quanto è rappresentato da un unico blocco; pertanto occorre creare interfacce specifiche per ogni cliente.
 \newline
-Un esempio di mancato utilizzo di principio di segregazione delle interfacce è la creazione, da parte di Xerox (fondatore di \textit{Ethernet}), di una stampante che aveva diverse funzionalità, tra cui mandare fax e pinzare fogli. Le modifiche al software, sebbene piccole, risultavano difficili, in quanto tutte le diverse funzioni eseguite dalla stampante multi-uso erano implementate all'interno di una sola classe.
+Un esempio di mancato utilizzo di principio di segregazione delle interfacce è la creazione, da parte di Xerox (creatore dello standard \textit{Ethernet}), di una stampante avente diverse funzionalità, tra cui mandare fax e pinzare fogli. Le modifiche al software, sebbene piccole, risultavano difficili, in quanto tutte le diverse funzioni eseguite dalla stampante multi-uso erano implementate all'interno di una sola classe.
+Tramite l'utilizzo del principio di segregazione delle interfacce si avevano più interfacce, ciascuna specifica per il ruolo della stampante, come ad esempio le interfacce \texttt{IScanFogli} e \texttt{IPinzaFogli}.
+\\
+Ciacsuna modifica di una funzione risulta più semplice, in quanto autocontenuta.
 \end{solution}
 
 
@@ -939,7 +987,7 @@ Per realizzare il pattern \textit{visitor} si suppone di avere le seguenti compo
 	\item \textbf{ConcreteVisitor}: classe concreta che estende o implementa \texttt{Visitor} e che consente di percorrere la struttura di oggetti coinvolta
 	\item \textbf{Element}: classe astratta o interfaccia che dichiara il metodo \texttt{Accept}, che ha come parametro un oggetto di tipo \texttt{Visitor}
 	\item \textbf{ConcreteElement}: classe concreta che estende o implementa \texttt{Element}
-	\item \textbf{ObjectStructure}: rappresenta la struttura che contiene \texttt{Element}; per permettere di essere visitabile da \texttt{Visitor}, \texttt{ObjectStructure} deve implementare un'interfaccia apposita \texttt{Visitable}.
+	\item \textbf{ObjectStructure}: è realizzata come \textit{Composite} o come una collezione (array, lista, etc.) e deve contentire l'enumerazione dei suoi elementi ; per permettere di essere visitabile da \texttt{Visitor}, \texttt{ObjectStructure} deve implementare un'interfaccia apposita \texttt{Visitable}.
 \end{itemize}
 Occorre considerare i seguenti aspetti:
 \begin{itemize}
@@ -948,6 +996,15 @@ Occorre considerare i seguenti aspetti:
 	\\l'\textbf{incapsulamento}.
 	\item La gerarchia composta da \texttt{Element} deve essere stabile, poichè non è semplice aggiungere nuovi \\\texttt{ConcreteElement}: ciò implicherebbe definire in tutti i \texttt{Visitor} esistenti un metodo apposito \texttt{visit} per quel \texttt{ConcreteElement}.
 	\item L'operazione \texttt{Accept} è di tipo \textit{double dispatch}, poiché dipende sia da \texttt{Visitor} che da \texttt{Element}
+\end{itemize}
+Si consideri il seguente esempio:
+\begin{itemize}
+	\item Si suppone di avere un negozio che vende libri e CD musicali.
+	\item Si definisce la classe \texttt{Negozio} che contiene una collezione di elementi.
+	\item Si definisce una classe astratta \texttt{Elemento}, che presenta il metodo \texttt{accept(Visitor v)}, e le classi concrete \texttt{Libro} e \texttt{CD}, che derivano da \texttt{Elemento}
+	\item Si definisce l'interfaccia Visitor che presenta i metodi visitLibro(Libro libro) e visitCD(CD cd)
+	\item Si definisce la classe \texttt{VisitorVendita}, che implementa visitor e che racchiude rispettivamente la logica di vendita di libri e CD nei metodi visitLibro(Libro libro) e visitCD(CD cd)
+	\item Il negozio vuole consentire il prestito di libri e CD; per farlo sarà sufficiente creare una classe VisitorPrestito, che implementa Visitor e ridefinisce i metodi visitCD e visitLibro.
 \end{itemize}
 \end{solution}
 
@@ -1195,12 +1252,12 @@ Le linee guida per la sicurezza nella progettazione sono le seguenti:
 	Le politiche di sicurezza vengono esplicitate in documenti di alto livello, che definiscono quali siano i criteri della sicurezza, ma non specificano come ottenerla.
 	Occoore incorporare politiche di sicurezza in modo da specificare quali sono le informazioni che possono essere accedute e quale ente può accedervi, e quali precondizioni occorre soddisfare per l'accesso.
 	\item Evitare ogni singolo punto di fallimento, poiché il fallimento di una parte del sistema può compromettere l'intero sistema.
-	\item Fallire in modo controllato(?)
+	\item Fallire in modo controllato
 	\item Bilanciare sicurezza e usabilità del sistema, dato che l'aggiunta di ulteriori livelli di sicurezza possono richiedere tempo maggiore di apprendimento dell'uso del sistema da parte dell'utente.
 	\item Essere consapevoli delle conseguenze che l'ingegneria sociale può portare, poiché tramite quest'ultima è semplice ottenere alcuni dati personali dell'utente, e convincerlo di rivelare ulteriori dati sensibili.
 	\item Utilizzare per ridurre rischi i seguenti fattori:
 	\begin{itemize}
-		\item Ridondanza: mantenimetno di più versioni dello stesso software e di dati(?) nel sistema
+		\item Ridondanza: mantenimento di più versioni dello stesso software e di dati(?) nel sistema
 		\item Diversità: consiste nell'utilizzo di tecnologie diverse per le varie versioni del sistema, in modo che una vulnerabilità di una tecnologia non consenta un punto di fallimento comune.
 	\end{itemize}
 	\item Validare l'input, ovvero applicare controlli ai dati di ingresso, in modo da non potere sfruttare vulnerabilità come \textit{SQL Injection}, \textit{Buffer Overflow}
@@ -1231,7 +1288,7 @@ I tester non possiedono il codice sorgente, ma cercano di intuire la struttura d
 Sfruttano molte vulnerabilità inerenti ai linguaggi di programmazione utilizzati, alle configurazioni delle reti, degli host e delle maccchine virtuali.
 \newline
 Il White box testing prevede la conoscenza completa dell'applicazione da parte dei tester, dalle informazioni di configurazione delle reti e delle macchine virtuali fino al codice sorgente.
-In questo modo i tester possono effettuare una revisione del codice, e la creazione di test \textit{ad hoc} per il sistema, in modo da trarre vantaggio dalle debolezze scoperte.
+In questo modo i tester possono effettuare una revisione del codice, e la creazione di test \textit{ad hoc} per il sistema, traendo vantaggio dalle debolezze scoperte.
 Questo approccio consente di valutare, in primo luogo, la leggibilità e la modularità del codice.
 \end{solution}
 
