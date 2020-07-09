@@ -157,7 +157,7 @@ Un esempio è il seguente:
 	\item \texttt{Mammifero} e \texttt{Volatile} ereditano da \texttt{Animale}
 	\item Dato che l'ereditarietà multipla non è consentita si può adottare il seguente approccio:
 	\begin{itemize}
-		\item \texttt{Animale} rimane superclasse, e \texttt{Mammifero} eredita da \texttt{Animale}. \texttt{Pippistrello} deriva da \newline texttt{Mammifero} ed è legato tramite composizione a \texttt{Volatile}
+		\item \texttt{Animale} rimane superclasse, e \texttt{Mammifero} eredita da \texttt{Animale}. \texttt{Pippistrello} deriva da \newline \texttt{Mammifero} ed è legato tramite composizione a \texttt{Volatile}
 	\end{itemize}
 \end{itemize}
 Esiste un ulteriore approccio ed è una combinazione dei metodi \textit{Composizione-delega} e \texttt{interfacce}.
@@ -688,9 +688,11 @@ Dato che i dettagli del sistema sono stati isolati da un muro di astrazioni stab
 \end{itemize}
 Un esempio di principio di inversione delle dipendenze è il seguente:
 \begin{itemize}
-	\item Si consideri una classe \texttt{BigliettoConcerto} e una classe \texttt{GestoreVenditaBiglietti} che si occupa della vendita di \texttt{BigliettoConcerto}
-	\item Si considerino le classi \texttt{BigliettoNormale} e \texttt{BigliettoVIP}, che dipendono da \texttt{BigliettoConcerto}
-	\item \texttt{BigliettoConcerto} deve essere astratto, in quanto sia \texttt{BigliettoNormale} che \texttt{BigliettoVIP} dipendono da esso.
+	\item Si consideri una classe \texttt{BigliettoConcerto} e una classe \texttt{GestoreVenditaBiglietto} che si occupa della vendita di \texttt{BigliettoConcerto}
+	\item Vi è una dipendenza da parte di \texttt{GestoreVenditaBiglietto} verso la classe concreta \\\texttt{BigliettoConcerto}, rendendo poco manutenibile il codice.
+	\item Se si creassero infatti le classi concrete \texttt{BigliettoNormale} e \texttt{BigliettoVIP}, che estendono \texttt{BigliettoConcerto},
+	\item Per risolvere il problema occorre dichiarare \texttt{BigliettoConcerto} come un'interfaccia.
+	\item Nel caso in cui si vogliano aggiungere ulteriori tipologie di biglietto basta creare nuove classi concrete, senza modificare il codie di \texttt{GestoreVenditaBiglietto}
 \end{itemize}
 \end{solution}
 
@@ -857,9 +859,54 @@ Un esempio di utilizzo del pattern Singleton è l'accesso a un database, in quan
 Pattern Observer con esempi
 \end{problem}
 \begin{solution}
-Il pattern Observer viene utilizzato nel caso in cui il cambiamento di un oggetto preveda un aggiornamento degli altri oggetti (\textit{observer}).
-È previsto un accoppiamento uno a molti: l'oggetto che vuole ricevere un aggiornamento (\texttt{Observer}) si iscrive a \texttt{Subject}, che prevede un metodo \texttt{notify()}, il quale notifica tutti gli Observer dell'aggiornamento effettuato.
-Il diagramma UML previsto per il pattern Observer è il seguente:
+Il pattern Observer viene utilizzato nel caso in cui un oggetto (detto \textit{subject}) debba notificare un cambiamento del proprio stato interno a uno o più oggetti (detti \textit{observer}).
+Si definiscono le seguenti classi:
+\begin{itemize}
+	\item \texttt{Subject} dichiara i metodi \texttt{Attach()} (o \texttt{Register()}), \texttt{Detach()} (o
+	\texttt{Unregister()}) e \texttt{Notify()}.
+	\item Gli Observer dichiarano il metodo \texttt{Update()}.
+\end{itemize}
+Per registrarsi presso \textit{Subject}, un \textit{Observer} invoca il metodo \texttt{Attach()}.
+Successivamente, in caso di evento, \textit{Subject} chiama il metodo \texttt{Notify()}, che esegue \texttt{Update()} di tutti gli Observer che si sono registrati.
+\\Infine, un \texttt{Observer} si può disiscrivere a un \texttt{Subject}, sfruttando il metodo \texttt{Detach()}
+\newline
+Il pattern Observer è una delle cinque possibili soluzioni nel caso in cui si voglia aggiornare elementi in base al cambiamento del \textit{subject}.
+Altri possibili quattro approcci sono:
+\begin{itemize}
+	\item \textbf{Class based}: Ogni subject ha un riferimento diretto all'observer da notificare
+	\item \textbf{Interface based}: Ogni subject possiede un riferimento all'interfaccia implementata dagli \textit{observer}, aumentando il disaccoppiamento tra subject e observer
+	\item \textbf{Delegate based}: Ogni subject contiene un delegato pubblico, in modo che gli observer possano registrarsi a tale delegato e venire notificati indirettamente dal subject
+	\item \textbf{Event based}: un event si occupa di effettuare \texttt{Unregister()} degli observer.
+\end{itemize}
+Un esempio di utilizzo di pattern Observer potrebbe essere l'iscrizione da parte di diversi dispositivi elettronici a un sensore di temperatura; nel caso in cui la temperatura della stanza cambi, tutti i dispositivi registrati al subject \texttt{Sensore} vengono avvertiti.
+\end{solution}
+
+
+\begin{problem}{1.18.1}
+Pattern Flyweight con esempi
+\end{problem}
+\begin{solution}
+Il pattern flyweight consente la condivisione di oggetti leggeri tra più entità, in modo tale che il loro uso non sia troppo costoso.
+L'oggetto condiviso (flyweight) viene utilizzato da più client in modo efficace nello stesso momento.
+In particolare:
+\begin{itemize}
+	\item L'oggetto non deve essere distinguibile da un oggetto non condiviso
+	\item L'oggetto non deve fare ipotesi sul contesto in cui opera
+\end{itemize}
+Una corretta condivisione dei flyweight tra i Clienti viene garantita dall'utilizzo di una FlyweightFactory.
+Esistono due stati associati al pattern:
+\begin{itemize}
+	\item intrinseco: stato memorizzato nel flyweight e non dipende dal contesto di utilizzo
+	\item estrinseco: stato memorizzato dal cliente, e dipende dal contesto di utilizzo e non può essere condiviso da tutti i clienti.
+	Viene passato al flyweight da parte del client quando viene invocata una operazione relativa a flyweight.
+\end{itemize}
+Un esempio di pattern \textit{Flyweight} potrebbe essere la rappresentazione dei caratteri in un word processor.
+\begin{itemize}
+	\item Si consideri la classe Carattere. Senza Pattern flyweight ogni carattere scritto dall'utente risulterebbe in un nuovo oggetto Carattere, causando un'alta occupazione di memoria.
+	\item Applicando il pattern flyweight si riutilizza lo stesso carattere, senza ridefinire un nuovo oggetto a ogni sua occorrenza.
+	\item La classe Carattere può contenere i campi nome, font, dimensione, che rappresentano lo stato intrinseco dell'oggetto Flyweight.
+	\item Lo stato estrinseco è rappresentato dalla posizione del carattere (come riga e colonna) all'interno del testo, pertanto va gestito dal Client.
+\end{itemize}
 \end{solution}
 
 
