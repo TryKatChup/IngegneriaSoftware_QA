@@ -688,11 +688,11 @@ Dato che i dettagli del sistema sono stati isolati da un muro di astrazioni stab
 \end{itemize}
 Un esempio di principio di inversione delle dipendenze è il seguente:
 \begin{itemize}
-	\item Si consideri una classe \texttt{BigliettoConcerto} e una classe \texttt{GestoreVenditaBiglietto} che si occupa della vendita di \texttt{BigliettoConcerto}
-	\item Vi è una dipendenza da parte di \texttt{GestoreVenditaBiglietto} verso la classe concreta \\\texttt{BigliettoConcerto}, rendendo poco manutenibile il codice.
-	\item Se si creassero infatti le classi concrete \texttt{BigliettoNormale} e \texttt{BigliettoVIP}, che estendono \texttt{BigliettoConcerto},
-	\item Per risolvere il problema occorre dichiarare \texttt{BigliettoConcerto} come un'interfaccia.
-	\item Nel caso in cui si vogliano aggiungere ulteriori tipologie di biglietto basta creare nuove classi concrete, senza modificare il codie di \texttt{GestoreVenditaBiglietto}
+	\item Si considerino le classi concrete BigliettoNormale e GestoreVenditaBiglietti; quest'ultima ha una dipendenza verso BigliettoNormale.
+	\item Tale dipendenza è verso una classe concreta, pertanto il codice di GestoreVenditaBiglietti è poco manutenibile.
+	\newline Infatti, nel caso si volesse creare la classe BigliettoVIP occorrerebbe modificare il codice di GestoreVenditaBiglietti.
+	\item Per risolvere il problema, si introduce l'interfaccia IBiglietto e si fa sì che GestoreVenditaBiglietti dipenda da essa; inoltre, si modifica la classe BigliettoNormale in modo che implementi IBiglietto.
+	\item A questo punto, se si volesse aggiungere una nuova tipologia di biglietto, non sarebbe più necessario modificare GestoreVenditaBiglietti ma basterebbe creare una classe concreta che implementi IBiglietto (ad esempio, BigliettoVIP).
 \end{itemize}
 \end{solution}
 
@@ -1254,7 +1254,7 @@ Un'importante componente dell'analisi del rischio è la valutazione del rischio,
 	\newline
 	In questa fase vengono effettuate l'\textit{identificazione} e la \textit{valutazione} della vulnerabilità, ovvero quali beni hanno la maggiore probabilità di essere colpiti.
 	\newline
-	Il risultato della valutazione del rischio è un insieme di decisioni ingegneristiche che influenzano la progettazione o l'implementazione del sistema.
+	Il risultato della valutazione del rischio è un insieme di decisioni ingegneristiche che influenzano la progettazione o l'implementazione del sistema e limitano il suo utilizzo.
 \end{itemize}
 \end{solution}
 

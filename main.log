@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.12)  10 JUL 2020 00:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.12)  10 JUL 2020 01:07
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1085,10 +1085,6 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 671.
  [11]
-Overfull \hbox (34.5724pt too wide) in paragraph at lines 693--694
-[]\T1/cmr/m/n/10 Se si creas-se-ro in-fat-ti le clas-si con-cre-te \T1/cmtt/m/n/10 BigliettoNormale \T1/cmr/m/n/10 e \T1/cmtt/m/n/10 BigliettoVIP\T1/cmr/m/n/10 , che esten-do-no \T1/cmtt/m/n/10 BigliettoConcerto\T1/cmr/m/n/10 , 
- []
-
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 700.
@@ -1096,7 +1092,7 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 715.
 Package mdframed Info: Not enough space on this page on input line 717.
-[12]
+ [12]
 Package mdframed Info: Not enough space on this page on input line 717.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -1217,7 +1213,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  52i,11n,71p,843b,619s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2986.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (27 pages, 739596 bytes).
+Output written on main.pdf (27 pages, 739625 bytes).
 PDF statistics:
  265 PDF objects out of 1000 (max. 8388607)
  212 compressed objects within 3 object streams
