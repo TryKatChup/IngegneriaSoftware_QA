@@ -562,6 +562,60 @@ Un esempio di utilizzo di delegati è il seguente:
 \end{solution}
 
 \begin{problem}{1.9}
+Concetto di evento in C\#
+\end{problem}
+\begin{solution}
+Un evento viene utilizzato al posto di un delegato in quanto quest’ultimo utilizza campi pubblici per la registrazione di
+metodi.
+\newline
+\texttt{Event} consente di rendere automatico il supporto per la pubblica registrazione e l’implementazione privata.
+\newline
+Si possono fornire gestori di registrazione eventi definiti dall’utente: un possibile vantaggio di questo approccio è il
+\textit{controllo}.
+\newline
+Un evento viene scaturito dall’interazione con l’utente o in seguito alla logica del programma.
+Esistono tre entità relative agli eventi:
+\begin{itemize}
+	\item \textbf{Event sender}: la sorgente dell’evento è l’oggetto o la classe che scaturisce l’evento.
+	\item \textbf{Event receiver}: l’oggetto o la classe per il quale l’evento è determinante e quindi desidera di venire notificato
+   in caso di verifica dell’evento
+	\item \textbf{Event handler}: il metodo dell’\textit{event receiver}, eseguito nel momento in cui avviene la notifica.
+\end{itemize}
+Quando un evento si verifica, il sender invia un messaggio di notifica a tutti i \textit{receiver}; in genere il \textit{sender} non ha modo
+di conoscere né i gli \textit{handler}, né i \textit{receiver} e grazie all’utilizzo di delegati si collegano \textit{sender} e \textit{receiver}, consentendo
+\textit{invocazioni anonime}.
+L’evento incapsula il delegato, pertanto occorre dichiarare un tipo di delegato prima di dichiarare un evento.
+I delegati possiedono due parametri:
+\begin{itemize}
+	\item la fonte che ha scatenato l’evento;
+	\item dati dedicati all’evento.
+\end{itemize}
+Molti eventi non possiedono dati, pertanto è sufficiente utilizzare il delegato presente nella classe
+\\\texttt{System.EventHandler}. Occorre definire nuovi delegati per gestire gli eventi soltanto quando questi ultimi possiedono
+dei dati.
+Nel caso in cui un evento non debba passare ulteriori informazioni ai propri gestori viene sfruttata la classe
+\texttt{System.EventArgs}, aggiungendo i dati necessari e utilizzando il delegato \texttt{EventHandler<TEventArgs>}.
+\\
+Nel caso in cui si dichiari un evento, come
+\begin{center}
+	\texttt{Public event EventHandler changed}
+\end{center}
+La keyword \texttt{event} ne limita sia le possibilità di utilizzo che la visibilità; successivamente l’evento viene trattato come
+un delegato di tipo speciale, e può diventare \texttt{null} se nessun cliente si è registrato; può venire associato a uno o più
+metodi da invocare.
+\\
+Dato che un evento può essere visto come un delegato, sono consentite soltanto alcune operazioni del delegato,
+come l’aggiunta di un delegato all’evento (grazie all’operatore \texttt{+=}) oppure sganciarsi da un evento (mediante
+l’operatore \texttt{-=}).
+\\
+Per ricevere notifiche relative a quell’evento occorre che il cliente definisca un metodo \texttt{EventHandler}, che verrà
+evocato all’atto della notifica dell’evento; dopodiché si crea un delegato dello stesso tipo dell’evento, viene riferito al
+metodo e successivamente lo si aggiunge alla lista dei delegati di quell’evento.
+\\Grazie alle singole operazioni \texttt{+=} e \texttt{-=} ammesse nessuno può ottenere o modificare l’elenco dei metodi sottostante dei
+gestori di eventi.
+
+\end{solution}
+\begin{problem}{1.9}
 Metaprogrammazione e riflessione in C\#
 \end{problem}
 \begin{solution}
@@ -672,7 +726,7 @@ Un esempio di applicazione del seguente principio è il seguente:
 Principio di inversione delle dipendenze con almeno un esempio
 \end{problem}
 \begin{solution}
-Il principio di inversione delle dipendenze prevede che i moduli di alto livello (i \textit{clienti}) non debbano dipendere dai moduli di basso livello(ovvero i \textit{fornitori dei servizi}). Entrambi devono dipendere da \textit{astrazioni}.
+Il principio di inversione delle dipendenze prevede che i moduli di alto livello (i \textit{clienti}) non debbano dipendere dai moduli di basso livello (ovvero i \textit{fornitori dei servizi}). Entrambi devono dipendere da \textit{astrazioni}.
 \newline
 Il motivo della precedente affermazione è dovuto alla presenza di codice e della logica implementativa nei moduli di basso livello. Nel caso in cui i moduli di alto livello dovessero dipendere da moduli di basso livello si avrebbe:
 \begin{itemize}
@@ -859,7 +913,7 @@ Un esempio di utilizzo del pattern Singleton è l'accesso a un database, in quan
 Pattern Observer con esempi
 \end{problem}
 \begin{solution}
-Il pattern Observer viene utilizzato nel caso in cui un oggetto (detto \textit{subject}) debba notificare un cambiamento del proprio stato interno a uno o più oggetti (detti \textit{observer}).
+Il pattern \textit{Observer} viene utilizzato nel caso in cui un oggetto (detto \textit{subject}) debba notificare un cambiamento del proprio stato interno a uno o più oggetti (detti \textit{observer}).
 Si definiscono le seguenti classi:
 \begin{itemize}
 	\item \texttt{Subject} dichiara i metodi \texttt{Attach()} (o \texttt{Register()}), \texttt{Detach()} (o
@@ -886,14 +940,14 @@ Un esempio di utilizzo di pattern Observer potrebbe essere l'iscrizione da parte
 Pattern Flyweight con esempi
 \end{problem}
 \begin{solution}
-Il pattern flyweight consente la condivisione di oggetti leggeri tra più entità, in modo tale che il loro uso non sia troppo costoso.
+Il pattern \textit{Flyweight} consente la condivisione di oggetti leggeri tra più entità, in modo tale che il loro utilizzo non sia troppo costoso.
 L'oggetto condiviso (flyweight) viene utilizzato da più client in modo efficace nello stesso momento.
 In particolare:
 \begin{itemize}
 	\item L'oggetto non deve essere distinguibile da un oggetto non condiviso
 	\item L'oggetto non deve fare ipotesi sul contesto in cui opera
 \end{itemize}
-Una corretta condivisione dei flyweight tra i Clienti viene garantita dall'utilizzo di una FlyweightFactory.
+Una corretta condivisione dei flyweight tra i clienti viene garantita dall'utilizzo di \textit{FlyweightFactory}.
 Esistono due stati associati al pattern:
 \begin{itemize}
 	\item intrinseco: stato memorizzato nel flyweight e non dipende dal contesto di utilizzo
