@@ -355,6 +355,7 @@ INPUT ./ingegneriaSoftwareQA.out
 INPUT ingegneriaSoftwareQA.pyg
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
+INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2986.pfb

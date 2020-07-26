@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1595772983 "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/ingegneriaSoftwareQA.tex" "ingegneriaSoftwareQA.pdf" "ingegneriaSoftwareQA" 1595773043
+["pdflatex"] 1595774136 "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/ingegneriaSoftwareQA.tex" "ingegneriaSoftwareQA.pdf" "ingegneriaSoftwareQA" 1595774137
   "/dev/null" 1595749327 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/ingegneriaSoftwareQA.tex" 1595773041 2798 e8b37a4f5263db0b06b37594f52bb78c ""
+  "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/ingegneriaSoftwareQA.tex" 1595774136 3171 d55ef8620cdd5883eeb07ecf5259d784 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1591545468 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1591545468 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1591545468 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -39,6 +39,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1591545468 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1591545468 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1591545468 1116 25a7bf822c58caf309a702ef79f4afbb ""
+  "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb" 1591545468 143961 201304b65f97bc643fbd0bcf0685d1fe ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb" 1591545468 145408 43d44302ca7d82d487f511f83e309505 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb" 1591545468 135942 859a90cad7494a1e79c94baf546d7de5 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2986.pfb" 1591545468 142040 81ed96a99562cda9ca04ec4082f4c28a ""
@@ -167,14 +168,14 @@
   "immagini/riferimentiCircolari.jpg" 1593810555 19834 34f8210f518d95084ebab6f8143a76f7 ""
   "immagini/strategyPattern.png" 1595753276 2504 e4f5c7c5d82df02c49c5c5c66195715b ""
   "immagini/visitorPattern.png" 1595753595 49164 fb662516372a260cc33f85a102b9d798 ""
-  "ingegneriaSoftwareQA.aux" 1595772984 2402 b098545df42c588c4a1ab792457a5651 "pdflatex"
-  "ingegneriaSoftwareQA.out" 1595772984 86 0ab897a687a6ce32418e5ccb0788dea2 "pdflatex"
-  "ingegneriaSoftwareQA.tex" 1595773041 2798 e8b37a4f5263db0b06b37594f52bb78c ""
+  "ingegneriaSoftwareQA.aux" 1595774137 2402 b098545df42c588c4a1ab792457a5651 "pdflatex"
+  "ingegneriaSoftwareQA.out" 1595774137 86 0ab897a687a6ce32418e5ccb0788dea2 "pdflatex"
+  "ingegneriaSoftwareQA.tex" 1595774136 3171 d55ef8620cdd5883eeb07ecf5259d784 ""
   "modulo1.tex" 1595773043 66756 0c2899caf17954f31c6581de6ccc9e98 ""
-  "modulo2.tex" 1595772980 19753 62497455a566d244ec859abf9a5b25df ""
+  "modulo2.tex" 1595773044 19753 62497455a566d244ec859abf9a5b25df ""
   "qrcode.png" 1593445168 1958 ce0509e1a634213fe17a998f1fb8a785 ""
   (generated)
-  "ingegneriaSoftwareQA.log"
   "ingegneriaSoftwareQA.aux"
-  "ingegneriaSoftwareQA.pdf"
   "ingegneriaSoftwareQA.out"
+  "ingegneriaSoftwareQA.log"
+  "ingegneriaSoftwareQA.pdf"
