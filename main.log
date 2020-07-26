@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.7.24)  26 JUL 2020 11:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.7.24)  26 JUL 2020 11:53
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -156,7 +156,14 @@ Package graphics Info: Driver file: pdftex.def on input line 105.
 Package: environ 2014/05/04 v0.3 A new way to define environments
  (/usr/share/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-)) (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+)) (/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen154
+\WF@size=\dimen155
+\c@WF@wrappedlines=\count190
+\WF@box=\box47
+\WF@everypar=\toks28
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
  (/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -174,29 +181,29 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ) (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks28
-\inpenc@posthook=\toks29
+\inpenc@prehook=\toks29
+\inpenc@posthook=\toks30
 ) (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 ) (/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2020/05/13 3.44 The Babel package
  (/usr/share/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2020/05/13 3.44 Babel common definitions
-\babel@savecnt=\count190
-\U@D=\dimen154
+\babel@savecnt=\count191
+\U@D=\dimen156
 \l@babelnohyphens=\language86
  (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 )
-\bbl@dirlevel=\count191
+\bbl@dirlevel=\count192
  (/usr/share/texmf-dist/tex/generic/babel-italian/italian.ldf
 Language: italian 2020/05/21 v.1.4.04 Italian support for the babel system
-\it@lettering=\count192
-\it@doublequoteactive=\count193
-\it@ISOcompliance=\count194
+\it@lettering=\count193
+\it@doublequoteactive=\count194
+\it@ISOcompliance=\count195
 )) (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count195
+\etb@tempcnta=\count196
 ) (/usr/share/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
  (/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
@@ -209,15 +216,15 @@ Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 Package: expl3 2020-06-03 L3 programming layer (loader) 
  (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count196
-\l__pdf_internal_box=\box47
+\l__kernel_color_stack_int=\count197
+\l__pdf_internal_box=\box48
 ))
 Package: xparse 2020-05-15 L3 Experimental document command parser
  (/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.tex
-\l__xparse_current_arg_int=\count197
-\g__xparse_grabber_int=\count198
-\l__xparse_m_args_int=\count199
-\l__xparse_v_nesting_int=\count266
+\l__xparse_current_arg_int=\count198
+\g__xparse_grabber_int=\count199
+\l__xparse_m_args_int=\count266
+\l__xparse_v_nesting_int=\count267
 )) (/usr/share/texmf-dist/tex/latex/zref/zref-abspage.sty
 Package: zref-abspage 2020-05-28 v2.31 Module abspage for zref (HO)
  (/usr/share/texmf-dist/tex/latex/zref/zref-base.sty
@@ -242,13 +249,13 @@ Package zref Info: New property: page on input line 765.
 ) (/usr/share/texmf-dist/tex/generic/atbegshi/atbegshi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\c@abspage=\count267
+\c@abspage=\count268
 Package zref Info: New property: abspage on input line 66.
 ) (/usr/share/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
 \mdf@templength=\skip64
-\c@mdf@globalstyle@cnt=\count268
+\c@mdf@globalstyle@cnt=\count269
 \mdf@skipabove@length=\skip65
 \mdf@skipbelow@length=\skip66
 \mdf@leftmargin@length=\skip67
@@ -291,11 +298,11 @@ Package: needspace 2010/09/12 v1.3d reserve vertical space
  (/usr/share/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 )
-\mdf@frametitlebox=\box48
-\mdf@footnotebox=\box49
-\mdf@splitbox@one=\box50
-\mdf@splitbox@two=\box51
-\mdf@splitbox@save=\box52
+\mdf@frametitlebox=\box49
+\mdf@footnotebox=\box50
+\mdf@splitbox@one=\box51
+\mdf@splitbox@two=\box52
+\mdf@splitbox@save=\box53
 \mdfsplitboxwidth=\skip104
 \mdfsplitboxtotalwidth=\skip105
 \mdfsplitboxheight=\skip106
@@ -323,16 +330,16 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@horizontalspaceofbox=\skip128
 \mdfsubtitleheight=\skip129
 \mdfsubsubtitleheight=\skip130
-\c@mdfcountframes=\count269
+\c@mdfcountframes=\count270
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count270
-\c@mdf@env@i=\count271
-\c@mdf@env@ii=\count272
-\c@mdf@zref@counter=\count273
+\mdf@envdepth=\count271
+\c@mdf@env@i=\count272
+\c@mdf@env@ii=\count273
+\c@mdf@zref@counter=\count274
 Package zref Info: New property: mdf@pagevalue on input line 895.
 ) (/usr/share/texmf/tex/latex/minted/minted.sty
 Package: minted 2017/07/19 v2.5 Yet another Pygments shim for LaTeX
@@ -342,11 +349,11 @@ Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 ) (/usr/share/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2020/05/03 v3.6 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count274
+\FV@CodeLineNo=\count275
 \FV@InFile=\read3
-\FV@TabBox=\box53
-\c@FancyVerbLine=\count275
-\FV@StepNumber=\count276
+\FV@TabBox=\box54
+\c@FancyVerbLine=\count276
+\FV@StepNumber=\count277
 \FV@OutFile=\write4
 ) (/usr/share/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
@@ -354,55 +361,55 @@ Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbat
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )) (/usr/share/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count277
-\output=\toks30
-\linenoprevgraf=\count278
-\linenumbersep=\dimen155
-\linenumberwidth=\dimen156
-\c@linenumber=\count279
-\c@pagewiselinenumber=\count280
-\c@LN@truepage=\count281
-\c@internallinenumber=\count282
-\c@internallinenumbers=\count283
-\quotelinenumbersep=\dimen157
-\bframerule=\dimen158
-\bframesep=\dimen159
-\bframebox=\box54
+\linenopenalty=\count278
+\output=\toks31
+\linenoprevgraf=\count279
+\linenumbersep=\dimen157
+\linenumberwidth=\dimen158
+\c@linenumber=\count280
+\c@pagewiselinenumber=\count281
+\c@LN@truepage=\count282
+\c@internallinenumber=\count283
+\c@internallinenumbers=\count284
+\quotelinenumbersep=\dimen159
+\bframerule=\dimen160
+\bframesep=\dimen161
+\bframebox=\box55
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count284
-\c@FV@TrueTabCounter=\count285
-\FV@TabBox@Group=\box55
+\c@FV@TrueTabGroupLevel=\count285
+\c@FV@TrueTabCounter=\count286
+\FV@TabBox@Group=\box56
 \FV@TmpLength=\skip131
-\c@FV@HighlightLinesStart=\count286
-\c@FV@HighlightLinesStop=\count287
-\FV@LoopCount=\count288
-\FV@NCharsBox=\box56
-\FV@BreakIndent=\dimen160
-\FV@BreakIndentNChars=\count289
-\FV@BreakSymbolSepLeft=\dimen161
-\FV@BreakSymbolSepLeftNChars=\count290
-\FV@BreakSymbolSepRight=\dimen162
-\FV@BreakSymbolSepRightNChars=\count291
-\FV@BreakSymbolIndentLeft=\dimen163
-\FV@BreakSymbolIndentLeftNChars=\count292
-\FV@BreakSymbolIndentRight=\dimen164
-\FV@BreakSymbolIndentRightNChars=\count293
-\c@FancyVerbLineBreakLast=\count294
-\FV@LineBox=\box57
-\FV@LineIndentBox=\box58
-\FV@LineWidth=\dimen165
+\c@FV@HighlightLinesStart=\count287
+\c@FV@HighlightLinesStop=\count288
+\FV@LoopCount=\count289
+\FV@NCharsBox=\box57
+\FV@BreakIndent=\dimen162
+\FV@BreakIndentNChars=\count290
+\FV@BreakSymbolSepLeft=\dimen163
+\FV@BreakSymbolSepLeftNChars=\count291
+\FV@BreakSymbolSepRight=\dimen164
+\FV@BreakSymbolSepRightNChars=\count292
+\FV@BreakSymbolIndentLeft=\dimen165
+\FV@BreakSymbolIndentLeftNChars=\count293
+\FV@BreakSymbolIndentRight=\dimen166
+\FV@BreakSymbolIndentRightNChars=\count294
+\c@FancyVerbLineBreakLast=\count295
+\FV@LineBox=\box58
+\FV@LineIndentBox=\box59
+\FV@LineWidth=\dimen167
 ) (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count295
-\calc@Bcount=\count296
-\calc@Adimen=\dimen166
-\calc@Bdimen=\dimen167
+\calc@Acount=\count296
+\calc@Bcount=\count297
+\calc@Adimen=\dimen168
+\calc@Bdimen=\dimen169
 \calc@Askip=\skip132
 \calc@Bskip=\skip133
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count297
+\calc@Ccount=\count298
 \calc@Cskip=\skip134
 ) (/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
@@ -420,43 +427,43 @@ runsystem(uname -s > "main.w18")...executed.
 runsystem(rm -- "main.w18")...executed.
 
 ) (/usr/share/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count298
-\decimalpart=\count299
+\integerpart=\count299
+\decimalpart=\count300
 )
 Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 ) (/usr/share/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip135
-\fb@frw=\dimen168
-\fb@frh=\dimen169
-\FrameRule=\dimen170
-\FrameSep=\dimen171
+\fb@frw=\dimen170
+\fb@frh=\dimen171
+\FrameRule=\dimen172
+\FrameSep=\dimen173
 ) (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count300
-\float@exts=\toks31
-\float@box=\box59
-\@float@everytoks=\toks32
-\@floatcapt=\box60
+\c@float@type=\count301
+\float@exts=\toks32
+\float@box=\box60
+\@float@everytoks=\toks33
+\@floatcapt=\box61
 )
 \minted@appexistsfile=\read4
-\minted@bgbox=\box61
+\minted@bgbox=\box62
 \minted@code=\write5
-\c@minted@FancyVerbLineTemp=\count301
-\c@minted@pygmentizecounter=\count302
-\@float@every@listing=\toks33
-\c@listing=\count303
+\c@minted@FancyVerbLineTemp=\count302
+\c@minted@pygmentizecounter=\count303
+\@float@every@listing=\toks34
+\c@listing=\count304
 )
 runsystem(mkdir -p _minted-main)...executed.
 
  (/usr/share/texmf/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip136
-\enit@outerparindent=\dimen172
-\enit@toks=\toks34
-\enit@inbox=\box62
-\enit@count@id=\count304
-\enitdp@description=\count305
+\enit@outerparindent=\dimen174
+\enit@toks=\toks35
+\enit@inbox=\box63
+\enit@count@id=\count305
+\enitdp@description=\count306
 ) (/usr/share/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 ) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -468,9 +475,9 @@ Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ) (/usr/share/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 )
-\@linkdim=\dimen173
-\Hy@linkcounter=\count306
-\Hy@pagecounter=\count307
+\@linkdim=\dimen175
+\Hy@linkcounter=\count307
+\Hy@pagecounter=\count308
  (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -478,7 +485,7 @@ Now handling font encoding PD1 ...
 ) (/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count308
+\Hy@SavedSpaceFactor=\count309
 Package hyperref Info: Hyper figures OFF on input line 4464.
 Package hyperref Info: Link nesting OFF on input line 4469.
 Package hyperref Info: Hyper index ON on input line 4472.
@@ -486,21 +493,21 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count309
+\c@Hy@tempcnt=\count310
  (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5076.
-\XeTeXLinkMargin=\dimen174
+\XeTeXLinkMargin=\dimen176
  (/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count310
-\Field@Width=\dimen175
-\Fld@charsize=\dimen176
+\Fld@menulength=\count311
+\Field@Width=\dimen177
+\Fld@charsize=\dimen178
 Package hyperref Info: Hyper figures OFF on input line 6347.
 Package hyperref Info: Link nesting OFF on input line 6352.
 Package hyperref Info: Hyper index ON on input line 6355.
@@ -510,9 +517,9 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6372.
 Package hyperref Info: PDF/A mode OFF on input line 6377.
 LaTeX Info: Redefining \ref on input line 6417.
 LaTeX Info: Redefining \pageref on input line 6421.
-\Hy@abspage=\count311
-\c@Item=\count312
-\c@Hfootnote=\count313
+\Hy@abspage=\count312
+\c@Item=\count313
+\c@Hfootnote=\count314
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -520,9 +527,9 @@ File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
  (/usr/share/texmf-dist/tex/latex/atveryend/atveryend.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 )
-\HyAnn@Count=\count314
-\Fld@listcount=\count315
-\c@bookmark@seq@number=\count316
+\HyAnn@Count=\count315
+\Fld@listcount=\count316
+\c@bookmark@seq@number=\count317
  (/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
  (/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -538,7 +545,20 @@ runsystem(which pygmentize && touch main.aex)...executed.
 
 runsystem(rm main.aex)...executed.
 
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `ObserverPattern' multiply defined.
+
+
+LaTeX Warning: Label `ObserverPattern' multiply defined.
+
+
+LaTeX Warning: Label `ObserverPattern' multiply defined.
+
+
+LaTeX Warning: Label `ObserverPattern' multiply defined.
+
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
@@ -592,17 +612,17 @@ LaTeX Font Info:    ... okay on input line 53.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count317
-\scratchdimen=\dimen177
-\scratchbox=\box63
-\nofMPsegments=\count318
-\nofMParguments=\count319
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count320
-\MPscratchDim=\dimen178
-\MPnumerator=\count321
-\makeMPintoPDFobject=\count322
-\everyMPtoPDFconversion=\toks36
+\scratchcounter=\count318
+\scratchdimen=\dimen179
+\scratchbox=\box64
+\nofMPsegments=\count319
+\nofMParguments=\count320
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count321
+\MPscratchDim=\dimen180
+\MPnumerator=\count322
+\makeMPintoPDFobject=\count323
+\everyMPtoPDFconversion=\toks37
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -611,7 +631,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 LaTeX Info: Redefining \it@ocap on input line 53.
 LaTeX Info: Redefining \it@ccap on input line 53.
-\AtBeginShipoutBox=\box64
+\AtBeginShipoutBox=\box65
 Package hyperref Info: Link coloring ON on input line 53.
  (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -620,7 +640,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count323
+\c@section@level=\count324
 )
 LaTeX Info: Redefining \ref on input line 53.
 LaTeX Info: Redefining \pageref on input line 53.
@@ -687,178 +707,221 @@ Package pdftex.def Info: ./immagini/riferimentiCircolari.jpg  used on input line
 (pdftex.def)             Requested size: 170.71652pt x 111.6078pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 271.
-Package mdframed Info: Not enough space on this page on input line 273.
+(mdframed)              on input line 270.
+Package mdframed Info: Not enough space on this page on input line 272.
  [4 <./immagini/riferimentiCircolari.jpg>]
-Package mdframed Info: Not enough space on this page on input line 273.
+Package mdframed Info: Not enough space on this page on input line 272.
+ (./_minted-main/00F1A3B31AA47159D17D5A3F152D78AB9289EA7C6515AF18390A872102ADB8BE.pygtex) (./_minted-main/FB0DA74724B3506EA33F4F8DACF704279289EA7C6515AF18390A872102ADB8BE.pygtex) [5] (./_minted-main/C6BBBBC079B84E3F4D6357380FB801299289EA7C6515AF18390A872102ADB8BE.pygtex)
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 278.
- (./_minted-main/00F1A3B31AA47159D17D5A3F152D78AB9289EA7C6515AF18390A872102ADB8BE.pygtex) [5] (./_minted-main/FB0DA74724B3506EA33F4F8DACF704279289EA7C6515AF18390A872102ADB8BE.pygtex) (./_minted-main/C6BBBBC079B84E3F4D6357380FB801299289EA7C6515AF18390A872102ADB8BE.pygtex)
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 385.
+(mdframed)              on input line 377.
  [6]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 438.
- [7] (./_minted-main/00F1A3B31AA47159D17D5A3F152D78AB9289EA7C6515AF18390A872102ADB8BE.pygtex) (./_minted-main/FB0DA74724B3506EA33F4F8DACF704279289EA7C6515AF18390A872102ADB8BE.pygtex) (./_minted-main/C6BBBBC079B84E3F4D6357380FB801299289EA7C6515AF18390A872102ADB8BE.pygtex)
+(mdframed)              on input line 430.
+ (./_minted-main/00F1A3B31AA47159D17D5A3F152D78AB9289EA7C6515AF18390A872102ADB8BE.pygtex) [7] (./_minted-main/FB0DA74724B3506EA33F4F8DACF704279289EA7C6515AF18390A872102ADB8BE.pygtex) (./_minted-main/C6BBBBC079B84E3F4D6357380FB801299289EA7C6515AF18390A872102ADB8BE.pygtex)
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 525.
+(mdframed)              on input line 517.
  [8]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 564.
+(mdframed)              on input line 556.
  [9]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 618.
- [10]
-Underfull \hbox (badness 10000) in paragraph at lines 650--657
+(mdframed)              on input line 610.
+
+Underfull \hbox (badness 10000) in paragraph at lines 642--649
 
  []
 
+[10]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 668.
-[11]
+(mdframed)              on input line 660.
+ [11]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 706.
+(mdframed)              on input line 698.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 725.
+(mdframed)              on input line 717.
  [12]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 754.
+(mdframed)              on input line 746.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 769.
+(mdframed)              on input line 761.
  [13]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 800.
+(mdframed)              on input line 792.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 830.
-Package mdframed Info: Not enough space on this page on input line 832.
+(mdframed)              on input line 822.
  [14]
-Package mdframed Info: Not enough space on this page on input line 832.
+Underfull \hbox (badness 10000) in paragraph at lines 837--843
 
-Underfull \hbox (badness 10000) in paragraph at lines 845--851
+ []
+
+[15]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 858.
+Package mdframed Info: Not enough space on this page on input line 860.
+ (./_minted-main/4C8A67698B3AD0717CA7CC1CACA0579696F4A172713D9CAFDFB180198F2E831C.pygtex)
+<./immagini/DatabaseSingleton.png, id=115, 362.35374pt x 191.71625pt>
+File: ./immagini/DatabaseSingleton.png Graphic file (type png)
+<use ./immagini/DatabaseSingleton.png>
+Package pdftex.def Info: ./immagini/DatabaseSingleton.png  used on input line 899.
+(pdftex.def)             Requested size: 181.17642pt x 95.85788pt.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 903.
+ [16 <./immagini/DatabaseSingleton.png>]
+<./immagini/observerPattern.png, id=122, 1927.2pt x 796.9775pt>
+File: ./immagini/observerPattern.png Graphic file (type png)
+<use ./immagini/observerPattern.png>
+Package pdftex.def Info: ./immagini/observerPattern.png  used on input line 933.
+(pdftex.def)             Requested size: 256.0748pt x 105.89696pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 926--936
 
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 866.
-[15] (./_minted-main/4C8A67698B3AD0717CA7CC1CACA0579696F4A172713D9CAFDFB180198F2E831C.pygtex)
-<./immagini/DatabaseSingleton.png, id=115, 362.35374pt x 191.71625pt>
-File: ./immagini/DatabaseSingleton.png Graphic file (type png)
-<use ./immagini/DatabaseSingleton.png>
-Package pdftex.def Info: ./immagini/DatabaseSingleton.png  used on input line 907.
-(pdftex.def)             Requested size: 181.17642pt x 95.85788pt.
- [16 <./immagini/DatabaseSingleton.png>]
+(mdframed)              on input line 937.
+[17 <./immagini/observerPattern.png>]
+<./immagini/flyweightPattern.png, id=127, 453.695pt x 303.1325pt>
+File: ./immagini/flyweightPattern.png Graphic file (type png)
+<use ./immagini/flyweightPattern.png>
+Package pdftex.def Info: ./immagini/flyweightPattern.png  used on input line 967.
+(pdftex.def)             Requested size: 227.62204pt x 152.08392pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 912.
-Package mdframed Info: Not enough space on this page on input line 914.
+(mdframed)              on input line 971.
+<./immagini/strategyPattern.png, id=128, 466.74374pt x 203.76125pt>
+File: ./immagini/strategyPattern.png Graphic file (type png)
+<use ./immagini/strategyPattern.png>
+Package pdftex.def Info: ./immagini/strategyPattern.png  used on input line 992.
+(pdftex.def)             Requested size: 284.52756pt x 124.21645pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 939.
+(mdframed)              on input line 997.
+Package mdframed Info: Not enough space on this page on input line 999.
+ [18 <./immagini/flyweightPattern.png (PNG copy)> <./immagini/strategyPattern.png>]
+Package mdframed Info: Not enough space on this page on input line 999.
+<./immagini/adapterPattern.png, id=135, 1927.2pt x 963.6pt>
+File: ./immagini/adapterPattern.png Graphic file (type png)
+<use ./immagini/adapterPattern.png>
+Package pdftex.def Info: ./immagini/adapterPattern.png  used on input line 1017.
+(pdftex.def)             Requested size: 256.0748pt x 128.03662pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 967.
-Package mdframed Info: Not enough space on this page on input line 969.
- [17]
-Package mdframed Info: Not enough space on this page on input line 969.
+(mdframed)              on input line 1021.
+ [19 <./immagini/adapterPattern.png>]
+<./immagini/decoratorPattern.png, id=141, 803.0pt x 635.37375pt>
+File: ./immagini/decoratorPattern.png Graphic file (type png)
+<use ./immagini/decoratorPattern.png>
+Package pdftex.def Info: ./immagini/decoratorPattern.png  used on input line 1051.
+(pdftex.def)             Requested size: 256.0748pt x 202.6257pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 987.
- [18]
+(mdframed)              on input line 1055.
+ [20 <./immagini/decoratorPattern.png>]
+<./immagini/compositePattern.png, id=147, 803.0pt x 518.93875pt>
+File: ./immagini/compositePattern.png Graphic file (type png)
+<use ./immagini/compositePattern.png>
+Package pdftex.def Info: ./immagini/compositePattern.png  used on input line 1094.
+(pdftex.def)             Requested size: 256.0748pt x 165.49367pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1005.
-Package mdframed Info: Not enough space on this page on input line 1007.
+(mdframed)              on input line 1099.
+ [21 <./immagini/compositePattern.png>]
+<./immagini/visitorPattern.png, id=153, 803.0pt x 818.05624pt>
+File: ./immagini/visitorPattern.png Graphic file (type png)
+<use ./immagini/visitorPattern.png>
+Package pdftex.def Info: ./immagini/visitorPattern.png  used on input line 1143.
+(pdftex.def)             Requested size: 227.62204pt x 231.88771pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1033.
- [19]
+(mdframed)              on input line 1148.
+Package mdframed Info: Not enough space on this page on input line 1150.
+ [22 <./immagini/visitorPattern.png>]
+Package mdframed Info: Not enough space on this page on input line 1150.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1071.
- [20]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1113.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1134.
- [21]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1153.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1191.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1203.
- [22]
-Package mdframed Info: Not enough space on this page on input line 1205.
+(mdframed)              on input line 1169.
  [23]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1265.
+(mdframed)              on input line 1188.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1294.
+(mdframed)              on input line 1226.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1238.
  [24]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1315.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1338.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1346.
+Package mdframed Info: Not enough space on this page on input line 1240.
  [25]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1381.
+(mdframed)              on input line 1300.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1396.
-Package mdframed Info: Not enough space on this page on input line 1398.
+(mdframed)              on input line 1329.
  [26]
-Package mdframed Info: Not enough space on this page on input line 1398.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1429.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1350.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1373.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1381.
  [27]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1429.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1416.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1431.
+Package mdframed Info: Not enough space on this page on input line 1433.
+ [28]
+Package mdframed Info: Not enough space on this page on input line 1433.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1464.
+ [29]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1464.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1429.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1429.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1464.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1464.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 0AB897A687A6CE32418E5CCB0788DEA2;86.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 runsystem(rm main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 13370 strings out of 480478
- 221331 string characters out of 5905959
- 578003 words of memory out of 5000000
- 28995 multiletter control sequences out of 15000+600000
+ 13479 strings out of 480478
+ 223479 string characters out of 5905959
+ 579355 words of memory out of 5000000
+ 29091 multiletter control sequences out of 15000+600000
  549161 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,11n,45p,843b,617s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,11n,45p,843b,623s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2986.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (28 pages, 742793 bytes).
+Output written on main.pdf (30 pages, 904253 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 215 compressed objects within 3 object streams
- 76 named destinations out of 1000 (max. 500000)
- 42 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 221 compressed objects within 3 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 

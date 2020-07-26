@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ, wrapfig}
 \usepackage{xcolor}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -267,15 +267,7 @@ Il CLR prevede servizi aggiuntivi come:
 \end{itemize}
 \end{solution}
 
-
 \begin{problem}{1.4}
-Tipi di dati in .NET
-\end{problem}
-\begin{solution}
-\end{solution}
-
-
-\begin{problem}{1.5}
 Differenza tra tipi valore e tipi riferimento in .NET
 \end{problem}
 \begin{solution}
@@ -382,7 +374,7 @@ static void assegnaPosto(out PostoRistorante posto){
 \end{solution}
 
 
-\begin{problem}{1.6}
+\begin{problem}{1.5}
 Garbage Collector in C\#
 \end{problem}
 \begin{solution}
@@ -435,7 +427,7 @@ Nel caso in cui un oggetto contenga riferimenti a risorse di tipo unmanaged (fil
 \end{solution}
 
 
-\begin{problem}{1.7}
+\begin{problem}{1.6}
 Passaggio dei parametri in C\#
 \end{problem}
 \begin{solution}
@@ -522,7 +514,7 @@ static void assegnaPosto(out PostoRistorante posto){
 
 
 
-\begin{problem}{1.8}
+\begin{problem}{1.7}
 Concetto di delegato in C\#
 \end{problem}
 \begin{solution}
@@ -561,7 +553,7 @@ Un esempio di utilizzo di delegati è il seguente:
 \end{itemize}
 \end{solution}
 
-\begin{problem}{1.9}
+\begin{problem}{1.8}
 Concetto di evento in C\#
 \end{problem}
 \begin{solution}
@@ -862,7 +854,7 @@ Una buona prassi consiste nel possedere package stabili \textbf{astratti}, in mo
 
 \end{solution}
 
-
+\newpage
 \begin{problem}{1.17}
 Pattern Singleton con esempi
 \end{problem}
@@ -908,7 +900,6 @@ Un esempio di utilizzo del pattern Singleton è l'accesso a un database, in quan
   \end{figure}
 \end{solution}
 
-\newpage
 \begin{problem}{1.18}
 Pattern Observer con esempi
 \end{problem}
@@ -933,8 +924,15 @@ Altri possibili quattro approcci sono:
 	\item \textbf{Event based}: un event si occupa di effettuare \texttt{Unregister()} degli observer.
 \end{itemize}
 Un esempio di utilizzo di pattern Observer potrebbe essere l'iscrizione da parte di diversi dispositivi elettronici a un sensore di temperatura; nel caso in cui la temperatura della stanza cambi, tutti i dispositivi registrati al subject \texttt{Sensore} vengono avvertiti.
+\newline
+\newline
+\textbf{Diagramma UML:}
+\begin{figure}[htb!]
+	\centering
+	\label{ObserverPattern}
+	\includegraphics[width=9cm]{./immagini/observerPattern.png}
+\end{figure}
 \end{solution}
-
 
 \begin{problem}{1.18.1}
 Pattern Flyweight con esempi
@@ -961,8 +959,14 @@ Un esempio di pattern \textit{Flyweight} potrebbe essere la rappresentazione dei
 	\item La classe Carattere può contenere i campi nome, font, dimensione, che rappresentano lo stato intrinseco dell'oggetto Flyweight.
 	\item Lo stato estrinseco è rappresentato dalla posizione del carattere (come riga e colonna) all'interno del testo, pertanto va gestito dal Client.
 \end{itemize}
+\newpage
+\textbf{Diagramma UML:}
+\begin{figure}[htb!]
+	\centering
+	\label{FlyweightPattern}
+	\includegraphics[width=8cm]{./immagini/flyweightPattern.png}
+\end{figure}
 \end{solution}
-
 
 \begin{problem}{1.19}
 Pattern Strategy con esempi
@@ -981,6 +985,12 @@ Un esempio di utilizzo del pattern Strategy è il seguente:
 	\item Classe concreta \texttt{BubbleSortStrategy} che implementa l'interfaccia \texttt{ISortStrategy} e realizza il metodo \texttt{sort()}, usando l'algorirmo di \textit{bubble sort}
 	\item Classe \texttt{Cliente} che ha un riferimento a un oggetto di tipo \texttt{ISortStrategy}
 \end{itemize}
+\textbf{Diagramma UML:}
+\begin{figure}[htb!]
+	\centering
+	\label{StrategyPattern}
+	\includegraphics[width=10cm]{./immagini/strategyPattern.png}
+\end{figure}
 \end{solution}
 
 
@@ -1000,8 +1010,14 @@ Un esempio di utilizzo del pattern Adapter è il seguente:
 	\item Si realizza una classe MediaAdapter, che implementa MediaPlayer e che mantiene un riferimento a MP3Player; in particolare quando il client einvocherà il metodo play() di MediaPlayer, verrà invocato da MediaAdapter il metodo play() di MP3Player, senza che il cliente se ne accorga.
 
 \end{itemize}
+\textbf{Diagramma UML:}
+\begin{figure}[htb!]
+	\centering
+	\label{ObserverPattern}
+	\includegraphics[width=9cm]{./immagini/adapterPattern.png}
+\end{figure}
 \end{solution}
-\newpage
+
 \begin{problem}{1.21}
 Pattern Decorator con esempi
 \end{problem}
@@ -1028,6 +1044,12 @@ Un esempio di utilizzo del pattern \textit{Decorator} è il seguente:
 \\
 \texttt{TeaWithIce}
 \end{itemize}
+\textbf{Diagramma UML:}
+\begin{figure}[htb!]
+	\centering
+	\label{ObserverPattern}
+	\includegraphics[width=9cm]{./immagini/decoratorPattern.png}
+\end{figure}
 \end{solution}
 
 \begin{problem}{1.22}
@@ -1065,6 +1087,12 @@ Un esempio di utilizzo del pattern \textit{composite} è il seguente:
 \\
 \texttt{Programmatore}.
 \end{itemize}
+\textbf{Diagramma UML:}
+\begin{figure}[htb!]
+	\centering
+	\label{ObserverPattern}
+	\includegraphics[width=9cm]{./immagini/compositePattern.png}
+\end{figure}
 \end{solution}
 
 
@@ -1107,6 +1135,13 @@ Si consideri il seguente esempio:
 	\item Si definisce la classe \texttt{VisitorVendita}, che implementa visitor e che racchiude rispettivamente la logica di vendita di libri e CD nei metodi visitLibro(Libro libro) e visitCD(CD cd)
 	\item Il negozio vuole consentire il prestito di libri e CD; per farlo sarà sufficiente creare una classe VisitorPrestito, che implementa Visitor e ridefinisce i metodi visitCD e visitLibro.
 \end{itemize}
+
+\textbf{Diagramma UML:}
+\begin{figure}[htb!]
+	\centering
+	\label{ObserverPattern}
+	\includegraphics[width=8cm]{./immagini/visitorPattern.png}
+\end{figure}
 \end{solution}
 
 
