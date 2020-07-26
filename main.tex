@@ -113,13 +113,13 @@ Un esempio di ambiguità si riscontra nel \textit{problema del diamante} (il nom
 \end{figure}
 Siano \texttt{A}, \texttt{B}, \texttt{C}, \texttt{D} quattro classi definite nel seguente modo:
 \begin{itemize}
-	\item \texttt{A} possiede un metodo \texttt{doSomething()}
-	\item \texttt{B}, \texttt{C} sono classi figlie di \texttt{A} che ridefiniscono entrambe tale metodo.
+	\item \texttt{A} possiede un metodo \texttt{doSomething()};
+	\item \texttt{B}, \texttt{C} sono classi figlie di \texttt{A} che ridefiniscono entrambe tale metodo;
 	\item \texttt{D} eredita sia da \texttt{B} che da \texttt{C}.
 \end{itemize}
 L'ambiguità si presenta dal momento in cui non è noto quale implementazione di \texttt{doSomething()} \texttt{D} erediti.
 \newline
-C\# e Java non adottano l'ereditarietà multipla delle classi, bensì delle interfacce, poiché queste ultime non specificano il comportamento di un metodo, ma solo la sua firma.
+C\# e Java non adottano l'ereditarietà multipla delle classi, bensì delle \textbf{interfacce}, poiché queste ultime non specificano il comportamento di un metodo, ma solo la sua firma.
 \newline
 Un esempio di ereditarietà multipla delle interfacce è il seguente:
 \begin{minted}
@@ -154,13 +154,14 @@ Un metodo alternativo all'ereditarietà multipla è il modello \textbf{composizi
 Un esempio è il seguente:
 \begin{itemize}
 	\item Si supponga di avere la classe \texttt{Pippistrello} che eredita sia dalla classe \texttt{Mammifero} che dalla classe \texttt{Volatile}.
-	\item \texttt{Mammifero} e \texttt{Volatile} ereditano da \texttt{Animale}
+	\item \texttt{Mammifero} e \texttt{Volatile} ereditano da \texttt{Animale}.
 	\item Dato che l'ereditarietà multipla non è consentita si può adottare il seguente approccio:
 	\begin{itemize}
-		\item \texttt{Animale} rimane superclasse, e \texttt{Mammifero} eredita da \texttt{Animale}. \texttt{Pippistrello} deriva da \newline \texttt{Mammifero} ed è legato tramite composizione a \texttt{Volatile}
+		\item \texttt{Animale} rimane superclasse, e \texttt{Mammifero} eredita da \texttt{Animale}.
+		\item \texttt{Pippistrello} deriva da \texttt{Mammifero} ed è legato tramite composizione a \texttt{Volatile}.
 	\end{itemize}
 \end{itemize}
-Esiste un ulteriore approccio ed è una combinazione dei metodi \textit{Composizione-delega} e \texttt{interfacce}.
+Esiste un ulteriore approccio ed è una combinazione dei metodi \textit{composizione-delega} e \textit{interfacce}.
 \end{solution}
 
 
@@ -189,14 +190,14 @@ La classificazione di Cardelli-Wegner impone due categorie, a loro volta suddivi
 	È suddiviso in:
 	\begin{itemize}
 		\item \textbf{Overloading}: consente la ridefinizione di metodi/operatori per ogni insieme di argomenti
-		accettati; essa deve avvenire in fase di programmazione
+		accettati; essa deve avvenire in fase di programmazione.
 
 		\item \textbf{Coercion}: viene effettuata una conversione implicita del tipo di una variabile. Le conversioni possibili devono essere definite in fase
-		di programmazione
+		di programmazione.
 
 	\end{itemize}
 \end{itemize}
-Un esempio di polimorfismo per inclusione in cui si utilizza l'overriding è il seguente:
+Un esempio di polimorfismo per inclusione in cui si utilizza \textit{overriding} è il seguente:
 \begin{minted}
 [
 frame=lines,
@@ -225,7 +226,7 @@ public class B : A {
    }
 }
 \end{minted}
-Il codice sopra consente di mostrare un esempio di polimorfismo per inclusione: viene utilizzato l'\textit{Overriding} per ridefinire il metodo \texttt{Fun1(int x)} della superclasse \texttt{A} in \texttt{B}.
+Il codice sopra consente di mostrare un esempio di polimorfismo per inclusione: viene utilizzato \textit{overriding} per ridefinire il metodo \texttt{Fun1(int x)} della superclasse \texttt{A} in \texttt{B}.
 Il \textit{binding dinamico} viene utilizzato per discriminare il metodo richiamato; la \textit{Virtual Method Table} di ciascuna classe punta al metodo evocato.
 \end{solution}
 
@@ -252,17 +253,17 @@ Il CLR prevede servizi aggiuntivi come:
 	\centering
 	\includegraphics[width=6cm]{./immagini/riferimentiCircolari.jpg}
 	\caption{Riferimenti circolari}
-\end{figure}
+\end{figure}\\
 	Con questo approccio, tuttavia, si verifica la perdita della \textit{distruzione deterministica}, ovvero una richiesta esplicita di liberazione della memoria occupata da un oggetto.
 	\\Tramite \textit{garbage collector} la memoria viene liberata in modo non deterministico, ovvero quando l'oggetto non risulta più raggiungibile.
-	\item \textbf{I/O su file}
+	\item \textbf{I/O su file};
 	\item \textbf{Gestione delle eccezioni}: le eccezioni sono oggetti che ereditano dalla classe \textit{System.Exception}.
 	\newline
 	È possibile gestire le eccezioni sfruttando i seguenti tre concetti:
 	\begin{itemize}
-		\item \textit{throw}: lancio di un' eccezione
-		\item \textit{catch}: cattura di un' eccezione
-		\item \textit{finally}: esecuzione di codice di uscita da un blocco controllato
+		\item \textit{throw}: lancio di un'eccezione;
+		\item \textit{catch}: cattura di un'eccezione;
+		\item \textit{finally}: esecuzione di codice di uscita da un blocco controllato.
 	\end{itemize}
 \end{itemize}
 \end{solution}
@@ -272,24 +273,24 @@ Differenza tra tipi valore e tipi riferimento in .NET
 \end{problem}
 \begin{solution}
 I \textit{Common Type System} (CTS) sono tipi di dato supportati dal framework .NET, che forniscono un modello di programmazione unificato ai linguaggi orientati agli oggetti, funzionali e procedurali.
-In CTS tutte le classi ereditano da \textit{System.Object}, ed esistono due categorie di tipi:
+In CTS tutte le classi ereditano da \texttt{System.Object}, ed esistono due categorie di tipi:
 \begin{itemize}
 	\item \textbf{Tipi riferimento}: sono indirizzi di memoria che rappresentano i riferimenti agli oggetti allocati sull'heap gestito.
-	\item \textbf{Tipi valore}: sono allocati sullo stack, o appartengono ad altri oggetti, e contengono direttamente un valore (ovvero una sequenza di byte)
+	\item \textbf{Tipi valore}: sono allocati sullo stack, o appartengono ad altri oggetti, e contengono direttamente un valore (ovvero una sequenza di byte).
 	\newline
 	I tipi valore includono:
 	\begin{itemize}
-		\item \textbf{Tipi primitivi}: Int32, double, decimal, char, boolean
-		\item \textbf{Tipi definiti dall'utente}: strutture dati ed enumerativi
+		\item \textbf{Tipi primitivi}: Int32, double, decimal, char, boolean, etc.
+		\item \textbf{Tipi definiti dall'utente}: strutture dati ed enumerativi.
 	\end{itemize}
 \end{itemize}
-È possibile eseguire conversioni da tipo valore a tipo riferimento mediante un \textit{up cast} \textbf{implicito} a \textit{System.Object}: questa procedura prende il nome di \textit{boxing}:
+È possibile eseguire conversioni da tipo valore a tipo riferimento mediante un \textit{up cast} \textbf{implicito} a \\\texttt{System.Object}: questa procedura prende il nome di \textit{boxing}:
 \begin{center}
 \texttt{double d = 333.3;}
 \\
 \texttt{Object obj = d;}
 \end{center}
-L'\textit{unboxing}, operazione inversa al \textit{boxing}, permette di convertire un tipo riferimento a un tipo valore, tramite un \textit{down cast} \textbf{esplicito}.
+L'\textit{unboxing}, operazione inversa al \textit{boxing}, permette di convertire un tipo riferimento a un tipo valore, tramite un \textit{down cast} \textbf{esplicito}:
 \begin{center}
 	\texttt{double d2 = (double)obj;}
 \end{center}
@@ -298,8 +299,8 @@ Esistono tre tipologie di argomenti:
 \begin{itemize}
 	\item \textbf{In}
 	\begin{itemize}
-		\item Tipi valore: si ha passaggio per copia dell'oggetto e la modifica da parte del metodo invocato avviene solo sulla copia.
-		\item Tipi riferimento: si ha passaggio per copia del riferimento dell'oggetto, e la modifica da parte del metodo invocato avviene sulla copia del riferimento, ma non sul riferimento originale.
+		\item \textit{Tipi valore}: si ha passaggio per copia dell'oggetto e la modifica da parte del metodo invocato avviene solo sulla copia.
+		\item \textit{Tipi riferimento}: si ha passaggio per copia del riferimento dell'oggetto, e la modifica da parte del metodo invocato avviene sulla copia del riferimento, ma non sul riferimento originale.
 	\end{itemize}
 	In entrambi i casi gli argomenti passati ai metodi devono essere stati già inizializzati.
 	Un esempio è il seguente:
@@ -325,8 +326,8 @@ static void assegnaPosto(ref PostoRistorante posto){
 	\end{minted}
 	\item \textbf{In/Out}
 	\begin{itemize}
-		\item Tipi valore: si ha passaggio per riferimento e le modifiche influenzano l'oggetto originale
-		\item Tipi riferimento: si ha passaggio per riferimento dell'\textit{indirizzo dell'oggetto} e le modifiche influenzano l'oggetto referenziato, ma non l'oggetto originale
+		\item \textit{Tipi valore}: si ha passaggio per riferimento e le modifiche influenzano l'oggetto originale.
+		\item \textit{Tipi riferimento}: si ha passaggio per riferimento dell'\textit{indirizzo dell'oggetto} e le modifiche influenzano l'oggetto referenziato, ma non l'oggetto originale.
 	\end{itemize}
 	In entrambi i casi gli argomenti passati ai metodi devono essere stati già inizializzati.
 	\begin{minted}
@@ -378,7 +379,7 @@ static void assegnaPosto(out PostoRistorante posto){
 Garbage Collector in C\#
 \end{problem}
 \begin{solution}
-Il Garbage Collector si occupa del rilascio delle risorse qualora esse non vengano più utilizzate da un oggetto.
+Il \textit{Garbage Collector} si occupa del rilascio delle risorse qualora esse non vengano più utilizzate da un oggetto.
 Consente di avere maggiore stabilità del programma, poiché evita che un programmatore manipoli direttamente puntatori ad aree di memoria.
 \newline
 Il vantaggio dell'utilizzo di un garbage collector è il contrasto delle seguenti problematiche:
@@ -389,16 +390,16 @@ Il vantaggio dell'utilizzo di un garbage collector è il contrasto delle seguent
 \end{itemize}
 Gli svantaggi invece sono:
 \begin{itemize}
-	\item Vengono richieste maggiori risorse di calcolo
-	\item Incertezza del momento in cui viene effettuata la garbage collection
-	\item Il rilascio della memoria è non deterministico, ovvero non si sa il momento esatto in cui il rilascio avviene, né l'ordine di rilascio delle aree non più utilizzate. Ciò può dipendere dall'algoritmo utilizzato dal garbage collector.
+	\item vengono richieste maggiori risorse di calcolo;
+	\item incertezza del momento in cui viene effettuata la garbage collection;
+	\item il rilascio della memoria è non deterministico, ovvero non si sa il momento esatto in cui il rilascio avviene, né l'ordine di rilascio delle aree non più utilizzate. Ciò può dipendere dall'algoritmo utilizzato dal garbage collector.
 \end{itemize}
 L'ambiente .NET sfrutta come strategia di \textit{garbage collection} il \textbf{tracing}: si stabiliscono quali oggetti sono raggiungibili e si eliminano quelli non raggiungibili.\newline
 Quando un processo viene inizializzato il \textit{Common Language Runtime} (CLR) riserva una regione contigua di spazio di indirizzamento, noto come \textit{managed heap} e memorizza l'indirizzo di partenza della regione in un puntatore chiamato \texttt{NextObjPtr}.
 Nel caso in cui venga eseguita una \textit{newobj}, il CLR:
 \begin{enumerate}
 	\item Determina la dimensione in byte dell'oggetto e aggiunge a quest'ultimo due campi che possono essere da 32 o 64 bit.
-	Il primo campo contiene un puntatore alla tabella dei m in \textit{byte}etodi, mentre il secondo è un campo \texttt{SyncBlockIndex}.
+	Il primo campo contiene un puntatore alla tabella dei metodi, mentre il secondo è un campo \texttt{SyncBlockIndex}.
 	\item Controlla se a partire da \texttt{NextObjPtr} ci sia spazio sufficiente; in caso negativo viene utilizzato il Garbage Collector, o viene lanciata \texttt{OutOfMemoryException}.
 	\item Aggiorna i puntatori relativi all'oggetto appena creato e allo spazio libero di memoria:
 	\begin{center}
@@ -407,20 +408,23 @@ Nel caso in cui venga eseguita una \textit{newobj}, il CLR:
 		\texttt{NextObjPtr += sizeof(oggetto);}
 
 	\end{center}
-	\item Invoca il costruttore dell'oggetto
-	\item Restituisce il riferimento all'oggetto
+	\item Invoca il costruttore dell'oggetto.
+	\item Restituisce il riferimento all'oggetto.
 \end{enumerate}
 Lo scopo del garbage collector è di individuare quali oggetti non vegono più utilizzati dall'applicazione; quest'ultima presenta un insieme di radici (\textit{root}).
 Ciascuna radice è un puntatore a un oggetto di tipo riferimento sicuramente attivo, come:
 \begin{itemize}
-	\item Variabili globali e field statici di tipo riferimento
-	\item Variabili locali o argomenti attuali di tipo riferimento presenti sugli stack dei vari thread
-	\item Registri della CPU contenenti gli indirizzi di oggetti di tipo riferimento
+	\item variabili globali e field statici di tipo riferimento;
+	\item variabili locali o argomenti attuali di tipo riferimento presenti sugli stack dei vari thread;
+	\item registri della CPU contenenti gli indirizzi di oggetti di tipo riferimento.
 \end{itemize}
 Vengono distinte di tipologie di oggetti: gli \textbf{oggetti vivi} sono raggiungibili (direttamente o indirettamente) dalle radici, mentre gli \textbf{oggetti garbage} non lo sono.
+\newline
 Inizialmente il garbage collector marca tutti gli oggetti sul \textit{managed heap} come \textbf{garbage}; successivamente viene interpellata la tabella delle radici, per stabilire quali oggetti siano \textbf{vivi}, marcandoli come tali.
+\newline
 Terminata la classificazione degli oggetti viene liberata la memoria occupata dagli oggetti garbage; tuttavia ciò causa frammentazione nel managed heap, poichè si hanno aree di memoria libere non contigue.
 Pertanto si effettua una compattazione della memoria in uso, modificando di conseguenza i riferimenti agli oggetti spostati; al termine dell'unificazione si aggiorna il valore di \texttt{NextObjPtr}.
+\\\\
 Il Garbage collector può effettuare tutte le operazioni elencate in precedenza, in quanto conosce il tipo di un oggetto e può sfruttare i metadati per determinare quali campi dell'oggetto contengono riferimenti agli altri oggetti.
 \newline
 Nel caso in cui un oggetto contenga riferimenti a risorse di tipo unmanaged (file, connessione al database, socket, e così via) è responsabilità del programmatore occuparsi della fase di finalizzazione, ovvero il rilascio della risorsa prima della deallocazione.
@@ -436,8 +440,8 @@ Esistono tre tipologie di argomenti:
 \begin{itemize}
 	\item \textbf{In}
 	\begin{itemize}
-		\item Tipi valore: si ha passaggio per copia dell'oggetto e la modifica da parte del metodo invocato avviene solo sulla copia.
-		\item Tipi riferimento: si ha passaggio per copia del riferimento dell'oggetto, e la modifica da parte del metodo invocato avviene sulla copia del riferimento, ma non sul riferimento originale.
+		\item \textit{Tipi valore}: si ha passaggio per copia dell'oggetto e la modifica da parte del metodo invocato avviene solo sulla copia.
+		\item \textit{Tipi riferimento}: si ha passaggio per copia del riferimento dell'oggetto, e la modifica da parte del metodo invocato avviene sulla copia del riferimento, ma non sul riferimento originale.
 	\end{itemize}
 	In entrambi i casi gli argomenti passati ai metodi devono essere stati già inizializzati.
 	Un esempio è il seguente:
@@ -463,8 +467,8 @@ static void assegnaPosto(ref PostoRistorante posto){
 	\end{minted}
 	\item \textbf{In/Out}
 	\begin{itemize}
-		\item Tipi valore: si ha passaggio per riferimento e le modifiche influenzano l'oggetto originale
-		\item Tipi riferimento: si ha passaggio per riferimento dell'\textit{indirizzo dell'oggetto} e le modifiche influenzano l'oggetto referenziato, ma non l'oggetto originale
+		\item \textit{Tipi valore}: si ha passaggio per riferimento e le modifiche influenzano l'oggetto originale
+		\item \textit{Tipi riferimento}: si ha passaggio per riferimento dell'\textit{indirizzo dell'oggetto} e le modifiche influenzano l'oggetto referenziato, ma non l'oggetto originale
 	\end{itemize}
 	In entrambi i casi gli argomenti passati ai metodi devono essere stati già inizializzati.
 	\begin{minted}
@@ -533,8 +537,8 @@ Eseguono funzionalità di \textit{callback}, tra le quali:
 L'istanza di un delegato può incapsulare uno o più metodi, specificando gli argomenti di ciascun metodo e il valore restituito.
 Ciascun metodo è riferito a un'entità richiamabile che può essere:
 \begin{itemize}
-	\item Un metodo, nel caso di metodi statici
-	\item Un'istanza e il metodo relativo a quell'istanza, nel caso di istanze di metodi.
+	\item un metodo, nel caso di metodi statici;
+	\item un'istanza e il metodo relativo a quell'istanza, nel caso di istanze di metodi.
 \end{itemize}
 Un delegato contiene soltanto la firma del metodo, e non conosce la classe o il metodo a cui si sta riferendo; è quindi ideale per l'invocazione anonima.
 Nel caso in cui si abbia l'invocazione di un'istanza delegata, che possiede una o più voci nell'elenco di invocazione, si invocano i metodi dell'elenco in ordine e in modo sincrono.
@@ -617,26 +621,26 @@ La riflessione sfrutta i \textbf{metadati}, ovvero dati che descrivono altri dat
 In Java e .NET i dati sono generati nel momento in cui si definisce un tipo, vengono salvati assieme alla sua definizione e sono disponibili a \textit{runtime}; in COM e CORBA i metadati sono definiti da \textit{Interface Definition Language} (IDL).
 La riflessione viene utilizzata per:
 \begin{itemize}
-	\item Esaminare i dettagli di un \textit{assembly}
-	\item Istanziare oggetti e chiamare metodi scoperti a runtime
-	\item Creare, compilare ed eseguire assembly, ove necessario.
+	\item esaminare i dettagli di un \textit{assembly};
+	\item istanziare oggetti e chiamare metodi scoperti a runtime;
+	\item creare, compilare ed eseguire assembly, ove necessario.
 \end{itemize}
 La chiave per la \textit{riflessione} in .NET è la classe \texttt{System.Type}:
 \begin{itemize}
-	\item Tutti gli oggetti sono istanze di tipi, e i tipi stessi sono istanze di \texttt{System.Type}
-	\item Il tipo di un oggetto può essere scoperto tramite il metodo \texttt{GetType()}
-	\item È presente un solo oggetto \texttt{Type} per ogni tipo definito.
+	\item tutti gli oggetti sono istanze di tipi, e i tipi stessi sono istanze di \texttt{System.Type};
+	\item il tipo di un oggetto può essere scoperto tramite il metodo \texttt{GetType()};
+	\item è presente un solo oggetto \texttt{Type} per ogni tipo definito.
 \end{itemize}
 Ad esempio, è possibile enumerare i tipi di un \textit{assembly} tramite i seguenti comandi:
 \begin{itemize}
-	\item \texttt{Assembly.Load(...)} restituisce un oggetto \texttt{Assembly}
-	\item \texttt{Assembly.GetModules(...)} restituisce un array di oggetti \texttt{Module}
+	\item \texttt{Assembly.Load(...)} restituisce un oggetto \texttt{Assembly};
+	\item \texttt{Assembly.GetModules(...)} restituisce un array di oggetti \texttt{Module};
 	\item \texttt{Module.GetTypes(...)} restitusice un array di \texttt{Type}.
 \end{itemize}
 È possibile creare istanze di tipi e accedere ai loro membri mediante \textit{very late binding}:
 \begin{itemize}
-	\item \texttt{Activator.CreateInstance(type, ...)} invoca il costruttore specificato
-	\item \texttt{methodInfo.Invoke(...)} invoca i metodi
+	\item \texttt{Activator.CreateInstance(type, ...)} invoca il costruttore specificato;
+	\item \texttt{methodInfo.Invoke(...)} invoca i metodi;
 	\item \texttt{propertyInfo.GetValue(...)/.SetValue(...)} invocano \textit{getter} e \textit{setter}.
 \end{itemize}
 I membri pubblici sono sempre accessibili, mentre i membri non pubblici lo sono solo se il chiamante ha permessi sufficienti.
@@ -646,9 +650,9 @@ Per aggiungere informazioni ai metadati è possibile utilizzare \textbf{attribut
 \newline
 Per creare attributi personalizzati occorre:
 \begin{itemize}
-	\item dichiarare la classe dell'attributo
-	\item dichiarare i costruttori
-	\item dichiarare le proprietà
+	\item dichiarare la classe dell'attributo;
+	\item dichiarare i costruttori;
+	\item dichiarare le proprietà;
 	\item opzionalmente applicare \texttt{AttributeUsageAttribute}, che specifica alcune caratteristiche della classe, ovvero a quali elementi l'attributo è applicabile, quando l'attributo può essere ereditato e quando possono esistere molteplici istanze di un attributo.
 \end{itemize}
 Il metodo \texttt{GetCustomAttributes()} restituisce la lista degli attributi personalizzati.
@@ -663,10 +667,10 @@ Spiegare i quattro bad design (fragilità, immobilità, rigidità, viscosità)
 \begin{solution}
 La qualità del design risulta fondamentale per rendere un programma:
 \begin{itemize}
-	\item Maggiormente affidabile
-	\item Maggiormente efficiente
-	\item Maggiormente manutenibile
-	\item Maggiormente economico
+	\item maggiormente affidabile;
+	\item maggiormente efficiente;
+	\item maggiormente manutenibile;
+	\item maggiormente economico.
 \end{itemize}
 Esistono quattro principi che peggiorano la qualità del software:
 \begin{enumerate}
@@ -687,10 +691,10 @@ Esistono quattro principi che peggiorano la qualità del software:
 \end{enumerate}
 I motivi di una progettazione non corretta sono dovuti a:
 \begin{itemize}
-	\item Incapacità dei progettisti nel seguire le \textit{best practice}
-	\item Limiti imposti dall'esterno, in termini di tempo e risorse
-	\item Pratiche obsolete
-	\item Evoluzione del progetto: in seguito a cambiamenti dei requisiti e modifiche al software, non si ha più la manutenibilità del progetto originario
+	\item incapacità dei progettisti nel seguire le \textit{best practice};
+	\item limiti imposti dall'esterno, in termini di tempo e risorse;
+	\item pratiche obsolete;
+	\item evoluzione del progetto: in seguito a cambiamenti dei requisiti e modifiche al software, non si ha più la manutenibilità del progetto originario.
 \end{itemize}
 \end{solution}
 
@@ -707,9 +711,9 @@ Una responsabilità risulta un motivo per cambiare, e ogni classe o modulo deve 
 Il principio prevede di sviluppare classi o moduli indipendenti tra loro e semplici.
 Un esempio di applicazione del seguente principio è il seguente:
 \begin{itemize}
-	\item Si ha una classe \texttt{MacchinaFotografica}
-	\item \texttt{MacchinaFotografica} possiede due funzionalità indipendenti tra loro, ovvero \texttt{Foto} e \texttt{Video}
-	\item Unire le due funzionalità in un'unica classe risulta poco portabile e la modifica a una funzionalità influenza l'altra, pertanto si creano due classi separate \texttt{Fotocamera} e \texttt{Videocamera}
+	\item si ha una classe \texttt{MacchinaFotografica}:
+	\item \texttt{MacchinaFotografica} possiede due funzionalità indipendenti tra loro, ovvero \texttt{Foto} e \texttt{Video};
+	\item unire le due funzionalità in un'unica classe risulta poco portabile e la modifica a una funzionalità influenza l'altra, pertanto si creano due classi separate \texttt{Fotocamera} e \texttt{Videocamera}.
 \end{itemize}
 \end{solution}
 
@@ -718,27 +722,27 @@ Un esempio di applicazione del seguente principio è il seguente:
 Principio di inversione delle dipendenze con almeno un esempio
 \end{problem}
 \begin{solution}
-Il principio di inversione delle dipendenze prevede che i moduli di alto livello (i \textit{clienti}) non debbano dipendere dai moduli di basso livello (ovvero i \textit{fornitori dei servizi}). Entrambi devono dipendere da \textit{astrazioni}.
+Il principio di inversione delle dipendenze prevede che i moduli di alto livello (i \textit{clienti}) non debbano dipendere dai moduli di basso livello (i \textit{fornitori dei servizi}). Entrambi devono dipendere da \textit{astrazioni}.
 \newline
 Il motivo della precedente affermazione è dovuto alla presenza di codice e della logica implementativa nei moduli di basso livello. Nel caso in cui i moduli di alto livello dovessero dipendere da moduli di basso livello si avrebbe:
 \begin{itemize}
-	\item \textbf{Rigidità}: per ogni modifica occorre intervenire su un numero elevato di moduli
-	\item \textbf{Fragilità}: per ogni modifica verrebbero introdotti errori nel sistema
+	\item \textbf{Rigidità}: per ogni modifica occorre intervenire su un numero elevato di moduli.
+	\item \textbf{Fragilità}: per ogni modifica verrebbero introdotti errori nel sistema.
 	\item \textbf{Immobilità}: non è possibile riutilizzare il codice, in quanto i moduli di alto livello non si riuscirebbero a separarare da quelli di basso livello.
 \end{itemize}
-Con il principio di inversione delle dipendenze si eviterebbero i problemi sopra elencati, in quanto le astrazioni possiedono poco codice e sono poco soggetti a modifiche; inoltre è presente una separazione tra moduli astratti e moduli concreti, che permette modifiche limitate al modulo concreto interessato (poichè nessuno dipende da questi moduli).
+Con il principio di inversione delle dipendenze si eviterebbero i problemi sopra elencati, in quanto le astrazioni possiedono poco codice e sono poco soggetti a modifiche; inoltre è presente una separazione tra moduli astratti e moduli concreti, che permette modifiche limitate al modulo concreto interessato (poiché nessuno dipende da questi moduli).
 Dato che i dettagli del sistema sono stati isolati da un muro di astrazioni stabili:
 \begin{itemize}
-	\item I cambiamenti non possono più propagarsi (\textit{design for change})
-	\item I singoli moduli sono maggiormente riusabili (\textit{design for resue})
+	\item i cambiamenti non possono più propagarsi (\textit{design for change});
+	\item i singoli moduli sono maggiormente riusabili (\textit{design for resue}).
 \end{itemize}
 Un esempio di principio di inversione delle dipendenze è il seguente:
 \begin{itemize}
-	\item Si considerino le classi concrete BigliettoNormale e GestoreVenditaBiglietti; quest'ultima ha una dipendenza verso BigliettoNormale.
-	\item Tale dipendenza è verso una classe concreta, pertanto il codice di GestoreVenditaBiglietti è poco manutenibile.
-	\newline Infatti, nel caso si volesse creare la classe BigliettoVIP occorrerebbe modificare il codice di GestoreVenditaBiglietti.
-	\item Per risolvere il problema, si introduce l'interfaccia IBiglietto e si fa sì che GestoreVenditaBiglietti dipenda da essa; inoltre, si modifica la classe BigliettoNormale in modo che implementi IBiglietto.
-	\item A questo punto, se si volesse aggiungere una nuova tipologia di biglietto, non sarebbe più necessario modificare GestoreVenditaBiglietti ma basterebbe creare una classe concreta che implementi IBiglietto (ad esempio, BigliettoVIP).
+	\item Si considerino le classi concrete \texttt{BigliettoNormale} e \texttt{GestoreVenditaBiglietti}; quest'ultima ha una dipendenza verso \texttt{BigliettoNormale}.
+	\item Tale dipendenza è verso una classe concreta, pertanto il codice di \texttt{GestoreVenditaBiglietti} è poco manutenibile.
+	\newline Infatti, nel caso si volesse creare la classe \texttt{BigliettoVIP} occorrerebbe modificare il codice di \\\texttt{GestoreVenditaBiglietti}.
+	\item Per risolvere il problema, si introduce l'interfaccia \texttt{IBiglietto} e si fa sì che \texttt{GestoreVenditaBiglietti} dipenda da essa; inoltre, si modifica la classe \texttt{BigliettoNormale} in modo che implementi \texttt{IBiglietto}.
+	\item A questo punto, se si volesse aggiungere una nuova tipologia di biglietto, non sarebbe più necessario modificare \texttt{GestoreVenditaBiglietti} ma basterebbe creare una classe concreta che implementi \texttt{IBiglietto} (ad esempio, \texttt{BigliettoVIP}).
 \end{itemize}
 \end{solution}
 
@@ -754,7 +758,7 @@ Nel caso di utilizzo delle \textit{fat interfaces} sarà più difficile mantener
 Un esempio di mancato utilizzo di principio di segregazione delle interfacce è la creazione, da parte di Xerox (creatore dello standard \textit{Ethernet}), di una stampante avente diverse funzionalità, tra cui mandare fax e pinzare fogli. Le modifiche al software, sebbene piccole, risultavano difficili, in quanto tutte le diverse funzioni eseguite dalla stampante multi-uso erano implementate all'interno di una sola classe.
 Tramite l'utilizzo del principio di segregazione delle interfacce si avevano più interfacce, ciascuna specifica per il ruolo della stampante, come ad esempio le interfacce \texttt{IScanFogli} e \texttt{IPinzaFogli}.
 \\
-Ciacsuna modifica di una funzione risulta più semplice, in quanto autocontenuta.
+Ciacsuna modifica di una funzione risulta più semplice, in quanto \textit{autocontenuta}.
 \end{solution}
 
 
@@ -768,10 +772,10 @@ Per realizzare questo principio vengono utilizzate classi astratte e interfacce;
 \newline
 Per soddisfare il principio aperto/chiuso si occorre all’ereditarietà:
 \begin{itemize}
-	\item di interfaccia: le classi derivate ereditano da una classe base astratta con
+	\item \textbf{di interfaccia}: le classi derivate ereditano da una classe base astratta con
 	funzioni virtuali. In questo modo l’interfaccia è chiusa alle modifiche e il suo comportamento può
 	essere modificato implementando nuove classi derivate.
-	\item dell’implementazione: si creano nuove sottoclassi che estendono la classe base, mantenendo il codice comune in quest'ultima.
+	\item \textbf{dell’implementazione}: si creano nuove sottoclassi che estendono la classe base, mantenendo il codice comune in quest'ultima.
 	\newline
 	In questo modo si evitano ripetizioni nelle sottoclassi.
 \end{itemize}
@@ -780,9 +784,9 @@ Per soddisfare il principio aperto/chiuso si occorre all’ereditarietà:
 Questo approccio consente una maggiore modularità del sistema e stabilità, in quanto non si modificano componenti definite precedentemente e non si introducono eventuali errori dovuti alle modifiche.
 Un esempio di utilizzo OCP è il seguente:
 \begin{itemize}
-	\item Si supponga di avere una classe \texttt{CalcolatoreSpeseAziendali} la quale, data una collezione di oggetti di tipo \texttt{Impiegato}, restituisca le spese totali dovute al loro salario, tramite metodo\\ \texttt{CalcolaSpese(Collection<Impiegato> impiegati)}
-	\item Si definisce un'interfaccia o una classe astratta \texttt{Impiegato} che espone il metodo \texttt{getSalario()}
-	\item Si definiscono le classi concrete \texttt{Manager}, \texttt{AmministratoreDelegato}, \texttt{Programmatore} che implementano \texttt{Impiegato} e che possiedono un salario specifico al ruolo ricoperto
+	\item Si supponga di avere una classe \texttt{CalcolatoreSpeseAziendali} la quale, data una collezione di oggetti di tipo \texttt{Impiegato}, restituisca le spese totali dovute al loro salario, tramite metodo\\ \texttt{CalcolaSpese(Collection<Impiegato> impiegati)}.
+	\item Si definisce un'interfaccia o una classe astratta \texttt{Impiegato} che espone il metodo \texttt{getSalario()}.
+	\item Si definiscono le classi concrete \texttt{Manager}, \texttt{AmministratoreDelegato}, \texttt{Programmatore} che implementano \texttt{Impiegato} e che possiedono un salario specifico al ruolo ricoperto.
 	\item A questo punto \texttt{CalcolaSpese(Collection<Impiegato> impiegati)} attraverserà la collezione e sommerà i salari dei vari dipendenti, senza conoscere il loro ruolo.
 	\item Di conseguenza, in caso venga aggiunto un nuovo ruolo come \texttt{Venditore} con OCP non sarà necessario modificare il codice, ma soltanto aggiungere una nuova classe e ridefinire il metodo \texttt{getSalario()} al suo interno.
 \end{itemize}
@@ -796,20 +800,20 @@ Principio di sostituibilità di Liskov con almeno un esempio
 Il principio di sostituibilità di Liskov definisce il rapporto tra una classe e le relative sottoclassi.
 Esistono due versioni di questo principio:
 \begin{itemize}
-	\item \textbf{Versione debole}: a ogni riferimento della classe base (classe padre) deve essere associata l'istanza della sottoclasse (classe figlia)
+	\item \textbf{Versione debole}: a ogni riferimento della classe base (classe padre) deve essere associata l'istanza della sottoclasse (classe figlia).
 	\item \textbf{Versione forte}: ogni programma che utilizza istanze della classe base non percepisce variazioni logiche nell'utilizzo delle istanze delle relative sottoclassi.
 \end{itemize}
 Per essere più specifici, occorre introdurre due concetti definiti dal \textit{design by contract}:
 \begin{itemize}
-	\item \textbf{Precondizioni}: requisiti minimi che devono essere soddisfatti dal chiamante, affinchè il metodo invocato possa essere eseguito correttamente
-	\item \textbf{Postcondizioni}: requisiti soddisfatti dal metodo chiamato, nel caso di esecuzione corretta
+	\item \textbf{Precondizioni}: requisiti minimi che devono essere soddisfatti dal chiamante, affinchè il metodo invocato possa essere eseguito correttamente.
+	\item \textbf{Postcondizioni}: requisiti soddisfatti dal metodo chiamato, nel caso di esecuzione corretta.
 \end{itemize}
 Per ogni metodo re-implementato dalla sottoclasse:
 \begin{itemize}
-	\item Le precondizioni devono essere ugualmente o meno stringenti
-	\item Le postcondizioni devono essere ugualmente o più stringenti
-	\item La semantica della classe base deve essere conservata
-	\item Non è possibile aggiungere vincoli alla classe base
+	\item le precondizioni devono essere ugualmente o meno stringenti;
+	\item le postcondizioni devono essere ugualmente o più stringenti;
+	\item la semantica della classe base deve essere conservata;
+	\item non è possibile aggiungere vincoli alla classe base.
 \end{itemize}
 Ad esempio, data la classe \texttt{Uccello} dotata del metodo \texttt{vola()} si hanno i due seguenti scenari:
 \begin{itemize}
@@ -835,6 +839,7 @@ L'architettura dei package prevede i seguenti tre principi:
 	\newline La motivazione è dovuta al fatto che, per ciascuna modifica del package, sia necessario controllare ogni singola classe per verificare il corretto funzionamento dell'aggiornamento; vengono controllate anche le classi che non presentano alcuna modifica.
 \end{itemize}
 Risulta complesso soddisfare tutti e tre i principi contemporaneamente, poichè il \textit{principio di chiusura comune} suggerisce di rendere i package \textbf{i più grandi possibili}, semplificando l'utilizzo di questi ultimi da parte dello sviluppatore, mentre il \textit{principio di equivalenza di riuso/rilascio} e il \textit{principio di riutilizzo comune} incentivano l'utilizzo di \textbf{package piccoli}, semplificandone l'utilizzo da parte dei clienti.
+\\
 Una buona prassi è applicare il \textit{principio di chiusura comune} durante la progettazione dell'architettura, in modo da semplificare lo sviluppo e la manutenzione. Una volta ottenuta maggiore stabilità del sistema viene eseguito un \textit{refactoring}, diminuendo i package e soddisfando i rimanenti due principi per permettere maggiore riutilizzo.
 \newline
 \newline
@@ -913,7 +918,7 @@ Si definiscono le seguenti classi:
 \end{itemize}
 Per registrarsi presso \textit{Subject}, un \textit{Observer} invoca il metodo \texttt{Attach()}.
 Successivamente, in caso di evento, \textit{Subject} chiama il metodo \texttt{Notify()}, che esegue \texttt{Update()} di tutti gli Observer che si sono registrati.
-\\Infine, un \texttt{Observer} si può disiscrivere a un \texttt{Subject}, sfruttando il metodo \texttt{Detach()}
+\\Infine, un \texttt{Observer} si può disiscrivere a un \texttt{Subject}, sfruttando il metodo \texttt{Detach()}.
 \newline
 Il pattern Observer è una delle cinque possibili soluzioni nel caso in cui si voglia aggiornare elementi in base al cambiamento del \textit{subject}.
 Altri possibili quattro approcci sono:
@@ -939,25 +944,25 @@ Pattern Flyweight con esempi
 \end{problem}
 \begin{solution}
 Il pattern \textit{Flyweight} consente la condivisione di oggetti leggeri tra più entità, in modo tale che il loro utilizzo non sia troppo costoso.
-L'oggetto condiviso (flyweight) viene utilizzato da più client in modo efficace nello stesso momento.
+L'oggetto condiviso (\texttt{flyweight}) viene utilizzato da più client in modo efficace nello stesso momento.
 In particolare:
 \begin{itemize}
-	\item L'oggetto non deve essere distinguibile da un oggetto non condiviso
-	\item L'oggetto non deve fare ipotesi sul contesto in cui opera
+	\item l'oggetto non deve essere distinguibile da un oggetto non condiviso;
+	\item l'oggetto non deve fare ipotesi sul contesto in cui opera.
 \end{itemize}
-Una corretta condivisione dei flyweight tra i clienti viene garantita dall'utilizzo di \textit{FlyweightFactory}.
+Una corretta condivisione dei \textit{flyweight} tra i clienti viene garantita dall'utilizzo di \textit{FlyweightFactory}.
 Esistono due stati associati al pattern:
 \begin{itemize}
-	\item intrinseco: stato memorizzato nel flyweight e non dipende dal contesto di utilizzo
-	\item estrinseco: stato memorizzato dal cliente, e dipende dal contesto di utilizzo e non può essere condiviso da tutti i clienti.
-	Viene passato al flyweight da parte del client quando viene invocata una operazione relativa a flyweight.
+	\item \textbf{intrinseco}: stato memorizzato in \texttt{flyweight} e non dipende dal contesto di utilizzo
+	\item \textbf{estrinseco}: stato memorizzato dal cliente, dipende dal contesto di utilizzo e non può essere condiviso da tutti i clienti.
+	Viene passato a \texttt{flyweight} da parte del client quando viene invocata una operazione relativa a flyweight.
 \end{itemize}
-Un esempio di pattern \textit{Flyweight} potrebbe essere la rappresentazione dei caratteri in un word processor.
+Un esempio di pattern \textit{Flyweight} potrebbe essere la rappresentazione dei caratteri in un \textit{word processor}:
 \begin{itemize}
-	\item Si consideri la classe Carattere. Senza Pattern flyweight ogni carattere scritto dall'utente risulterebbe in un nuovo oggetto Carattere, causando un'alta occupazione di memoria.
-	\item Applicando il pattern flyweight si riutilizza lo stesso carattere, senza ridefinire un nuovo oggetto a ogni sua occorrenza.
-	\item La classe Carattere può contenere i campi nome, font, dimensione, che rappresentano lo stato intrinseco dell'oggetto Flyweight.
-	\item Lo stato estrinseco è rappresentato dalla posizione del carattere (come riga e colonna) all'interno del testo, pertanto va gestito dal Client.
+	\item Si consideri la classe \texttt{Carattere}. Senza pattern \textit{flyweight} ogni carattere scritto dall'utente risulterebbe in un nuovo oggetto \texttt{Carattere}, causando un'alta occupazione di memoria.
+	\item Applicando il pattern \textit{flyweight} si riutilizza lo stesso carattere, senza ridefinire un nuovo oggetto a ogni sua occorrenza.
+	\item La classe \texttt{Carattere} può contenere i campi nome, font, dimensione, che rappresentano lo stato intrinseco dell'oggetto \texttt{Flyweight}.
+	\item Lo stato estrinseco è rappresentato dalla posizione del carattere (come riga e colonna) all'interno del testo, pertanto va gestito dal \textit{client}.
 \end{itemize}
 \newpage
 \textbf{Diagramma UML:}
@@ -979,11 +984,11 @@ Nel caso in cui un \textit{cliente}, che dipende unicamente dall'interfaccia, vo
 \newline
 Un esempio di utilizzo del pattern Strategy è il seguente:
 \begin{itemize}
-	\item Interfaccia \texttt{ISortStrategy} che espone il metodo \texttt{sort()}
-	\item Classe concreta \texttt{MergeSortStrategy} che implementa l'interfaccia \texttt{ISortStrategy} e realizza il metodo \texttt{sort()}, usando l'algorirmo di \textit{merge sort}
-	\item Classe concreta \texttt{QuickSortStrategy} che implementa l'interfaccia \texttt{ISortStrategy} e realizza il metodo \texttt{sort()}, usando l'algorirmo di \textit{quick sort}
-	\item Classe concreta \texttt{BubbleSortStrategy} che implementa l'interfaccia \texttt{ISortStrategy} e realizza il metodo \texttt{sort()}, usando l'algorirmo di \textit{bubble sort}
-	\item Classe \texttt{Cliente} che ha un riferimento a un oggetto di tipo \texttt{ISortStrategy}
+	\item Interfaccia \texttt{ISortStrategy} che espone il metodo \texttt{sort()}.
+	\item Classe concreta \texttt{MergeSortStrategy} che implementa l'interfaccia \texttt{ISortStrategy} e realizza il metodo \texttt{sort()}, usando l'algorirmo di \textit{merge sort}.
+	\item Classe concreta \texttt{QuickSortStrategy} che implementa l'interfaccia \texttt{ISortStrategy} e realizza il metodo \texttt{sort()}, usando l'algorirmo di \textit{quick sort}.
+	\item Classe concreta \texttt{BubbleSortStrategy} che implementa l'interfaccia \texttt{ISortStrategy} e realizza il metodo \texttt{sort()}, usando l'algorirmo di \textit{bubble sort}.
+	\item Classe \texttt{Cliente} che ha un riferimento a un oggetto di tipo \texttt{ISortStrategy}.
 \end{itemize}
 \textbf{Diagramma UML:}
 \begin{figure}[htb!]
@@ -1001,14 +1006,13 @@ Pattern Adapter con esempi
 Il pattern \textit{Adapter} è un pattern di tipo strutturale.
 Si supponga che un Cliente dipenda da un'interfaccia Target già definita, la quale espone un certo metodo.
 Esiste una certa classe \texttt{Adaptee} che realizza tale metodo, ma ha un'interfaccia incompatibile con l'interfaccia \texttt{Target}.
-Di conseguenza, per risolvere questo problema si utilizza una classe Adapter, che implementa Target e richiama il metodo di \texttt{Adaptee}, mascherandolo come una chiamata al metodo di \texttt{Target}.
+Di conseguenza, per risolvere questo problema, si utilizza una classe Adapter, che implementa Target e richiama il metodo di \texttt{Adaptee}, mascherandolo come una chiamata al metodo di \texttt{Target}.
 Un esempio di utilizzo del pattern Adapter è il seguente:
 \begin{itemize}
-	\item Si ha un'interfaccia MediaPlayer che espone il metodo play()
+	\item Si ha un'interfaccia MediaPlayer che espone il metodo play().
 	\item Si ha una classe MP3Player fornita da una libreria esterna, che riproduce file di tipo MP3, e che non è compatibile con MediaPlayer.
 	\item Si ha una classe Cliente che richiede un servizio a MediaPlayer per riprodurre un file di tipo MP3.
 	\item Si realizza una classe MediaAdapter, che implementa MediaPlayer e che mantiene un riferimento a MP3Player; in particolare quando il client einvocherà il metodo play() di MediaPlayer, verrà invocato da MediaAdapter il metodo play() di MP3Player, senza che il cliente se ne accorga.
-
 \end{itemize}
 \textbf{Diagramma UML:}
 \begin{figure}[htb!]
@@ -1017,6 +1021,7 @@ Un esempio di utilizzo del pattern Adapter è il seguente:
 	\includegraphics[width=9cm]{./immagini/adapterPattern.png}
 \end{figure}
 \end{solution}
+
 
 \begin{problem}{1.21}
 Pattern Decorator con esempi
@@ -1063,7 +1068,7 @@ Per realizzare il pattern \textit{composite} si suppone di avere le seguenti com
 \begin{itemize}
 	\item \texttt{Component}: classe astratta che dichiara un'interfaccia che consente l'accesso e la manipolazione degli oggetti della composizione.
 	\item \texttt{Client}: accede agli oggetti che derivano da \texttt{Component} e li manipola attraverso l'interfaccia di
-	\\\texttt{Component}
+	\\\texttt{Component}.
 	\item \texttt{Leaf}: descrive il comportamento degli oggetti singoli, ovvero le foglie, e che non possono avere figli.
 	\item \texttt{Composite}: definisce il comportamento degli oggetti aventi figli.
 \end{itemize}
@@ -1079,9 +1084,9 @@ Tuttavia è possibile che il \texttt{Client} definisca operazioni illegali come 
 \end{itemize}
 Un esempio di utilizzo del pattern \textit{composite} è il seguente:
 \begin{itemize}
-\item Si supponga di avere come \texttt{Client} un oggetto che deve accedere alla gerarchia di impiegati di un'azienda informatica
+\item Si supponga di avere come \texttt{Client} un oggetto che deve accedere alla gerarchia di impiegati di un'azienda informatica.
 \item Si ha una classe astratta \texttt{Impiegato}, che rappresenta il \texttt{Component}.
-\item Si consideri la classe \texttt{Manager}, che rappresenta \texttt{Composite}, e che può avere come sottoposti altri impiegati
+\item Si consideri la classe \texttt{Manager}, che rappresenta \texttt{Composite}, e che può avere come sottoposti altri impiegati.
 \item Si consideri la classe \texttt{Programmatore}, che rappresenta \texttt{Leaf} e che non ha sottoposti.
 \item Una eventuale operazione di \texttt{aggiungiSottoposto()} può essere eseguita da \texttt{Manager}, ma non da
 \\
@@ -1104,18 +1109,16 @@ Il pattern \textit{Visitor} è un pattern comportamentale che separa in un'appos
 \newline
 In questo modo è possibile l'aggiunta di nuove operazioni definendo appositamente delle classi; non vengono quindi modificate le classi appartententi a una struttura che utilizzerà le nuove operazioni.
 Vengono soddisfatti due principi:
-
-
 \begin{itemize}
 \item il principio aperto/chiuso, in quanto l'intero sistema è aperto per aggiungere nuove funzionalità, ma risulta chiuso alle modifiche.
 \item il principio di singola responsabilità, poiché ogni funzionalità è in un'apposita classe.
 \end{itemize}
 Per realizzare il pattern \textit{visitor} si suppone di avere le seguenti componenti:
 \begin{itemize}
-	\item \textbf{Visitor}: classe astratta o un'interfaccia, che dichiara il metodo \texttt{VisitElement}
-	\item \textbf{ConcreteVisitor}: classe concreta che estende o implementa \texttt{Visitor} e che consente di percorrere la struttura di oggetti coinvolta
-	\item \textbf{Element}: classe astratta o interfaccia che dichiara il metodo \texttt{Accept}, che ha come parametro un oggetto di tipo \texttt{Visitor}
-	\item \textbf{ConcreteElement}: classe concreta che estende o implementa \texttt{Element}
+	\item \textbf{Visitor}: classe astratta o un'interfaccia, che dichiara il metodo \texttt{VisitElement}.
+	\item \textbf{ConcreteVisitor}: classe concreta che estende o implementa \texttt{Visitor} e che consente di percorrere la struttura di oggetti coinvolta.
+	\item \textbf{Element}: classe astratta o interfaccia che dichiara il metodo \texttt{Accept}, che ha come parametro un oggetto di tipo \texttt{Visitor}.
+	\item \textbf{ConcreteElement}: classe concreta che estende o implementa \texttt{Element}.
 	\item \textbf{ObjectStructure}: è realizzata come \textit{Composite} o come una collezione (array, lista, etc.) e deve contentire l'enumerazione dei suoi elementi ; per permettere di essere visitabile da \texttt{Visitor}, \texttt{ObjectStructure} deve implementare un'interfaccia apposita \texttt{Visitable}.
 \end{itemize}
 Occorre considerare i seguenti aspetti:
@@ -1124,16 +1127,16 @@ Occorre considerare i seguenti aspetti:
 	\item Per permettere a un \texttt{Visitor} l'accesso allo stato degli elementi della struttura, è necessario sfruttare
 	\\l'\textbf{incapsulamento}.
 	\item La gerarchia composta da \texttt{Element} deve essere stabile, poichè non è semplice aggiungere nuovi \\\texttt{ConcreteElement}: ciò implicherebbe definire in tutti i \texttt{Visitor} esistenti un metodo apposito \texttt{visit} per quel \texttt{ConcreteElement}.
-	\item L'operazione \texttt{Accept} è di tipo \textit{double dispatch}, poiché dipende sia da \texttt{Visitor} che da \texttt{Element}
+	\item L'operazione \texttt{Accept} è di tipo \textit{double dispatch}, poiché dipende sia da \texttt{Visitor} che da \texttt{Element}.
 \end{itemize}
 Si consideri il seguente esempio:
 \begin{itemize}
 	\item Si suppone di avere un negozio che vende libri e CD musicali.
 	\item Si definisce la classe \texttt{Negozio} che contiene una collezione di elementi.
-	\item Si definisce una classe astratta \texttt{Elemento}, che presenta il metodo \texttt{accept(Visitor v)}, e le classi concrete \texttt{Libro} e \texttt{CD}, che derivano da \texttt{Elemento}
-	\item Si definisce l'interfaccia Visitor che presenta i metodi visitLibro(Libro libro) e visitCD(CD cd)
-	\item Si definisce la classe \texttt{VisitorVendita}, che implementa visitor e che racchiude rispettivamente la logica di vendita di libri e CD nei metodi visitLibro(Libro libro) e visitCD(CD cd)
-	\item Il negozio vuole consentire il prestito di libri e CD; per farlo sarà sufficiente creare una classe VisitorPrestito, che implementa Visitor e ridefinisce i metodi visitCD e visitLibro.
+	\item Si definisce una classe astratta \texttt{Elemento}, che presenta il metodo \texttt{accept(Visitor v)}, e le classi concrete \texttt{Libro} e \texttt{CD}, che derivano da \texttt{Elemento}.
+	\item Si definisce l'interfaccia \texttt{Visitor} che presenta i metodi \texttt{visitLibro(Libro libro)} e \texttt{visitCD(CD cd)}.
+	\item Si definisce la classe \texttt{VisitorVendita}, che implementa visitor e che racchiude rispettivamente la logica di vendita di libri e CD nei metodi \texttt{visitLibro(Libro libro)} e \texttt{visitCD(CD cd)}.
+	\item Il negozio vuole consentire il prestito di libri e CD; per farlo sarà sufficiente creare una classe\\\texttt{VisitorPrestito}, che implementa \texttt{Visitor} e ridefinisce i metodi \texttt{visitCD} e \texttt{visitLibro}.
 \end{itemize}
 
 \textbf{Diagramma UML:}
@@ -1191,13 +1194,13 @@ Spiegare il modello a cascata e le sue criticità.
 \begin{solution}
 Il modello a cascata (waterfall model) è un modello di processo di sviluppo software che prevede fasi sequenziali distinte tra loro:
 \begin{itemize}
-	\item Studio di fattibilità
-	\item Analisi dei requisiti
-	\item Analisi del problema
-	\item Progettazione
-	\item Implementazione
-	\item Collaudo
-	\item Manutenzione
+	\item studio di fattibilità;
+	\item analisi dei requisiti;
+	\item analisi del problema;
+	\item progettazione;
+	\item implementazione;
+	\item collaudo;
+	\item manutenzione.
 \end{itemize}
 Ciascuna fase di sviluppo deve essere svolta in maniera esaustiva, prima di passare alla successiva, in modo da non tornare più indietro.
 Per questo modello è importante definire:
@@ -1208,13 +1211,13 @@ Per questo modello è importante definire:
 \end{itemize}
 L'efficacia del modello a cascata è determinata dai seguenti fattori:
 \begin{itemize}
-	\item \textbf{Immutabilità dell'analisi}: i clienti sono in grado di esprimere tutte le loro richieste sin da subito, pertanto nella fase iniziale del progetto si possono definire tutte le funzionalità che il software deve eseguire
-	\item \textbf{Immutabilità del progetto}: progettare l'intero sistema prima di avere scritto codice risulta possibile
+	\item \textbf{Immutabilità dell'analisi}: i clienti sono in grado di esprimere tutte le loro richieste sin da subito, pertanto nella fase iniziale del progetto si possono definire tutte le funzionalità che il software deve eseguire.
+	\item \textbf{Immutabilità del progetto}: progettare l'intero sistema prima di avere scritto codice risulta possibile.
 \end{itemize}
 Un importante vantaggio di questo approccio risulta essere un maggiore controllo dell'andamento del progetto; tuttavia la rigidità di questo modello rappresenta un grosso svantaggio, in quanto:
 \begin{itemize}
-	\item Man mano che il sistema prende forma le sue specifiche cambiano in continuazione, così come la visione che i clienti hanno del sistema
-	\item Spesso, per avere prestazioni migliori, occorre revisionare il progetto.
+	\item man mano che il sistema prende forma le sue specifiche cambiano in continuazione, così come la visione che i clienti hanno del sistema;
+	\item spesso, per avere prestazioni migliori, occorre revisionare il progetto.
 \end{itemize}
 Per risolvere parzialmente i problemi sopra citati si è introdotto un modello a cascata con forme limitate di retroazione a un livello.
 Una possibile soluzione al problema consiste nel realizzare un prototipo che, una volta terminato il compito, viene abbandonato (\textit{throw-away prototyping}); successivamente viene costruito il sistema reale rispettando il modello a cascata.
@@ -1252,12 +1255,12 @@ Esistono tre aspetti importanti del processo di sviluppo:
 		\newline
 		Occorre soddisfase alcuni criteri, tra i quali:
 		\begin{itemize}
-			\item Modello dei casi d'uso completo all' 80\%
-			\item Descrizione dell'architettura del sistema
-			\item Sviluppo dell'architettura del sistema
-			\item Sviluppo di un'architettura eseguibile adatta agli use case significativi
-			\item Revisione dei business case e dei rischi
-			\item Pianificazione del progetto complessivo
+			\item modello dei casi d'uso completo all' 80\%;
+			\item descrizione dell'architettura del sistema;
+			\item sviluppo dell'architettura del sistema;
+			\item sviluppo di un'architettura eseguibile adatta agli use case significativi;
+			\item revisione dei business case e dei rischi;
+			\item pianificazione del progetto complessivo.
 		\end{itemize}
 		\textbf{Nota bene:} al termine di questa fase modificare il progetto risulterà più difficile e dannoso.
 		\item \textbf{Costruzione}: durante questa fase avviene la progettazione, la programmazione e il collaudo del sistema.
@@ -1269,29 +1272,29 @@ Esistono tre aspetti importanti del processo di sviluppo:
 	\item \textbf{Prospettiva statica}: si focalizza sulle attività di produzione del software, note come \textit{workflow}; la descrizione di questi ultimi è orientata ai modelli associati a UML.
 	Esistono sei workflow principali:
 	\begin{enumerate}
-		\item \textbf{Modellazione delle attività aziendali}: i processi aziendali vengono modellati, sfruttando il \textit{business case}
-		\item \textbf{Requisiti}: vengono sviluppati i casi d'uso per la stesura dei requisiti; avviene l'identificazione degli attori che interagiscono con il sistema
-		\item \textbf{Analisi e progetto}: attraverso l'utilizzo dei modelli architetturali e sequenziali degli oggetti e delle componenti viene creato e documentato un \textit{modello di progetto}
-		\item \textbf{Implementazione}: i componenti vengono implementati; grazie alla generazione automatica del codice a partire dai modelli precedentemente definiti
-		\item \textbf{Test}: vengono testati i sottocomponenti e il sistema finale
-		\item \textbf{Rilascio}: il prodotto viene distribuito agli utenti
+		\item \textbf{Modellazione delle attività aziendali}: i processi aziendali vengono modellati, sfruttando il \textit{business case}.
+		\item \textbf{Requisiti}: vengono sviluppati i casi d'uso per la stesura dei requisiti; avviene l'identificazione degli attori che interagiscono con il sistema.
+		\item \textbf{Analisi e progetto}: attraverso l'utilizzo dei modelli architetturali e sequenziali degli oggetti e delle componenti viene creato e documentato un \textit{modello di progetto}.
+		\item \textbf{Implementazione}: i componenti vengono implementati; grazie alla generazione automatica del codice a partire dai modelli precedentemente definiti.
+		\item \textbf{Test}: vengono testati i sottocomponenti e il sistema finale.
+		\item \textbf{Rilascio}: il prodotto viene distribuito agli utenti.
 	\end{enumerate}
 	Oltre ai 6 workflow principali vengono definiti 3 workflow di supporto:
 	\begin{enumerate}
-		\item \textbf{Gestione della configurazione e delle modifiche}: gestisce i cambiamenti del sistema
-		\item \textbf{Gestione del progetto}: gestisce lo sviluppo del sistema
-		\item \textbf{Ambiente}: fornisce agli sviluppatori degli strumenti adeguati
+		\item \textbf{Gestione della configurazione e delle modifiche}: gestisce i cambiamenti del sistema.
+		\item \textbf{Gestione del progetto}: gestisce lo sviluppo del sistema.
+		\item \textbf{Ambiente}: fornisce agli sviluppatori degli strumenti adeguati.
 	\end{enumerate}
 	\item \textbf{Prospettiva pratica}: suggerisce le \textit{buone prassi} da seguire nello sviluppo dei sistemi.
 	\newline
 	Esistono sei fasi fondamentali:
 	\begin{enumerate}
-		\item \textbf{Sviluppare ciclicamente il software}: pianificare (??) e consegnare le funzioni aventi la priorità più alta
-		\item \textbf{Gestire i requisiti}: documentare ogni richiesta esplicita del cliente e ogni cambiamento effettuato, analizzandone l'impatto
-		\item \textbf{Usare architetture basate sui componenti}: strutturare l'architettura del sistema in più componenti
-		\item \textbf{Usare modelli visivi del software}: utilizzare grafici UML per la rappresentazione statica e dinamica del software
-		\item \textbf{Verificare la qualità del software}: assicurarsi che vengano raggiunti gli standard di qualità previsti dall'organizzazione
-		\item \textbf{Controllare le modifiche del software}: utilizzare strumenti e pratiche che permettono di gestire modifiche al software
+		\item \textbf{Sviluppare ciclicamente il software}: pianificare e consegnare le funzioni aventi la priorità più alta.
+		\item \textbf{Gestire i requisiti}: documentare ogni richiesta esplicita del cliente e ogni cambiamento effettuato, analizzandone l'impatto.
+		\item \textbf{Usare architetture basate sui componenti}: strutturare l'architettura del sistema in più componenti.
+		\item \textbf{Usare modelli visivi del software}: utilizzare grafici UML per la rappresentazione statica e dinamica del software.
+		\item \textbf{Verificare la qualità del software}: assicurarsi che vengano raggiunti gli standard di qualità previsti dall'organizzazione.
+		\item \textbf{Controllare le modifiche del software}: utilizzare strumenti e pratiche che permettono di gestire modifiche al software.
 	\end{enumerate}
 \end{itemize}
 
@@ -1305,16 +1308,16 @@ I requisiti rappresentano la descrizione dei servizi che vengono forniti dal sis
 \newline
 Esistono due tipologie di requisiti:
 \begin{itemize}
-	\item Requisiti utente: specificano i servizi offerti dal sistema e i vincoli su cui opera. Risultano molto astratti e di alto livello, e sono espressi solitamente in linguaggio naturale assieme a diagrammi.
-	\item Requisiti di sistema: specificano nel \textit{documento dei requisiti del sistema} le funzioni, i servizi e i vincoli del sistema in modo dettagliato.
+	\item \textit{Requisiti utente}: specificano i servizi offerti dal sistema e i vincoli su cui opera. Risultano molto astratti e di alto livello, e sono espressi solitamente in linguaggio naturale assieme a diagrammi.
+	\item \textit{Requisiti di sistema}: specificano nel \textit{documento dei requisiti del sistema} le funzioni, i servizi e i vincoli del sistema in modo dettagliato.
 	\newline
 	Questi ultimi sono ulteriormente diviso in tre categorie:
 	\begin{itemize}
 		\item \textbf{Requisiti funzionali}: elenca i servizi che il sistema deve fornire, in particolare per ciascun servizio viene specificato come reagire a particolari input, come comportarsi in specifiche situazioni, e cosa il sistema non dovrebbe fare.
 		\item \textbf{Requisiti non funzionali}: descrivono altre caratteristiche del sistema, tra le quali:
 		\begin{itemize}
-			\item \textit{Requisiti del prodotto}: limitano le proprietà del sistema
-			\item \textit{Requisiti organizzativi}: vincolano il processo di sviluppo
+			\item \textit{Requisiti del prodotto}: limitano le proprietà del sistema.
+			\item \textit{Requisiti organizzativi}: vincolano il processo di sviluppo.
 			\item \textit{Requisiti esterni}: sono vincoli che derivano da sistemi esterni o da contesti come la legislazione sulla privacy o requisiti etici.
 		\end{itemize}
 		Altre caratteristiche che riguardano i requisiti non funzionali è la difficoltà di verifica di questi ultimi, poiché risultano poco chiari e vaghi.
@@ -1334,7 +1337,7 @@ L'analisi del rischio si occupa di bilanciare eventuali perdite, dovute ad attac
 \newline
 Un'importante componente dell'analisi del rischio è la valutazione del rischio, composta da pù fasi:
 \begin{itemize}
-	\item \textbf{Valutazione preliminare del rischio}: determina i requisiti di sicurezza dell'intero sistema
+	\item \textbf{Valutazione preliminare del rischio}: determina i requisiti di sicurezza dell'intero sistema.
 	\item \textbf{Ciclo di vita della valutazione del rischio}: avviene parallelamente al ciclo di vita dello sviluppo del software.
 	\newline
 	In questa fase occorre conoscere l'architettura del sistema e l'organizzazione dei dati.
@@ -1356,31 +1359,24 @@ I requisiti di sicurezza specificano il contesto, i beni da proteggere e il valo
 \newline
 Le categorie dei requisiti per la sicurezza sono:
 \begin{itemize}
-	\item \textbf{Requisiti di identificazione}: specificano se un sistema deve eseguire l'identificazione dei clienti, prima di una qualsiasi interazione con loro
-	\item \textbf{Requisiti di autenticazione}: specificano le modalità di autenticazione degli utenti
-	\item \textbf{Requisiti di autorizzazione}: specificano i permessi e i privilegi che gli utenti possiedono una volta identificati
-	\item \textbf{Requisiti di immunità}: specificano i meccanismi di difesa che il sistema deve adottare per difendersi da eventuali malware
-	\item \textbf{Requisiti di integrità}: specificano come evitare le corruzioni dei dati
-	\item \textbf{Requisiti di scoperta delle intrusioni}: specificano quali meccanismi vengono adottati per la rilevazione degli attacchi
-	\item \textbf{Requisiti di non-ripudiazione}: specificano che una parte interessata in una transazione non può negare il proprio coinvolgimento
-	\item \textbf{Requisiti di riservatezza}: specificano come deve essere mantenuta la riservatezza delle informazioni
-	\item \textbf{Requisiti di controllo della protezione}: specificano come deve essere controllato e verificato l'utilizzo del sistema
-	\item \textbf{Requisiti di protezione della manutenzione del sistema}: specificano come un' applicazione può evitare modifiche autorizzate, nel caso in cui accidentalmente vengano annullati i meccanismi di protezione
+	\item \textbf{Requisiti di identificazione}: specificano se un sistema deve eseguire l'identificazione dei clienti, prima di una qualsiasi interazione con loro.
+	\item \textbf{Requisiti di autenticazione}: specificano le modalità di autenticazione degli utenti.
+	\item \textbf{Requisiti di autorizzazione}: specificano i permessi e i privilegi che gli utenti possiedono una volta identificati.
+	\item \textbf{Requisiti di immunità}: specificano i meccanismi di difesa che il sistema deve adottare per difendersi da eventuali malware.
+	\item \textbf{Requisiti di integrità}: specificano come evitare le corruzioni dei dati.
+	\item \textbf{Requisiti di scoperta delle intrusioni}: specificano quali meccanismi vengono adottati per la rilevazione degli attacchi.
+	\item \textbf{Requisiti di non-ripudiazione}: specificano che una parte interessata in una transazione non può negare il proprio coinvolgimento.
+	\item \textbf{Requisiti di riservatezza}: specificano come deve essere mantenuta la riservatezza delle informazioni.
+	\item \textbf{Requisiti di controllo della protezione}: specificano come deve essere controllato e verificato l'utilizzo del sistema.
+	\item \textbf{Requisiti di protezione della manutenzione del sistema}: specificano come un' applicazione può evitare modifiche autorizzate, nel caso in cui accidentalmente vengano annullati i meccanismi di protezione.
 \end{itemize}
 \end{solution}
 
 
 \begin{problem}{2.7}
-Commentare eventuali errori di un diagramma UML
-\end{problem}
-\begin{solution}
-
-\end{solution}
-
-
-\begin{problem}{2.8}
 Linee guida di progettazione nella sicurezza
 \end{problem}
+\begin{solution}
 Le linee guida per la sicurezza nella progettazione sono le seguenti:
 \begin{enumerate}
 	\item Basarsi su una politica esplicita per le decisioni inerenti la sicurezza.
@@ -1388,47 +1384,46 @@ Le linee guida per la sicurezza nella progettazione sono le seguenti:
 	Le politiche di sicurezza vengono esplicitate in documenti di alto livello, che definiscono quali siano i criteri della sicurezza, ma non specificano come ottenerla.
 	Occoore incorporare politiche di sicurezza in modo da specificare quali sono le informazioni che possono essere accedute e quale ente può accedervi, e quali precondizioni occorre soddisfare per l'accesso.
 	\item Evitare ogni singolo punto di fallimento, poiché il fallimento di una parte del sistema può compromettere l'intero sistema.
-	\item Fallire in modo controllato
+	\item Fallire in modo controllato.
 	\item Bilanciare sicurezza e usabilità del sistema, dato che l'aggiunta di ulteriori livelli di sicurezza possono richiedere tempo maggiore di apprendimento dell'uso del sistema da parte dell'utente.
-	\item Essere consapevoli delle conseguenze che l'ingegneria sociale può portare, poiché tramite quest'ultima è semplice ottenere alcuni dati personali dell'utente, e convincerlo di rivelare ulteriori dati sensibili.
+	\item Essere consapevoli delle conseguenze che l'ingegneria sociale può portare, poiché tramite quest'ultima è semplice ottenere alcuni dati personali dell'utente, e convincerlo a rivelare ulteriori dati sensibili.
 	\item Utilizzare per ridurre rischi i seguenti fattori:
 	\begin{itemize}
-		\item Ridondanza: mantenimento di più versioni dello stesso software e di dati(?) nel sistema
-		\item Diversità: consiste nell'utilizzo di tecnologie diverse per le varie versioni del sistema, in modo che una vulnerabilità di una tecnologia non consenta un punto di fallimento comune.
+		\item \textbf{Ridondanza}: mantenimento di più versioni dello stesso software e di dati nel sistema.
+		\item \textbf{Diversità}: consiste nell'utilizzo di tecnologie diverse per le varie versioni del sistema, in modo che una vulnerabilità di una tecnologia non consenta un punto di fallimento comune.
 	\end{itemize}
-	\item Validare l'input, ovvero applicare controlli ai dati di ingresso, in modo da non potere sfruttare vulnerabilità come \textit{SQL Injection}, \textit{Buffer Overflow}
+	\item Validare l'input, ovvero applicare controlli ai dati di ingresso, in modo da non potere sfruttare vulnerabilità come \textit{SQL Injection}, \textit{Buffer Overflow}, etc.
 	\item Organizzare le informazioni di sistema in compartimenti, in modo che gli utenti possano accedere alle informazioni di loro competenza.
 	\item Progettare per il \textit{deployment}, includendo nel sistema programmi di utilità che semplifichino il processo di \textit{deployment}.
 	\newline
 	Alcune indicazioni sono elencate in seguito:
 	\begin{itemize}
-		\item Includere supporto per la visione e analisi delle configurazioni
-		\item Ridurre al minimo i privilegi di default
-		\item Rendere le impostazioni di configurazione locali
-		\item Fornire metodi per rimediare a vulnerabilità
+		\item includere supporto per la visione e analisi delle configurazioni;
+		\item ridurre al minimo i privilegi di default;
+		\item rendere le impostazioni di configurazione locali;
+		\item fornire metodi per rimediare a vulnerabilità.
 	\end{itemize}
-	\item Progettare per il ripristino, includendo meccanismi diretti o automatici per aggiornare il sistema e risolvere le vulnerabilità scoperte
+	\item Progettare per il ripristino, includendo meccanismi diretti o automatici per aggiornare il sistema e risolvere le vulnerabilità scoperte.
 \end{enumerate}
-\begin{solution}
-
 \end{solution}
 
-\begin{problem}{2.9}
+\begin{problem}{2.8}
 White box e black box testing
 \end{problem}
 \begin{solution}
-Il Black box testing consente di trovare le vulnerabilità di un sistema, senza sapere come esso è stato implementato.
+Il \textit{Black box testing} consente di trovare le vulnerabilità di un sistema, senza sapere come esso è stato implementato.
 Gli aspetti che vengono migliorati principalmente sono la velocità del sistema, l'affidabilità, la velocità.
 I tester non possiedono il codice sorgente, ma cercano di intuire la struttura del sistema, per poi attaccarlo in modo mirato.
 \newline
 Sfruttano molte vulnerabilità inerenti ai linguaggi di programmazione utilizzati, alle configurazioni delle reti, degli host e delle maccchine virtuali.
 \newline
-Il White box testing prevede la conoscenza completa dell'applicazione da parte dei tester, dalle informazioni di configurazione delle reti e delle macchine virtuali fino al codice sorgente.
+Il \textit{White box testing} prevede la conoscenza completa dell'applicazione da parte dei tester, dalle informazioni di configurazione delle reti e delle macchine virtuali fino al codice sorgente.
 In questo modo i tester possono effettuare una revisione del codice, e la creazione di test \textit{ad hoc} per il sistema, traendo vantaggio dalle debolezze scoperte.
 Questo approccio consente di valutare, in primo luogo, la leggibilità e la modularità del codice.
 \end{solution}
 
-\begin{problem}{2.10}
+\newpage
+\begin{problem}{2.9}
 Capacità di sopravvivenza del sistema
 \end{problem}
 \begin{solution}
@@ -1437,11 +1432,11 @@ Essa riguarda l'intero sistema e non le singole componenti, e risulta importante
 Nel processo di ingegnerizzazione dei processi sicuri occorre tenere conto della capacità di sopravvivenza, in quanto esistono servizi critici, soggetti ad attacchi.
 Occorre quindi conoscere:
 \begin{itemize}
-	\item Quali servizi risultano essere critici
-	\item In quali modi i servizi critici possono essere attaccati
-	\item Lo standard di qualità minimo da mantenere nei servizi.
-	\item Come proteggere i servizi, qualora siano sotto attacco
-	\item Come ripristinare il sistema nel tempo minore possibile, nel caso in cui i servizi siano sotto attacco.
+	\item quali servizi risultano essere critici;
+	\item in quali modi i servizi critici possono essere attaccati;
+	\item lo standard di qualità minimo da mantenere nei servizi;
+	\item come proteggere i servizi, qualora siano sotto attacco;
+	\item come ripristinare il sistema nel tempo minore possibile, nel caso in cui i servizi siano sotto attacco.
 \end{itemize}
 Per potere ideare un sistema che supporti la capacità di sopravvivenza e per valutare le vulnerabilità di quest'ultimo è stato ideato il \textit{Survivable Analysis System}.
 Questo metodo struttura la sopravvivenza di un sistema in un processo a quattro fasi e dipende dalle seguenti strategie complementari:
@@ -1460,5 +1455,4 @@ Le fasi sono:
 Sfortunatamente l'analisi della sopravvivenza non viene effettuata nella maggior parte dei processi di ingegnerizzazione, in quanto molte aziende che non hanno subito attacchi risultano scettiche nell'investire sulla sicurezza.
 È tuttavia consigliato quest'ultimo investimento, prevenendo eventuali attacchi, piuttosto che subirli, in quanto le perdite conseguenti risulterebbero gravi in termini di risorse e, nei casi peggiori, di vite.
 \end{solution}
-
 \end{document}

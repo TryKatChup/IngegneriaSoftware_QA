@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.7.24)  26 JUL 2020 11:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.7.24)  26 JUL 2020 16:10
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -695,211 +695,210 @@ File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )) [2 <./immagini/diamond-inheritance.png>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 167.
+(mdframed)              on input line 168.
  (./_minted-main/C73C5A97E08CFCF6B4B00E5F133D907D9289EA7C6515AF18390A872102ADB8BE.pygtex) [3]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 234.
+(mdframed)              on input line 235.
 <./immagini/riferimentiCircolari.jpg, id=53, 492.84125pt x 322.20375pt>
 File: ./immagini/riferimentiCircolari.jpg Graphic file (type jpg)
 <use ./immagini/riferimentiCircolari.jpg>
-Package pdftex.def Info: ./immagini/riferimentiCircolari.jpg  used on input line 253.
+Package pdftex.def Info: ./immagini/riferimentiCircolari.jpg  used on input line 254.
 (pdftex.def)             Requested size: 170.71652pt x 111.6078pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 270.
-Package mdframed Info: Not enough space on this page on input line 272.
+(mdframed)              on input line 271.
  [4 <./immagini/riferimentiCircolari.jpg>]
-Package mdframed Info: Not enough space on this page on input line 272.
+Package mdframed Info: Not enough space on this page on input line 273.
  (./_minted-main/00F1A3B31AA47159D17D5A3F152D78AB9289EA7C6515AF18390A872102ADB8BE.pygtex) (./_minted-main/FB0DA74724B3506EA33F4F8DACF704279289EA7C6515AF18390A872102ADB8BE.pygtex) [5] (./_minted-main/C6BBBBC079B84E3F4D6357380FB801299289EA7C6515AF18390A872102ADB8BE.pygtex)
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 377.
+(mdframed)              on input line 378.
  [6]
+Underfull \hbox (badness 10000) in paragraph at lines 421--432
+
+ []
+
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 430.
- (./_minted-main/00F1A3B31AA47159D17D5A3F152D78AB9289EA7C6515AF18390A872102ADB8BE.pygtex) [7] (./_minted-main/FB0DA74724B3506EA33F4F8DACF704279289EA7C6515AF18390A872102ADB8BE.pygtex) (./_minted-main/C6BBBBC079B84E3F4D6357380FB801299289EA7C6515AF18390A872102ADB8BE.pygtex)
+(mdframed)              on input line 434.
+(./_minted-main/00F1A3B31AA47159D17D5A3F152D78AB9289EA7C6515AF18390A872102ADB8BE.pygtex) [7] (./_minted-main/FB0DA74724B3506EA33F4F8DACF704279289EA7C6515AF18390A872102ADB8BE.pygtex) (./_minted-main/C6BBBBC079B84E3F4D6357380FB801299289EA7C6515AF18390A872102ADB8BE.pygtex)
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 517.
+(mdframed)              on input line 521.
  [8]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 556.
+(mdframed)              on input line 560.
  [9]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 610.
+(mdframed)              on input line 614.
 
-Underfull \hbox (badness 10000) in paragraph at lines 642--649
+Underfull \hbox (badness 10000) in paragraph at lines 646--653
 
  []
 
 [10]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 660.
+(mdframed)              on input line 664.
  [11]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 698.
+(mdframed)              on input line 702.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 717.
+(mdframed)              on input line 721.
  [12]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 746.
+(mdframed)              on input line 750.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 761.
+(mdframed)              on input line 765.
  [13]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 792.
+(mdframed)              on input line 796.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 822.
+(mdframed)              on input line 826.
  [14]
-Underfull \hbox (badness 10000) in paragraph at lines 837--843
+Underfull \hbox (badness 10000) in paragraph at lines 841--848
 
  []
 
 [15]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 858.
-Package mdframed Info: Not enough space on this page on input line 860.
+(mdframed)              on input line 863.
+Package mdframed Info: Not enough space on this page on input line 865.
  (./_minted-main/4C8A67698B3AD0717CA7CC1CACA0579696F4A172713D9CAFDFB180198F2E831C.pygtex)
 <./immagini/DatabaseSingleton.png, id=115, 362.35374pt x 191.71625pt>
 File: ./immagini/DatabaseSingleton.png Graphic file (type png)
 <use ./immagini/DatabaseSingleton.png>
-Package pdftex.def Info: ./immagini/DatabaseSingleton.png  used on input line 899.
+Package pdftex.def Info: ./immagini/DatabaseSingleton.png  used on input line 904.
 (pdftex.def)             Requested size: 181.17642pt x 95.85788pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 903.
+(mdframed)              on input line 908.
  [16 <./immagini/DatabaseSingleton.png>]
 <./immagini/observerPattern.png, id=122, 1927.2pt x 796.9775pt>
 File: ./immagini/observerPattern.png Graphic file (type png)
 <use ./immagini/observerPattern.png>
-Package pdftex.def Info: ./immagini/observerPattern.png  used on input line 933.
+Package pdftex.def Info: ./immagini/observerPattern.png  used on input line 938.
 (pdftex.def)             Requested size: 256.0748pt x 105.89696pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 926--936
+Underfull \hbox (badness 10000) in paragraph at lines 931--941
 
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 937.
+(mdframed)              on input line 942.
 [17 <./immagini/observerPattern.png>]
 <./immagini/flyweightPattern.png, id=127, 453.695pt x 303.1325pt>
 File: ./immagini/flyweightPattern.png Graphic file (type png)
 <use ./immagini/flyweightPattern.png>
-Package pdftex.def Info: ./immagini/flyweightPattern.png  used on input line 967.
+Package pdftex.def Info: ./immagini/flyweightPattern.png  used on input line 972.
 (pdftex.def)             Requested size: 227.62204pt x 152.08392pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 971.
+(mdframed)              on input line 976.
 <./immagini/strategyPattern.png, id=128, 466.74374pt x 203.76125pt>
 File: ./immagini/strategyPattern.png Graphic file (type png)
 <use ./immagini/strategyPattern.png>
-Package pdftex.def Info: ./immagini/strategyPattern.png  used on input line 992.
+Package pdftex.def Info: ./immagini/strategyPattern.png  used on input line 997.
 (pdftex.def)             Requested size: 284.52756pt x 124.21645pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 997.
-Package mdframed Info: Not enough space on this page on input line 999.
+(mdframed)              on input line 1002.
+Package mdframed Info: Not enough space on this page on input line 1004.
  [18 <./immagini/flyweightPattern.png (PNG copy)> <./immagini/strategyPattern.png>]
-Package mdframed Info: Not enough space on this page on input line 999.
+Package mdframed Info: Not enough space on this page on input line 1004.
 <./immagini/adapterPattern.png, id=135, 1927.2pt x 963.6pt>
 File: ./immagini/adapterPattern.png Graphic file (type png)
 <use ./immagini/adapterPattern.png>
-Package pdftex.def Info: ./immagini/adapterPattern.png  used on input line 1017.
+Package pdftex.def Info: ./immagini/adapterPattern.png  used on input line 1021.
 (pdftex.def)             Requested size: 256.0748pt x 128.03662pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1021.
+(mdframed)              on input line 1026.
  [19 <./immagini/adapterPattern.png>]
 <./immagini/decoratorPattern.png, id=141, 803.0pt x 635.37375pt>
 File: ./immagini/decoratorPattern.png Graphic file (type png)
 <use ./immagini/decoratorPattern.png>
-Package pdftex.def Info: ./immagini/decoratorPattern.png  used on input line 1051.
+Package pdftex.def Info: ./immagini/decoratorPattern.png  used on input line 1056.
 (pdftex.def)             Requested size: 256.0748pt x 202.6257pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1055.
+(mdframed)              on input line 1060.
  [20 <./immagini/decoratorPattern.png>]
 <./immagini/compositePattern.png, id=147, 803.0pt x 518.93875pt>
 File: ./immagini/compositePattern.png Graphic file (type png)
 <use ./immagini/compositePattern.png>
-Package pdftex.def Info: ./immagini/compositePattern.png  used on input line 1094.
+Package pdftex.def Info: ./immagini/compositePattern.png  used on input line 1099.
 (pdftex.def)             Requested size: 256.0748pt x 165.49367pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1099.
+(mdframed)              on input line 1104.
  [21 <./immagini/compositePattern.png>]
 <./immagini/visitorPattern.png, id=153, 803.0pt x 818.05624pt>
 File: ./immagini/visitorPattern.png Graphic file (type png)
 <use ./immagini/visitorPattern.png>
-Package pdftex.def Info: ./immagini/visitorPattern.png  used on input line 1143.
+Package pdftex.def Info: ./immagini/visitorPattern.png  used on input line 1146.
 (pdftex.def)             Requested size: 227.62204pt x 231.88771pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1148.
-Package mdframed Info: Not enough space on this page on input line 1150.
+(mdframed)              on input line 1151.
+Package mdframed Info: Not enough space on this page on input line 1153.
  [22 <./immagini/visitorPattern.png>]
-Package mdframed Info: Not enough space on this page on input line 1150.
+Package mdframed Info: Not enough space on this page on input line 1153.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1169.
+(mdframed)              on input line 1172.
  [23]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1188.
+(mdframed)              on input line 1191.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1226.
+(mdframed)              on input line 1229.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1238.
+(mdframed)              on input line 1241.
  [24]
-Package mdframed Info: Not enough space on this page on input line 1240.
+Package mdframed Info: Not enough space on this page on input line 1243.
  [25]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1300.
+(mdframed)              on input line 1303.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1329.
+(mdframed)              on input line 1332.
  [26]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1350.
+(mdframed)              on input line 1353.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1373.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1381.
+(mdframed)              on input line 1376.
  [27]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1416.
+(mdframed)              on input line 1410.
+ [28]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1431.
-Package mdframed Info: Not enough space on this page on input line 1433.
- [28]
-Package mdframed Info: Not enough space on this page on input line 1433.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1464.
+(mdframed)              on input line 1426.
+Package mdframed Info: Not enough space on this page on input line 1428.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1458.
  [29]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1464.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1458.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1464.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1464.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1458.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1458.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 0AB897A687A6CE32418E5CCB0788DEA2;86.
 
@@ -916,9 +915,9 @@ Here is how much of TeX's memory you used:
  29091 multiletter control sequences out of 15000+600000
  549161 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,11n,45p,843b,623s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,11n,45p,843b,627s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2986.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0500.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (30 pages, 904253 bytes).
+Output written on main.pdf (30 pages, 905832 bytes).
 PDF statistics:
  289 PDF objects out of 1000 (max. 8388607)
  221 compressed objects within 3 object streams

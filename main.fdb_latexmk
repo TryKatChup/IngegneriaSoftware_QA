@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1595757232 "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" "main.pdf" "main" 1595757233
+["pdflatex"] 1595772650 "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" "main.pdf" "main" 1595772651
   "/dev/null" 1595749327 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" 1595757230 88740 f44ee5529b62ba12b95ef5fc75d26dae ""
+  "/home/katchup/Documenti/GitHub/IngegneriaSoftware_QA/main.tex" 1595772649 89263 20596e5fb22ae2cbc3a5d39697378f11 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1591545468 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1591545468 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1591545468 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -167,12 +167,12 @@
   "immagini/riferimentiCircolari.jpg" 1593810555 19834 34f8210f518d95084ebab6f8143a76f7 ""
   "immagini/strategyPattern.png" 1595753276 2504 e4f5c7c5d82df02c49c5c5c66195715b ""
   "immagini/visitorPattern.png" 1595753595 49164 fb662516372a260cc33f85a102b9d798 ""
-  "main.aux" 1595757233 2402 1d8abe63d761a287204b2489c84d5e99 "pdflatex"
-  "main.out" 1595757233 86 0ab897a687a6ce32418e5ccb0788dea2 "pdflatex"
-  "main.tex" 1595757230 88740 f44ee5529b62ba12b95ef5fc75d26dae ""
+  "main.aux" 1595772651 2402 1d8abe63d761a287204b2489c84d5e99 "pdflatex"
+  "main.out" 1595772651 86 0ab897a687a6ce32418e5ccb0788dea2 "pdflatex"
+  "main.tex" 1595772649 89263 20596e5fb22ae2cbc3a5d39697378f11 ""
   "qrcode.png" 1593445168 1958 ce0509e1a634213fe17a998f1fb8a785 ""
   (generated)
+  "main.log"
   "main.out"
   "main.pdf"
-  "main.log"
   "main.aux"
