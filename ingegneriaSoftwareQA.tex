@@ -1,0 +1,102 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ, wrapfig}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{mdframed}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+% Define emphasis
+\DeclareTextFontCommand{\emph}{\bfseries\em}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+}
+
+\definecolor{LightGray}{gray}{0.9}
+
+\pagestyle{fancy}
+% Define problem environment
+\newenvironment{problem}[2][Domanda]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}
+    {\textit{Risposta:}}
+    {}
+
+\renewcommand{\qed}{\quad\qedsymbol}
+
+% Prevent line break in inline mode
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document information (author, course, date)
+\lhead{Karina Chichifoi }
+\rhead{\today}
+\chead{\textbf{Ingegneria del software Q\&A}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define huge title
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{30}{40}}
+\makeatother
+\begin{document}
+% TITLEPAGE
+\begin{titlepage}
+	\centering
+	\large
+	A cura di Karina Chichifoi - Ultima revisione: \today
+
+	\noindent\rule{15cm}{0.2pt}
+
+	\vspace{1.5cm}
+
+	\HUGE
+	\textbf{Ingegneria del Software Q\&A}
+
+	\vspace{2cm}
+	\begin{figure}[htb!]
+		\centering
+		\includegraphics[width=13.5cm]{./immagini/HideThePainHarold.jpg}
+	\end{figure}
+	\normalsize
+	\url{https://github.com/TryKatChup/IngegneriaSoftware_QA}
+
+	\clearpage
+\end{titlepage}
+% Premessa
+\renewcommand{\abstractname}{}
+\begin{abstract}
+	\section*{Premessa}
+	Ho scritto questo file in modo da facilitare lo studio e il superamento dell'esame di Ingegneria del Software.
+	Tuttavia è consigliato integrare questo materiale con le slide del professore Marco Patella, disponibili sulla piattaforma \textit{Insegnamenti Online}.
+
+	\section*{Contribuire alla guida}
+
+	Se ritieni di poter migliorare la guida, oppure se sono state aggiunte altre domande al di fuori di questo file, o se hai trovato un errore, visita la repository GitHub ed apri una \textit{issue}, oppure inviami un messaggio. Ogni contributo è ben accetto :)
+
+	\vspace{4mm}
+	Link Repository: \url{https://github.com/TryKatChup/IngegneriaSoftware_QA}
+
+	\vspace{5mm}
+
+	\begin{figure}[htb!]
+		\centering
+		\includegraphics[width=4cm]{qrcode.png}
+		\caption{QR Code alla repository di GitHub}
+	\end{figure}
+\end{abstract}
+
+\input{./modulo1.tex}
+\input{./modulo2.tex}
+\end{document}
