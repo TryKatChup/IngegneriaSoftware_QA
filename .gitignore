@@ -20,4 +20,6 @@
 *.mtc
 *.mtc1
 *.out
+*.fls
+*.fdb_latexmk
 *.synctex.gz 

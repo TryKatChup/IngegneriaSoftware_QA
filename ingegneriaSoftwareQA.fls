@@ -174,6 +174,12 @@ INPUT /usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT /usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /usr/share/texmf/tex/latex/ccicons/ccicons.sty
+INPUT /usr/share/texmf/tex/latex/ccicons/ccicons.sty
+INPUT /usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+INPUT /usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+INPUT /usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+INPUT /usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 INPUT ingegneriaSoftwareQA.aex
 INPUT ingegneriaSoftwareQA.aex
 INPUT ingegneriaSoftwareQA.aux
@@ -349,12 +355,14 @@ INPUT ./immagini/visitorPattern.png
 INPUT ./immagini/visitorPattern.png
 INPUT ./modulo2.tex
 INPUT ./modulo2.tex
+INPUT /usr/share/texmf/fonts/tfm/public/ccicons/ccicons.tfm
 INPUT ingegneriaSoftwareQA.aux
 INPUT ./ingegneriaSoftwareQA.out
 INPUT ./ingegneriaSoftwareQA.out
 INPUT ingegneriaSoftwareQA.pyg
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
+INPUT /usr/share/texmf/fonts/type1/public/ccicons/ccicons.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb
