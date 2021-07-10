@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{PostoRistorante} \PYG{n}{posto}\PYG{p}{;}
+\PYG{n}{assegnaPosto}\PYG{p}{(}\PYG{k}{out} \PYG{n}{posto}\PYG{p}{);}
+
+\PYG{k}{static} \PYG{k}{void} \PYG{n+nf}{assegnaPosto}\PYG{p}{(}\PYG{k}{out} \PYG{n}{PostoRistorante} \PYG{n}{posto}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{posto}\PYG{p}{.}\PYG{n}{NumeroTavolo} \PYG{p}{=} \PYG{l+m}{3}\PYG{p}{;} \PYG{n}{posto}\PYG{p}{.}\PYG{n}{NumeroPosto} \PYG{p}{=} \PYG{l+m}{5}\PYG{p}{;}  \PYG{c+c1}{// da un errore di compilazione}
+	\PYG{n}{posto} \PYG{p}{=} \PYG{k}{new} \PYG{n}{PostoRistorante}\PYG{p}{(}\PYG{l+m}{3}\PYG{p}{,}\PYG{l+m}{5}\PYG{p}{);} \PYG{c+c1}{// È necessario inizializzarlo}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

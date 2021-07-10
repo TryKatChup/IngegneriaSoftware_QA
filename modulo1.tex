@@ -217,11 +217,11 @@ linenos
 {csharp}
 
 PostoRistorante posto = new PostoRistorante(1,1);
-assegnaPosto(ref posto);
-Console.writeline(posto); // sia se PostoRistorante è una classe si ha (3,5)
-			// se è una struttura si ha (1,1)
+assegnaPosto(posto);
+Console.writeline(posto); // se PostoRistorante è una classe si ha (3,5)
+                          // se è una struttura si ha (1,1)
 
-static void assegnaPosto(ref PostoRistorante posto){
+static void assegnaPosto(PostoRistorante posto){
 	posto.NumeroTavolo = 3;
 	posto.NumeroPosto = 5;
 }
@@ -245,7 +245,7 @@ linenos
 PostoRistorante posto = new PostoRistorante(1,1);
 assegnaPosto(ref posto);
 Console.writeline(posto); // sia se PostoRistorante è una classe,
-			// sia se è una struttura si ha (3,5)
+                          // sia se è una struttura si ha (3,5)
 
 static void assegnaPosto(ref PostoRistorante posto){
 	posto.NumeroTavolo = 3;
@@ -270,7 +270,8 @@ PostoRistorante posto;
 assegnaPosto(out posto);
 
 static void assegnaPosto(out PostoRistorante posto){
-	posto = new PostoRistorante(3,5);
+    posto.NumeroTavolo = 3; posto.NumeroPosto = 5;  // Dà un errore di compilazione
+	posto = new PostoRistorante(3,5); // È necessario inizializzarlo
 }
 	\end{minted}
 \end{itemize}
