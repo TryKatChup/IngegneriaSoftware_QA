@@ -70,18 +70,26 @@ Esiste un ulteriore approccio ed è una combinazione dei metodi \textit{composiz
 \begin{problem}{1.2}
 Si esegua una classificazione del polimorfismo secondo Cardelli-Wegner e si mostri l'implementazione del polimorfismo per inclusione.
 \end{problem}
+
 \begin{solution}
 Si definisce polimorfismo la capacità di un elemento di apparire in forme diverse in differenti contesti, o di elementi diversi di apparire sotto la stessa forma in uno specifico contesto.
 La classificazione di Cardelli-Wegner impone due categorie, a loro volta suddivise in due sottocategorie:
+
 \begin{itemize}
-	\item \textbf{Universale}: gli elementi assumono infinite forme.
-	\newline
+	\item \textbf{Universale}: gli elementi assumono infinite forme. \\
 	È suddiviso in:
 	\begin{itemize}
-		\item \textbf{Per inclusione}: viene utilizzato nella prorgrammazione orientata agli oggetti e utilizza:
+        \item \textbf{Per inclusione}: viene utilizzato nella prorgrammazione
+            orientata agli oggetti e utilizza:
 		\begin{itemize}
-			\item \textit{Overriding}: consente la ridefinizione di un metodo della superclasse nella sottoclasse. Questo approccio risulta più sicuro nel caso in cui il metodo in questione risulta astratto.
-			\item \textit{Binding dinamico}: viene consentito grazie all'utilizzo della Virtual Method Table (VMT), posseduta da ogni classe; in particolare una VMT contiene tutti i puntatori ai metodi della classe che la possiede.
+            \item \textit{Overriding}: consente la ridefinizione di un metodo
+                della superclasse nella sottoclasse. Questo approccio risulta
+                più sicuro nel caso in cui il metodo in questione risulta
+                astratto.
+            \item \textit{Binding dinamico}: viene consentito grazie
+                all'utilizzo della Virtual Method Table (VMT), posseduta da
+                ogni classe; in particolare una VMT contiene tutti i puntatori
+                ai metodi della classe che la possiede.
 		\end{itemize}
 		\item \textbf{Parametrico}: viene utilizzato nella programmazione generica rispetto ai tipi.
 		Consiste nel definire una classe in cui il tipo di una o più variabili è un parametro della classe stessa.
@@ -270,7 +278,7 @@ PostoRistorante posto;
 assegnaPosto(out posto);
 
 static void assegnaPosto(out PostoRistorante posto){
-    posto.NumeroTavolo = 3; posto.NumeroPosto = 5;  // Dà un errore di compilazione
+        posto.NumeroTavolo = 3; posto.NumeroPosto = 5;  // Dà un errore di compilazione
 	posto = new PostoRistorante(3,5); // È necessario inizializzarlo
 }
 	\end{minted}
@@ -300,6 +308,7 @@ Gli svantaggi invece sono:
 L'ambiente .NET sfrutta come strategia di \textit{garbage collection} il \textbf{tracing}: si stabiliscono quali oggetti sono raggiungibili e si eliminano quelli non raggiungibili.\newline
 Quando un processo viene inizializzato il \textit{Common Language Runtime} (CLR) riserva una regione contigua di spazio di indirizzamento, noto come \textit{managed heap} e memorizza l'indirizzo di partenza della regione in un puntatore chiamato \texttt{NextObjPtr}.
 Nel caso in cui venga eseguita una \textit{newobj}, il CLR:
+
 \begin{enumerate}
 	\item Determina la dimensione in byte dell'oggetto e aggiunge a quest'ultimo due campi che possono essere da 32 o 64 bit.
 	Il primo campo contiene un puntatore alla tabella dei metodi, mentre il secondo è un campo \texttt{SyncBlockIndex}.
@@ -314,20 +323,28 @@ Nel caso in cui venga eseguita una \textit{newobj}, il CLR:
 	\item Invoca il costruttore dell'oggetto.
 	\item Restituisce il riferimento all'oggetto.
 \end{enumerate}
+
 Lo scopo del garbage collector è di individuare quali oggetti non vegono più utilizzati dall'applicazione; quest'ultima presenta un insieme di radici (\textit{root}).
 Ciascuna radice è un puntatore a un oggetto di tipo riferimento sicuramente attivo, come:
+
 \begin{itemize}
 	\item variabili globali e field statici di tipo riferimento;
 	\item variabili locali o argomenti attuali di tipo riferimento presenti sugli stack dei vari thread;
 	\item registri della CPU contenenti gli indirizzi di oggetti di tipo riferimento.
 \end{itemize}
-Vengono distinte di tipologie di oggetti: gli \textbf{oggetti vivi} sono raggiungibili (direttamente o indirettamente) dalle radici, mentre gli \textbf{oggetti garbage} non lo sono.
+
+\raggedright Vengono distinte di tipologie di oggetti: gli \textbf{oggetti vivi} sono
+raggiungibili (direttamente o indirettamente) dalle radici, mentre gli
+\textbf{oggetti garbage} non lo sono.
 \newline
 Inizialmente il garbage collector marca tutti gli oggetti sul \textit{managed heap} come \textbf{garbage}; successivamente viene interpellata la tabella delle radici, per stabilire quali oggetti siano \textbf{vivi}, marcandoli come tali.
 \newline
-Terminata la classificazione degli oggetti viene liberata la memoria occupata dagli oggetti garbage; tuttavia ciò causa frammentazione nel managed heap, poichè si hanno aree di memoria libere non contigue.
-Pertanto si effettua una compattazione della memoria in uso, modificando di conseguenza i riferimenti agli oggetti spostati; al termine dell'unificazione si aggiorna il valore di \texttt{NextObjPtr}.
-\\\\
+Terminata la classificazione degli oggetti viene liberata la memoria occupata
+dagli oggetti garbage; tuttavia ciò causa frammentazione nel managed heap,
+poichè si hanno aree di memoria libere non contigue.  Pertanto si effettua una
+compattazione della memoria in uso, modificando di conseguenza i riferimenti
+agli oggetti spostati; al termine dell'unificazione si aggiorna il valore di
+\texttt{NextObjPtr}.  \\
 Il Garbage collector può effettuare tutte le operazioni elencate in precedenza, in quanto conosce il tipo di un oggetto e può sfruttare i metadati per determinare quali campi dell'oggetto contengono riferimenti agli altri oggetti.
 \newline
 Nel caso in cui un oggetto contenga riferimenti a risorse di tipo unmanaged (file, connessione al database, socket, e così via) è responsabilità del programmatore occuparsi della fase di finalizzazione, ovvero il rilascio della risorsa prima della deallocazione.
@@ -546,7 +563,7 @@ Ad esempio, è possibile enumerare i tipi di un \textit{assembly} tramite i segu
 	\item \texttt{methodInfo.Invoke(...)} invoca i metodi;
 	\item \texttt{propertyInfo.GetValue(...)/.SetValue(...)} invocano \textit{getter} e \textit{setter}.
 \end{itemize}
-I membri pubblici sono sempre accessibili, mentre i membri non pubblici lo sono solo se il chiamante ha permessi sufficienti.
+\raggedright I membri pubblici sono sempre accessibili, mentre i membri non pubblici lo sono solo se il chiamante ha permessi sufficienti.
 Per creare dinamicamente istanze di oggetti si usa la classe \texttt{System.Activator}, il cui metodo \texttt{CreateInstance(Type type, Object[] args)} è equivalente all'operazione \texttt{new}.
 \newline\newline
 Per aggiungere informazioni ai metadati è possibile utilizzare \textbf{attributi personalizzati}, ovvero classi visibili via riflessione che derivano da \texttt{System.Attribute} e che possono contenere proprietà e metodi.
@@ -631,9 +648,15 @@ Il motivo della precedente affermazione è dovuto alla presenza di codice e dell
 \begin{itemize}
 	\item \textbf{Rigidità}: per ogni modifica occorre intervenire su un numero elevato di moduli.
 	\item \textbf{Fragilità}: per ogni modifica verrebbero introdotti errori nel sistema.
-	\item \textbf{Immobilità}: non è possibile riutilizzare il codice, in quanto i moduli di alto livello non si riuscirebbero a separarare da quelli di basso livello.
+    \item \textbf{Immobilità}: non è possibile riutilizzare il codice, in
+        quanto i moduli di alto livello non si riuscirebbero a separarare da
+        quelli di basso livello.
 \end{itemize}
-Con il principio di inversione delle dipendenze si eviterebbero i problemi sopra elencati, in quanto le astrazioni possiedono poco codice e sono poco soggetti a modifiche; inoltre è presente una separazione tra moduli astratti e moduli concreti, che permette modifiche limitate al modulo concreto interessato (poiché nessuno dipende da questi moduli).
+Con il principio di inversione delle dipendenze si eviterebbero i problemi
+sopra elencati, in quanto le astrazioni possiedono poco codice e sono poco
+soggetti a modifiche; inoltre è presente una separazione tra moduli astratti e
+moduli concreti, che permette modifiche limitate al modulo concreto interessato
+(poiché nessuno dipende da questi moduli).
 Dato che i dettagli del sistema sono stati isolati da un muro di astrazioni stabili:
 \begin{itemize}
 	\item i cambiamenti non possono più propagarsi (\textit{design for change});
@@ -641,11 +664,23 @@ Dato che i dettagli del sistema sono stati isolati da un muro di astrazioni stab
 \end{itemize}
 Un esempio di principio di inversione delle dipendenze è il seguente:
 \begin{itemize}
-	\item Si considerino le classi concrete \texttt{BigliettoNormale} e \texttt{GestoreVenditaBiglietti}; quest'ultima ha una dipendenza verso \texttt{BigliettoNormale}.
-	\item Tale dipendenza è verso una classe concreta, pertanto il codice di \texttt{GestoreVenditaBiglietti} è poco manutenibile.
-	\newline Infatti, nel caso si volesse creare la classe \texttt{BigliettoVIP} occorrerebbe modificare il codice di \\\texttt{GestoreVenditaBiglietti}.
-	\item Per risolvere il problema, si introduce l'interfaccia \texttt{IBiglietto} e si fa sì che \texttt{GestoreVenditaBiglietti} dipenda da essa; inoltre, si modifica la classe \texttt{BigliettoNormale} in modo che implementi \texttt{IBiglietto}.
-	\item A questo punto, se si volesse aggiungere una nuova tipologia di biglietto, non sarebbe più necessario modificare \texttt{GestoreVenditaBiglietti} ma basterebbe creare una classe concreta che implementi \texttt{IBiglietto} (ad esempio, \texttt{BigliettoVIP}).
+    \item Si considerino le classi concrete \texttt{BigliettoNormale} e
+        \texttt{GestoreVenditaBiglietti}; quest'ultima ha una dipendenza verso
+        \texttt{BigliettoNormale}.
+    \item Tale dipendenza è verso una classe concreta, pertanto il codice di
+        \texttt{GestoreVenditaBiglietti} è poco manutenibile.
+    \newline Infatti, nel caso si volesse creare la classe
+    \texttt{BigliettoVIP} occorrerebbe modificare il codice di
+    \\\texttt{GestoreVenditaBiglietti}.
+    \item Per risolvere il problema, si introduce l'interfaccia
+        \texttt{IBiglietto} e fa sì che \texttt{GestoreVenditaBiglietti}
+        dipenda da essa; inoltre, si modifica la classe
+        \texttt{BigliettoNormale} in modo che implementi \texttt{IBiglietto}.
+    \item A questo punto, se si volesse aggiungere una nuova tipologia di
+        biglietto, non sarebbe più necessario modificare
+        \texttt{GestoreVenditaBiglietti} ma basterebbe creare una classe
+        concreta che implementi \texttt{IBiglietto} (ad esempio,
+        \texttt{BigliettoVIP}).
 \end{itemize}
 \end{solution}
 
@@ -741,7 +776,7 @@ L'architettura dei package prevede i seguenti tre principi:
 	\item \textbf{Principio di riutilizzo comune (CRP)}: occorre non raggruppare nello stesso package le classi che non vengono riutilizzate insieme.
 	\newline La motivazione è dovuta al fatto che, per ciascuna modifica del package, sia necessario controllare ogni singola classe per verificare il corretto funzionamento dell'aggiornamento; vengono controllate anche le classi che non presentano alcuna modifica.
 \end{itemize}
-Risulta complesso soddisfare tutti e tre i principi contemporaneamente, poichè il \textit{principio di chiusura comune} suggerisce di rendere i package \textbf{i più grandi possibili}, semplificando l'utilizzo di questi ultimi da parte dello sviluppatore, mentre il \textit{principio di equivalenza di riuso/rilascio} e il \textit{principio di riutilizzo comune} incentivano l'utilizzo di \textbf{package piccoli}, semplificandone l'utilizzo da parte dei clienti.
+\raggedright Risulta complesso soddisfare tutti e tre i principi contemporaneamente, poichè il \textit{principio di chiusura comune} suggerisce di rendere i package \textbf{i più grandi possibili}, semplificando l'utilizzo di questi ultimi da parte dello sviluppatore, mentre il \textit{principio di equivalenza di riuso/rilascio} e il \textit{principio di riutilizzo comune} incentivano l'utilizzo di \textbf{package piccoli}, semplificandone l'utilizzo da parte dei clienti.
 \\
 Una buona prassi è applicare il \textit{principio di chiusura comune} durante la progettazione dell'architettura, in modo da semplificare lo sviluppo e la manutenzione. Una volta ottenuta maggiore stabilità del sistema viene eseguito un \textit{refactoring}, diminuendo i package e soddisfando i rimanenti due principi per permettere maggiore riutilizzo.
 \newline
@@ -786,9 +821,9 @@ public class Singleton {
    private Singleton() {} // costruttore
 
    public static Singleton getIstance() {
-	if (istance == null)
-	   istance = new Singleton();
-    return istance;
+        if (istance == null)
+           istance = new Singleton();
+        return istance;
    }
 
    public void metodo() { ... }
@@ -831,13 +866,11 @@ Altri possibili quattro approcci sono:
 	\item \textbf{Delegate based}: Ogni subject contiene un delegato pubblico, in modo che gli observer possano registrarsi a tale delegato e venire notificati indirettamente dal subject
 	\item \textbf{Event based}: un event si occupa di effettuare \texttt{Unregister()} degli observer.
 \end{itemize}
-Un esempio di utilizzo di pattern Observer potrebbe essere l'iscrizione da parte di diversi dispositivi elettronici a un sensore di temperatura; nel caso in cui la temperatura della stanza cambi, tutti i dispositivi registrati al subject \texttt{Sensore} vengono avvertiti.
-\newline
+\raggedright Un esempio di utilizzo di pattern Observer potrebbe essere l'iscrizione da parte di diversi dispositivi elettronici a un sensore di temperatura; nel caso in cui la temperatura della stanza cambi, tutti i dispositivi registrati al subject \texttt{Sensore} vengono avvertiti.
 \newline
 \textbf{Diagramma UML:}
 \begin{figure}[htb!]
 	\centering
-	\label{ObserverPattern}
 	\includegraphics[width=9cm]{./immagini/observerPattern.png}
 \end{figure}
 \end{solution}
@@ -872,7 +905,7 @@ Un esempio di pattern \textit{Flyweight} potrebbe essere la rappresentazione dei
 \begin{figure}[htb!]
 	\centering
 	\label{FlyweightPattern}
-	\includegraphics[width=8cm]{./immagini/flyweightPattern.png}
+	\includegraphics[width=\textwidth]{./immagini/flyweightPattern.png}
 \end{figure}
 \end{solution}
 
@@ -920,7 +953,6 @@ Un esempio di utilizzo del pattern Adapter è il seguente:
 \textbf{Diagramma UML:}
 \begin{figure}[htb!]
 	\centering
-	\label{ObserverPattern}
 	\includegraphics[width=9cm]{./immagini/adapterPattern.png}
 \end{figure}
 \end{solution}
@@ -955,7 +987,6 @@ Un esempio di utilizzo del pattern \textit{Decorator} è il seguente:
 \textbf{Diagramma UML:}
 \begin{figure}[htb!]
 	\centering
-	\label{ObserverPattern}
 	\includegraphics[width=9cm]{./immagini/decoratorPattern.png}
 \end{figure}
 \end{solution}
@@ -998,7 +1029,6 @@ Un esempio di utilizzo del pattern \textit{composite} è il seguente:
 \textbf{Diagramma UML:}
 \begin{figure}[htb!]
 	\centering
-	\label{ObserverPattern}
 	\includegraphics[width=9cm]{./immagini/compositePattern.png}
 \end{figure}
 \end{solution}
@@ -1045,7 +1075,6 @@ Si consideri il seguente esempio:
 \textbf{Diagramma UML:}
 \begin{figure}[htb!]
 	\centering
-	\label{ObserverPattern}
 	\includegraphics[width=8cm]{./immagini/visitorPattern.png}
 \end{figure}
 \end{solution}
