@@ -55,12 +55,12 @@ class Seaplane implements flyable, swimmable {
 Un metodo alternativo all'ereditarietà multipla è il modello \textbf{composizione e delega}, dove si sceglie una superclasse significativa e si eredita soltanto da quella; le rimanenti superclassi diventano ruoli e vengono connesse tramite \textbf{composizione}.
 Un esempio è il seguente:
 \begin{itemize}
-	\item Si supponga di avere la classe \texttt{Pippistrello} che eredita sia dalla classe \texttt{Mammifero} che dalla classe \texttt{Volatile}.
+	\item Si supponga di avere la classe \texttt{Pipistrello} che eredita sia dalla classe \texttt{Mammifero} che dalla classe \texttt{Volatile}.
 	\item \texttt{Mammifero} e \texttt{Volatile} ereditano da \texttt{Animale}.
 	\item Dato che l'ereditarietà multipla non è consentita si può adottare il seguente approccio:
 	\begin{itemize}
 		\item \texttt{Animale} rimane superclasse, e \texttt{Mammifero} eredita da \texttt{Animale}.
-		\item \texttt{Pippistrello} deriva da \texttt{Mammifero} ed è legato tramite composizione a \texttt{Volatile}.
+		\item \texttt{Pipistrello} deriva da \texttt{Mammifero} ed è legato tramite composizione a \texttt{Volatile}.
 	\end{itemize}
 \end{itemize}
 Esiste un ulteriore approccio ed è una combinazione dei metodi \textit{composizione-delega} e \textit{interfacce}.
