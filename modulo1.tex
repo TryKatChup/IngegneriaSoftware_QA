@@ -1,5 +1,6 @@
 \newpage
 \section{Modulo 1}
+
 \begin{problem}{1.1}
 Come viene implementata l'ereditarietà multipla?
 \end{problem}
@@ -1117,4 +1118,323 @@ L'operazione appena descritta può avere due esiti:
 \end{itemize}
 Anche in caso di conflitto il tempo di risoluzione del problema risulta minore rispetto al ritardo di sviluppo introdotto da un sistema di blocco come previsto nel modello \textit{Lock-Modify-Unlock}.
 L'assenza di conflitti non garantisce sempre il corretto funzionamento del programma dopo le modifiche: l'operazione di \textit{merge} infatti non è in grado di rilevare conflitti logici, concettuali o semantici.
+\end{solution}
+
+\begin{problem}{1.26}
+	ADT ed incapsulamento
+	\end{problem}
+	\begin{solution}
+	Un \textbf{Tipo di Dato Astratto} (ADT, Abstract Data Type) è un modello matematico per strutture dati che consente di definire:
+	\begin{itemize}
+		\item \textbf{Cosa} fa un certo tipo di dato, senza specificare \textbf{come} lo fa.
+		\item Le operazioni applicabili agli oggetti di quel tipo e il loro comportamento.
+	\end{itemize}
+	L'ADT è utile per favorire l'astrazione, la modularità e la riusabilità del codice.
+	
+	Per definire un ADT, sono necessari:
+	\begin{itemize}
+		\item \textbf{Interfaccia pubblica}: specifica i metodi pubblici applicabili agli oggetti di quel tipo.
+		\item \textbf{Implementazione privata}: include i campi privati e i metodi (sia pubblici che privati) che realizzano il comportamento definito dall'interfaccia.
+	\end{itemize}
+	
+	\textbf{Incapsulamento}
+	L'\textbf{incapsulamento}, noto anche come \textit{information hiding}, consiste nel nascondere agli utilizzatori finali i dettagli relativi alla struttura e al funzionamento interno di un oggetto. Questo approccio consente di:
+	\begin{itemize}
+		\item Nascondere le scelte progettuali, rendendo il sistema più robusto e meno soggetto a errori.
+		\item Limitare l'accesso diretto ai campi privati, garantendo che le modifiche avvengano solo attraverso metodi controllati.
+		\item Favorire la manutenibilità del codice, poiché eventuali modifiche all'implementazione interna non influenzano il codice che utilizza l'ADT.
+	\end{itemize}
+	
+	Un esempio pratico di incapsulamento è l'utilizzo di \textbf{getter} e \textbf{setter} per accedere e modificare i campi privati di una classe, anziché esporre direttamente tali campi.
+\end{solution}
+
+\begin{problem}{1.27}
+Differenze tra interfaccia e classe astratta
+\end{problem}
+\begin{solution}
+In sintesi, un'\textbf{interfaccia} è un contratto puro, senza nessuna implementazione né stato, mentre la \textbf{classe astratta} ha una
+base con implementazione e stato, ma consente eredità singola. Analizzando più nel dettaglio le differenze:
+\section*{Interfaccia}
+Descrive un contratto che una classe deve rispettare, definendo un insieme di metodi che devono essere implementati. 
+È utilizzata per rappresentare una funzionalità semplice e specifica che può essere condivisa tra classi \textbf{eterogenee}
+che devono esibire comportamenti comuni.
+\newline
+\textit{Esempio}: tutte le classi che implementano l'interfaccia \texttt{ICloneable} sono clonabili, 
+indipendentemente dalla loro natura.
+\newline
+\begin{itemize}
+	\item Contiene solo \textbf{metodi astratti} (senza corpo) e \textbf{costanti}.
+	\item Non può avere stato interno (non può contenere campi di istanza, ma solo costanti statiche e finali).
+	\item Può contenere \textbf{metodi predefiniti} (\textit{default methods}) con implementazione e \textbf{metodi statici}.
+	\item Non può avere costruttori.
+	\item Deve essere stabile, secondo il principio aperto/chiuso (OCP), poiché ogni modifica può influenzare tutte le classi 
+	che la implementano.
+\end{itemize}
+Per quanto riguarda le relazioni con altre classi:
+\begin{itemize}
+	\item Una classe può implementare più interfacce (ereditarietà multipla di interfaccia).
+	\item Un'interfaccia può estendere altre interfacce.
+	\item Non può estendere una classe astratta o una classe concreta.
+\end{itemize}
+\newline
+\section*{Classe astratta}
+Una classe astratta rappresenta un concetto generico o una base comune per un insieme di classi \textbf{omogenee},
+con comportamenti comuni. Può fornire sia metodi astratti (da implementare nelle sottoclassi) sia metodi concreti (già implementati).
+\newline
+\textit{Esempio}: la classe astratta \texttt{Shape} può definire metodi comuni come \texttt{getArea()} e
+\texttt{getPerimeter()}, lasciando alle sottoclassi come \texttt{Circle} e \texttt{Rectangle} il compito di 
+implementare i dettagli specifici.
+\newline
+\begin{itemize}
+	\item Può contenere \textbf{metodi astratti} (senza corpo) e \textbf{metodi concreti} (con corpo).
+	\item Può avere stato interno (campi di istanza) e costruttori.
+	\item Può contenere metodi statici.
+	\item Può fornire implementazioni predefinite per alcuni metodi, che le sottoclassi possono ridefinire.
+	\item È aperta alle modifiche, ma ogni modifica deve essere gestita con attenzione per evitare di compromettere le sottoclassi.
+\end{itemize}
+Per quanto riguarda le relazioni con altre classi:
+\begin{itemize}
+	\item Una classe astratta può estendere un'altra classe astratta o concreta (ma solo una, se l'ereditarietà multipla non è permessa).
+	\item Può implementare una o più interfacce.
+	\item Le sottoclassi concrete devono implementare tutti i metodi astratti della classe astratta.
+\end{itemize}
+\end{solution}
+
+\begin{problem}{1.28}
+Ciclo di vita di un oggetto esemplificandone i passi utilizzando uno specifico linguaggio orientato agli oggetti
+\end{problem}
+\begin{solution}
+Consideriamo il linguaggio \textbf{Java} e il funzionamento della \textbf{Java Virtual Machine (JVM)} per descrivere le 
+fasi del ciclo di vita di un oggetto.
+
+\subsection*{Inizio del programma}
+All'avvio, la JVM alloca un'area di memoria continua detta \textbf{managed heap}, destinata a contenere gli oggetti creati 
+dinamicamente durante l'esecuzione del programma. Tale area può aumentare dinamicamente nel tempo, in base alle esigenze.
+Un puntatore chiamato \texttt{NextObjPtr} mantiene l'indirizzo del primo spazio libero nel managed heap.
+
+\subsection*{Nascita dell’oggetto}
+Quando si invoca un'istruzione come \texttt{new Oggetto()}, la JVM esegue i seguenti passaggi:
+
+\begin{enumerate}
+\item Calcola la dimensione in memoria dell’oggetto, in base ai suoi campi e alla struttura della classe.
+\item Verifica se nel managed heap c’è spazio sufficiente:
+\begin{itemize}
+\item Se lo spazio è disponibile, si procede normalmente.
+\item In caso contrario, viene attivato il \textbf{Garbage Collector (GC)} per liberare memoria.
+\item Se dopo il GC lo spazio resta insufficiente, viene sollevata un’eccezione \texttt{OutOfMemoryError}.
+\end{itemize}
+\item Assegna \texttt{ThisObjPtr = NextObjPtr}; aggiorna \texttt{NextObjPtr = NextObjPtr + sizeof(obj)}.
+\item Invoca il costruttore della classe, passando come riferimento implicito \texttt{this = ThisObjPtr}.
+\item Restituisce al chiamante il riferimento alla memoria allocata per l’oggetto.
+\end{enumerate}
+
+A questo punto l’oggetto è stato correttamente creato, inizializzato e pronto per essere utilizzato nel programma. 
+Rimarrà in memoria fino a quando sarà considerato "vivo" secondo le regole di gestione della memoria.
+
+\subsection*{Vita dell'oggetto}
+Durante l'esecuzione, l’oggetto può essere utilizzato da più componenti del programma. Finché esistono riferimenti attivi 
+ad esso (sullo stack, nei registri o altrove), l'oggetto viene considerato raggiungibile e non può essere deallocato.
+
+\subsection*{Morte dell’oggetto}
+Un oggetto diventa "morto" quando non è più raggiungibile da nessuna parte nel programma. In tal caso, la JVM può deallocarne 
+la memoria (prima si utilizzava il metodo \texttt{finalize()}, ora deprecato) secondo una specifica strategia di Garbage 
+Collection. Le principali strategie sono:
+
+\subsubsection*{Reference Counting}
+Ogni oggetto mantiene un contatore che rappresenta il numero di riferimenti attivi. Quando il contatore scende a zero, 
+l’oggetto può essere liberato. È semplice ma non gestisce correttamente i riferimenti circolari.
+
+\subsubsection*{Tracing (Tracciamento)}
+È la strategia utilizzata dalla JVM. Si compone di due fasi:
+
+\begin{enumerate}
+\item \textbf{Marcatura}: a partire da oggetti radice (root), come quelli referenziati dallo stack, registri o riferimenti globali, 
+il GC marca ricorsivamente tutti gli oggetti raggiungibili.
+\item \textbf{Liberazione}: tutti gli oggetti non marcati vengono considerati inaccessibili. Viene invocato il loro 
+(eventuale) metodo \texttt{finalize()} e la memoria viene resa nuovamente disponibile.
+\end{enumerate}
+\end{solution}
+
+\begin{problem}{1.29}
+Fattori di qualità di un buon software
+\end{problem}
+\begin{solution}
+Un \textbf{software di qualità} non si limita a soddisfare i requisiti funzionali, ma rispetta anche una 
+serie di criteri fondamentali per la progettazione, lo sviluppo e la valutazione di un sistema:
+
+\begin{itemize}
+	\item \textbf{Correttezza}: il software deve produrre risultati coerenti con le specifiche e i requisiti funzionali. 
+	La correttezza può essere verificata tramite test, ispezioni del codice o metodi formali.
+	\item \textbf{Robustezza}: il software deve gestire correttamente situazioni anomale o impreviste senza andare in crash 
+	o produrre comportamenti incoerenti. Include la gestione "pulita" di tutte eccezioni.
+	\item \textbf{Affidabilità}: misura la capacità del software di mantenere un comportamento corretto e stabile nel tempo.
+	\item \textbf{Estendibilità}: indica quanto sia semplice aggiungere nuove funzionalità al software senza modificare
+	radicalmente la struttura esistente. Favorita da un design modulare basato su astrazioni e interfacce ben definite.
+	\item \textbf{Riusabilità}: si riferisce alla capacità di componenti software di essere riutilizzati in contesti diversi.
+	Un componente riusabile è autonomo, ben documentato e presenta interfacce chiare.
+	\item \textbf{Facilità d'uso}: il software deve essere intuitivo, coerente e accessibile per l'utente finale
+	\item \textbf{Efficienza}: riguarda l'uso ottimale delle risorse computazionali nell'hardware specifico di utilizzo.
+	\item \textbf{Verificabilità}: rappresenta la facilità con cui si possono eseguire test sul software per accertarne 
+	il corretto funzionamento.
+	\item \textbf{Portabilità}: misura la capacità del software di essere eseguito su piattaforme diverse con modifiche minime. 
+	Si ottiene tramite l'uso di linguaggi portabili, l'aderenza agli standard e l'astrazione delle dipendenze dalla piattaforma.
+\end{itemize}
+\medskip
+In conclusione, un buon software è il risultato di un equilibrio tra questi fattori, spesso in competizione tra loro (es. efficienza vs portabilità, robustezza vs semplicità). 
+La consapevolezza di questi aspetti guida scelte progettuali informate e migliora l'intero ciclo di vita del software.
+\end{solution}
+
+\begin{problem}{1.30}
+Pattern Abstract Factory con esempi
+\end{problem}
+\begin{solution}
+È un design pattern di tipo \textit{creazionale}, il cui scopo è fornire un’interfaccia per creare famiglie di oggetti tra loro 
+correlati, senza specificarne esplicitamente le classi concrete. Questo pattern consente al client di astrarsi completamente 
+dalla logica di istanziazione, favorendo l’indipendenza rispetto alla rappresentazione concreta e alla modalità di creazione degli
+oggetti.
+\newline
+
+È particolarmente utile in sistemi che devono supportare più varianti o configurazioni di una stessa struttura di oggetti. 
+In questo contesto, la "configurazione" del sistema consiste nella scelta di una \textbf{famiglia coerente di componenti}, 
+che lavorano insieme in modo compatibile.
+\newline
+
+Un caso d’uso tipico è la creazione di componenti grafici (GUI) che devono comportarsi in modo uniforme ma adattarsi all’ambiente 
+grafico sottostante (es. Windows, macOS, Linux). In questo scenario, si vuole che il client lavori con elementi astratti (es. \texttt{RadioButton}, \texttt{Checkbox}), 
+senza preoccuparsi del loro stile o comportamento specifico.
+
+\begin{itemize}
+	\item \textbf{AbstractFactory} \\
+	Definisce l’interfaccia per la creazione dei vari oggetti appartenenti alla famiglia. 
+	Ogni metodo corrisponde alla creazione di un componente astratto. (es. \texttt{GUIFactory})
+
+	\item \textbf{ConcreteFactory} \\
+	Implementa l’interfaccia di \texttt{AbstractFactory}, fornendo la logica concreta per creare le varianti specifiche degli oggetti.
+	(es. \texttt{WindowsFactory}, \texttt{LinuxFactory}).
+
+	\item \textbf{AbstractProduct} \\
+	Specifica le interfacce comuni per ciascun tipo di oggetto che può essere creato. (es. \texttt{RadioButton} con il metodo "render()")
+
+	\item \textbf{ConcreteProduct} \\
+	Sono le implementazioni concrete degli oggetti, che realizzano le interfacce definite dagli \texttt{AbstractProduct}. 
+	Ogni concrete product rappresenta una versione concreta coerente con la famiglia di riferimento (es. \texttt{LinuxRadioButton}).
+
+Il \textbf{Client} interagisce solo con le interfacce astratte (\texttt{AbstractFactory} e \texttt{AbstractProduct}), 
+rimanendo del tutto indipendente dalla specifica implementazione concreta. La factory viene scelta in base al contesto (es. tipo di OS).
+
+\end{itemize}
+\textbf{Diagramma UML:}
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=14cm]{./immagini/abstract-factory-uml.png}
+\end{figure}
+\end{solution}
+
+\begin{problem}{1.31}
+Pattern state con esempi
+\end{problem}
+\begin{solution}
+È un design pattern \textit{comportamentale} che consente a un oggetto di modificare il proprio comportamento quando cambia il suo 
+stato interno,  come se cambiasse la sua classe. Questo permette di localizzare la logica specifica di ogni stato in classi dedicate,
+semplificando la gestione delle transizioni di stato e migliorando la manutenibilità del codice.
+\newline
+
+Il suo utilizzo è opportuno quando un oggetto deve comportarsi in modi diversi a seconda del suo stato interno, 
+e la semplice gestione con istruzioni condizionali (if-else o switch) può diventare difficile da mantenere e estendere. 
+\newline
+
+Il pattern State risolve questo problema incapsulando ogni comportamento in una classe separata e delegando l’azione allo stato 
+corrente.
+
+
+\begin{itemize}
+	\item \textbf{Context} \\
+	Mantiene un riferimento al suo stato corrente, che rappresenta il comportamento attuale.
+	Ad esempio, la classe \texttt{Light} rappresenta il contesto. Contiene un riferimento allo stato corrente (\texttt{state}) e delega l'azione del metodo \texttt{pressSwitch()} allo stato corrente. Inoltre, consente di cambiare stato tramite il metodo \texttt{setState()}.
+
+	\item \textbf{State} (interfaccia o classe astratta) \\
+	Definisce i metodi comuni a tutti gli stati possibili. Questi metodi rappresentano le azioni che variano a seconda dello stato.
+	Ad esempio, l'interfaccia \texttt{State} definisce il metodo \texttt{pressSwitch(Light context)}, che rappresenta l'azione di premere l'interruttore.
+
+	\item \textbf{ConcreteState} \\
+	Implementa i comportamenti specifici per ogni stato concreto. Gestisce anche le transizioni verso altri stati, chiamando \texttt{setState()} sul contesto.
+	Ad esempio, le classi \texttt{OffState} e \texttt{OnState} rappresentano gli stati concreti. \texttt{OffState} accende la luce e cambia lo stato a \texttt{OnState}, mentre \texttt{OnState} spegne la luce e cambia lo stato a \texttt{OffState}.
+
+\end{itemize}
+\textbf{Diagramma UML:}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{./immagini/state-uml.png}
+  \end{figure}
+\end{solution}
+
+\begin{problem}{1.31}
+Pattern MVP ed MVC
+\end{problem}
+\begin{solution}
+Sono due pattern architetturali per separare la logica di business dalla presentazione. 
+
+\subsection*{Model-View-Presenter (MVP)}
+Consente di separare le responsabilità di un'applicazione in tre componenti principali: il \textbf{Model}, la \textbf{View} 
+e il \textbf{Presenter}. 
+
+Quest'ultimo gestisce direttamente la logica di interazione tra il \textit{Model} e la \textit{View}. 
+La \textit{View} è passiva e delega completamente al \textit{Presenter}.
+
+\begin{itemize}
+	\item \textbf{Model}: rappresenta i dati e la logica di business. Si occupa di:
+	\begin{itemize}
+		\item Gestire un insieme di dati logicamente correlati.
+		\item Rispondere alle interrogazioni sui dati e alle istruzioni di modifica dello stato.
+		\item Generare eventi quando lo stato cambia.
+		\item Registrare gli oggetti interessati alla notifica degli eventi.
+	\end{itemize}
+	\item \textbf{View}: è responsabile della visualizzazione dei dati e dell'interfaccia utente. Si occupa di:
+	\begin{itemize}
+		\item Presentare all'utente una vista dei dati gestiti dal \textit{Model}.
+		\item Mappare i dati del \textit{Model} in oggetti virtuali e visualizzarli su un dispositivo di output.
+		\item Aggiornarsi automaticamente quando il \textit{Model} subisce modifiche.
+	\end{itemize}
+	\item \textbf{Presenter}: funge da intermediario tra il \textit{Model} e la \textit{View}. Si occupa di:
+	\begin{itemize}
+		\item Ricevere gli input dell'utente dalla \textit{View}.
+		\item Tradurre gli input in comandi per il \textit{Model}.
+		\item Aggiornare la \textit{View} in base ai cambiamenti del \textit{Model}.
+	\end{itemize}
+\end{itemize}
+
+\subsection*{Model-View-Controller (MVC)}
+Molto simile al MVP, ma con una differente gestione 
+delle responsabilità. Anche in questo caso, l'applicazione è suddivisa in tre componenti principali: il \textbf{Model}, 
+la \textbf{View} e il \textbf{Controller}.
+
+QUi però il \textit{Controller} agisce come intermediario, ma la \textit{View} può interagire direttamente con il
+\textit{Model} per ottenere i dati.
+
+\begin{itemize}
+	\item \textbf{Model}: come nel pattern MVP, rappresenta i dati e la logica di business. Si occupa di:
+	\begin{itemize}
+		\item Gestire i dati e lo stato dell'applicazione.
+		\item Rispondere alle interrogazioni e alle modifiche dello stato.
+		\item Notificare i cambiamenti agli osservatori registrati.
+	\end{itemize}
+	\item \textbf{View}: è responsabile della visualizzazione dei dati e dell'interfaccia utente. Si occupa di:
+	\begin{itemize}
+		\item Mostrare i dati del \textit{Model} all'utente.
+		\item Aggiornarsi automaticamente quando il \textit{Model} cambia.
+	\end{itemize}
+	\item \textbf{Controller}: gestisce gli input dell'utente e li traduce in comandi per il \textit{Model} e la \textit{View}. Si occupa di:
+	\begin{itemize}
+		\item Ricevere gli input dell'utente (ad esempio, eventi di mouse o tastiera).
+		\item Mappare gli input in comandi per il \textit{Model} e/o la \textit{View}.
+		\item Coordinare le interazioni tra il \textit{Model} e la \textit{View}.
+	\end{itemize}
+\end{itemize}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=8cm]{./immagini/mvc.png}
+	\includegraphics[width=8cm]{./immagini/mvp.png}
+\end{figure}
+
 \end{solution}
